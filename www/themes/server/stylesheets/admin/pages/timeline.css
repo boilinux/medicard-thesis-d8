@@ -1,0 +1,245 @@
+/***
+New Timeline
+***/
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/* line 8, ../../../sass/admin/pages/timeline.scss */
+.timeline {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* line 15, ../../../sass/admin/pages/timeline.scss */
+.timeline:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 4px;
+  background: #f5f6fa;
+  top: 0px;
+  bottom: 0px;
+  margin-left: 38px;
+}
+
+/* line 26, ../../../sass/admin/pages/timeline.scss */
+.timeline-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 31, ../../../sass/admin/pages/timeline.scss */
+.timeline-badge {
+  float: left;
+  position: relative;
+  padding-right: 30px;
+  height: 80px;
+  width: 80px;
+}
+
+/* line 39, ../../../sass/admin/pages/timeline.scss */
+.timeline-badge-userpic {
+  width: 80px;
+  border: 4px #f5f6fa solid;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+/* line 47, ../../../sass/admin/pages/timeline.scss */
+.timeline-badge-userpic img {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  vertical-align: middle !important;
+}
+
+/* line 54, ../../../sass/admin/pages/timeline.scss */
+.timeline-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #f5f6fa;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  padding-top: 30px;
+  padding-left: 22px;
+}
+
+/* line 65, ../../../sass/admin/pages/timeline.scss */
+.timeline-icon i {
+  font-size: 34px;
+}
+
+/* line 69, ../../../sass/admin/pages/timeline.scss */
+.timeline-body {
+  position: relative;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 110px;
+  background-color: #f5f6fa;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 10, ../../../sass/global/components/_mixins.scss */
+.timeline-body:before, .timeline-body:after {
+  content: " ";
+  display: table;
+}
+/* line 15, ../../../sass/global/components/_mixins.scss */
+.timeline-body:after {
+  clear: both;
+}
+
+/* line 81, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-arrow {
+  position: absolute;
+  top: 30px;
+  left: -14px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px 14px 14px 0;
+  border-color: transparent #f5f6fa transparent transparent;
+}
+
+/* line 92, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-head {
+  margin-bottom: 10px;
+}
+
+/* line 96, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-head-caption {
+  float: left;
+}
+
+/* line 100, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* line 105, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-alerttitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* line 110, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-time {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+/* line 115, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-head-actions {
+  float: right;
+}
+
+/* line 119, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-head-actions .btn-group {
+  margin-top: -2px;
+}
+
+/* line 123, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-content {
+  font-size: 14px;
+  margin-top: 35px;
+}
+
+/* line 128, ../../../sass/admin/pages/timeline.scss */
+.timeline-body-img {
+  width: 100px;
+  height: 100px;
+  margin: 5px 20px 0 0px;
+}
+
+/* line 134, ../../../sass/admin/pages/timeline.scss */
+.page-container-bg-solid .timeline:before {
+  background: #fff;
+}
+
+/* line 138, ../../../sass/admin/pages/timeline.scss */
+.page-container-bg-solid .timeline-badge-userpic {
+  border-color: #fff;
+}
+
+/* line 142, ../../../sass/admin/pages/timeline.scss */
+.page-container-bg-solid .timeline-icon {
+  background-color: #fff;
+}
+
+/* line 146, ../../../sass/admin/pages/timeline.scss */
+.page-container-bg-solid .timeline-body {
+  background-color: #fff;
+}
+
+/* line 150, ../../../sass/admin/pages/timeline.scss */
+.page-container-bg-solid .timeline-body-arrow {
+  border-color: transparent #fff transparent transparent;
+}
+
+@media (max-width: 768px) {
+  /* line 156, ../../../sass/admin/pages/timeline.scss */
+  .timeline-body-head-caption {
+    width: 100%;
+  }
+
+  /* line 160, ../../../sass/admin/pages/timeline.scss */
+  .timeline-body-head-actions {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 480px) {
+  /* line 172, ../../../sass/admin/pages/timeline.scss */
+  .timeline:before {
+    margin-left: 28px;
+  }
+
+  /* line 176, ../../../sass/admin/pages/timeline.scss */
+  .timeline-badge {
+    padding-right: 40px;
+    width: 60px;
+    height: 60px;
+  }
+
+  /* line 183, ../../../sass/admin/pages/timeline.scss */
+  .timeline-badge-userpic {
+    width: 60px;
+  }
+
+  /* line 187, ../../../sass/admin/pages/timeline.scss */
+  .timeline-icon {
+    width: 60px;
+    height: 60px;
+    padding-top: 23px;
+    padding-left: 18px;
+  }
+
+  /* line 194, ../../../sass/admin/pages/timeline.scss */
+  .timeline-icon i {
+    font-size: 25px;
+  }
+
+  /* line 198, ../../../sass/admin/pages/timeline.scss */
+  .timeline-body {
+    margin-left: 80px;
+  }
+
+  /* line 202, ../../../sass/admin/pages/timeline.scss */
+  .timeline-body-arrow {
+    top: 17px;
+  }
+}

@@ -1,0 +1,580 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Inbox Page
+***/
+/* line 7, ../../../sass/admin/pages/inbox.scss */
+.inbox {
+  margin-bottom: 20px;
+}
+
+/* line 11, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox {
+  margin-bottom: 0px;
+}
+
+/* line 15, ../../../sass/admin/pages/inbox.scss */
+.inbox .tab-content {
+  overflow: inherit;
+}
+
+/* line 19, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-loading {
+  display: none;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+/*Imbox Menu*/
+/* line 26, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 32, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li {
+  position: relative;
+}
+
+/* line 36, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li a {
+  color: #4d82a3;
+  display: block;
+  font-size: 15px;
+  border-left: none;
+  text-align: left !important;
+  padding: 8px 14px;
+  margin-bottom: 1px;
+  background: #f4f9fd;
+}
+
+/* line 47, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li.active a,
+.inbox .inbox-nav li.active:hover a {
+  color: #fff;
+  border-left: none;
+  background: #169ef4 !important;
+  text-decoration: none;
+}
+
+/* line 55, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li.active b {
+  top: 12px;
+  right: -6px;
+  width: 6px;
+  position: absolute;
+  display: inline-block;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #169ef4;
+}
+
+/* line 66, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li:hover a {
+  color: #4d82a3;
+  background: #eef4f7 !important;
+  text-decoration: none;
+}
+
+/* line 72, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li.compose-btn a {
+  color: #fff;
+  text-shadow: none;
+  text-align: center;
+  margin-bottom: 18px;
+  background: #35aa47;
+}
+
+/* line 80, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li.compose-btn i,
+.inbox .inbox-nav li.compose-btn:hover i {
+  top: 1px;
+  color: #fff;
+  font-size: 15px;
+  position: relative;
+  background: none !important;
+}
+
+/* line 89, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-nav li.compose-btn a:hover {
+  background-color: #1d943b !important;
+}
+
+/*Inbox Content*/
+/* line 94, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-header {
+  overflow: hidden;
+}
+
+/* line 98, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-header h1 {
+  margin: 0;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* line 104, ../../../sass/admin/pages/inbox.scss */
+.inbox .pagination-control {
+  text-align: right;
+}
+
+/* line 108, ../../../sass/admin/pages/inbox.scss */
+.inbox .pagination-control .pagination-info {
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+/* line 115, ../../../sass/admin/pages/inbox.scss */
+.inbox tr {
+  color: #777;
+  font-size: 13px;
+}
+
+/* line 120, ../../../sass/admin/pages/inbox.scss */
+.inbox tr label {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+/* line 125, ../../../sass/admin/pages/inbox.scss */
+.inbox tr.unread td {
+  font-weight: 600;
+}
+
+/* line 129, ../../../sass/admin/pages/inbox.scss */
+.inbox td i.icon-paper-clip {
+  top: 2px;
+  color: #d8e0e5;
+  font-size: 17px;
+  position: relative;
+}
+
+/* line 136, ../../../sass/admin/pages/inbox.scss */
+.inbox tr i.icon-star,
+.inbox tr i.icon-trash {
+  cursor: pointer;
+}
+
+/* line 141, ../../../sass/admin/pages/inbox.scss */
+.inbox tr i.icon-star {
+  color: #eceef0;
+}
+
+/* line 145, ../../../sass/admin/pages/inbox.scss */
+.inbox tr i.icon-star:hover {
+  color: #fd7b12;
+}
+
+/* line 149, ../../../sass/admin/pages/inbox.scss */
+.inbox tr i.inbox-started {
+  color: #fd7b12;
+}
+
+/* line 153, ../../../sass/admin/pages/inbox.scss */
+.inbox .table th,
+.inbox .table td {
+  border: none;
+}
+
+/* line 158, ../../../sass/admin/pages/inbox.scss */
+.inbox .table th {
+  background: #eef4f7;
+  border-bottom: solid 5px #fff;
+}
+
+/* line 163, ../../../sass/admin/pages/inbox.scss */
+.inbox th.text-right {
+  text-align: right;
+}
+
+/* line 167, ../../../sass/admin/pages/inbox.scss */
+.inbox th label.inbox-select-all {
+  color: #828f97;
+  font-size: 13px;
+  padding: 1px 4px 0;
+}
+
+/* line 173, ../../../sass/admin/pages/inbox.scss */
+.inbox ul.inbox-nav {
+  margin-bottom: 0;
+}
+
+/* line 177, ../../../sass/admin/pages/inbox.scss */
+.inbox ul.inbox-nav li {
+  padding: 0;
+}
+
+/* line 181, ../../../sass/admin/pages/inbox.scss */
+.inbox ul.inbox-nav li span {
+  color: #828f97;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+/* line 187, ../../../sass/admin/pages/inbox.scss */
+.inbox ul.inbox-nav i {
+  color: #fff;
+  padding: 1px 0;
+  font-size: 15px;
+  cursor: pointer;
+  background: #d0dde4 !important;
+}
+
+/* line 195, ../../../sass/admin/pages/inbox.scss */
+.inbox ul.inbox-nav i:hover {
+  background: #169ef4 !important;
+}
+
+/* line 199, ../../../sass/admin/pages/inbox.scss */
+.inbox td.text-right {
+  width: 100px;
+  text-align: right;
+}
+
+/* line 204, ../../../sass/admin/pages/inbox.scss */
+.inbox td.inbox-small-cells {
+  width: 10px;
+}
+
+/* line 208, ../../../sass/admin/pages/inbox.scss */
+.inbox .table-hover tbody tr:hover > td,
+.inbox .table-hover tbody tr:hover > th,
+.inbox .table-striped tbody > tr:nth-child(odd) > td,
+.inbox .table-striped tbody > tr:nth-child(odd) > th {
+  background: #f8fbfd;
+  cursor: pointer;
+}
+
+/* line 216, ../../../sass/admin/pages/inbox.scss */
+.inbox .table-hover tbody tr:hover > td,
+.inbox .table-hover tbody tr:hover > th {
+  background: #eef4f7;
+}
+
+/*Inbox Drafts*/
+/* line 222, ../../../sass/admin/pages/inbox.scss */
+.inbox .inbox-drafts {
+  padding: 8px 0;
+  text-align: center;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+}
+
+/*Inbox View*/
+/* line 230, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-header {
+  margin-bottom: 20px;
+}
+
+/* line 234, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-header h1 {
+  color: #666;
+  font-size: 22px;
+  line-height: 24px;
+  margin-bottom: 0 !important;
+}
+
+/* line 241, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-header h1 a {
+  top: -2px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 7px;
+  line-height: 16px;
+  position: relative;
+  background: #b0bcc4;
+  display: inline-block;
+}
+
+/* line 253, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-header h1 a:hover {
+  background: #aab5bc;
+  text-decoration: none;
+}
+
+/* line 258, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-header i.icon-print {
+  color: #94a4ab;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  padding: 6px 8px !important;
+  background: #edf1f4 !important;
+}
+
+/* line 267, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-header i.icon-print:hover {
+  background: #e7ebef !important;
+}
+
+/* line 271, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-info {
+  color: #666;
+  padding: 5px 0;
+  margin-bottom: 10px;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+}
+
+/* line 279, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-info strong {
+  color: #666;
+  margin: 0 10px 0 5px;
+}
+
+/* line 284, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-info .inbox-info-btn {
+  text-align: right;
+}
+
+/* line 288, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-info .inbox-info-btn ul {
+  text-align: left;
+}
+
+/* line 292, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-info button {
+  top: 2px;
+  color: #94a4ab;
+  font-size: 13px;
+  margin-left: 4px;
+  padding: 3px 10px;
+  position: relative;
+  background: #edf1f4;
+}
+
+/* line 302, ../../../sass/admin/pages/inbox.scss */
+.inbox-view-info button:hover {
+  color: #94a4ab;
+  background: #e7ebef;
+}
+
+/* line 307, ../../../sass/admin/pages/inbox.scss */
+.inbox-view {
+  color: #666;
+  padding: 15px 0 0;
+}
+
+/* line 312, ../../../sass/admin/pages/inbox.scss */
+.inbox-view a {
+  color: #169ce9;
+}
+
+/* line 316, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached {
+  line-height: 16px;
+}
+
+/* line 320, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached a {
+  margin: 0 2px;
+}
+
+/* line 324, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached img {
+  height: auto;
+  max-width: 250px;
+  margin-bottom: 5px;
+}
+
+/* line 330, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached span {
+  margin-right: 3px;
+}
+
+/* line 334, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached strong {
+  color: #555;
+  display: block;
+  font-size: 13px;
+}
+
+/* line 340, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached .margin-bottom-25 {
+  margin-bottom: 25px;
+}
+
+/* line 344, ../../../sass/admin/pages/inbox.scss */
+.inbox-attached .margin-bottom-15 {
+  margin-bottom: 15px;
+}
+
+/*Inbox Compose*/
+/* line 350, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose {
+  margin-top: 1px;
+  border: solid 1px #eee;
+}
+
+/* line 355, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose-btn {
+  padding: 8px 4px;
+  background: #f0f6fa;
+}
+
+/* line 360, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose-attachment {
+  padding: 8px 8px;
+}
+
+/* line 364, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose-attachment .btn {
+  padding: 4px 10px;
+}
+
+/* line 368, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose-btn button {
+  color: #fff;
+  font-size: 14px;
+  margin-left: 4px;
+  padding: 4px 10px;
+  background: #c0cfdd;
+}
+
+/* line 376, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose-btn button:hover {
+  color: #fff;
+  background: #4d90fe;
+}
+
+/* line 381, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose-btn button i {
+  margin-right: 3px;
+}
+
+/* line 385, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .inbox-form-group {
+  margin-bottom: 0;
+  position: relative;
+  border-bottom: solid 1px #eee;
+}
+
+/* line 391, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .controls {
+  margin-left: 85px;
+}
+
+/* line 395, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .inbox-form-group > label {
+  width: 80px;
+  float: left;
+  color: #979797;
+  text-align: right;
+}
+
+/* line 402, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .controls > input {
+  border: none !important;
+}
+
+/* line 405, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .controls-to {
+  padding-right: 55px;
+}
+
+/* line 409, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .controls-cc {
+  padding-right: 20px;
+}
+
+/* line 413, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .controls-bcc {
+  padding-right: 20px;
+}
+
+/* line 417, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .inbox-form-group a.close {
+  top: 13px;
+  right: 10px;
+  position: absolute;
+}
+
+/* line 423, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .mail-to .inbox-cc-bcc {
+  display: inline-block;
+  top: 7px;
+  right: 10px;
+  color: #979797;
+  font-size: 14px;
+  cursor: pointer;
+  position: absolute;
+}
+
+/* line 433, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .mail-to .inbox-bcc {
+  margin-left: 5px;
+}
+
+/* line 437, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .mail-to inbox-cc:hover,
+.inbox-compose .mail-to inbox-bcc:hover {
+  color: #777;
+}
+
+/* line 442, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5 {
+  padding: 0px !important;
+  margin: 0px !important;
+  border: 0 !important;
+}
+
+/* line 448, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5-sandbox {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: block !important;
+  border: 0 !important;
+  margin-top: 5px;
+  width: 100% !important;
+  border-left: none;
+  border-right: none;
+  border-color: #eee;
+}
+
+/* line 460, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5-toolbar {
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* line 465, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5-toolbar > li {
+  height: 34px;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+/* line 471, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5-toolbar > li > a,
+.inbox-compose .wysihtml5-toolbar > li > div > a {
+  background: #fff;
+}
+/* line 475, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5-toolbar > li > a:hover,
+.inbox-compose .wysihtml5-toolbar > li > div > a:hover {
+  background: #f1f1f1;
+  border-radius: 0;
+}
+
+/* line 481, ../../../sass/admin/pages/inbox.scss */
+.inbox-compose .wysihtml5-toolbar .dropdown.open .dropdown-toggle,
+ul.wysihtml5-toolbar a.btn.wysihtml5-command-active {
+  background: #eee !important;
+}
+
+@media (max-width: 480px) {
+  /* line 488, ../../../sass/admin/pages/inbox.scss */
+  .inbox-compose .inbox-form-group > label {
+    margin-top: 7px;
+  }
+}

@@ -1,0 +1,229 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Login page
+***/
+/* logo page */
+/* line 9, ../../../sass/admin/pages/login3.scss */
+.login {
+  background-color: #444 !important;
+}
+
+/* line 15, ../../../sass/admin/pages/login3.scss */
+.login .logo {
+  margin: 60px auto 20px auto;
+  padding: 15px;
+  text-align: center;
+}
+
+/* line 21, ../../../sass/admin/pages/login3.scss */
+.login .content {
+  background-color: #fff;
+  width: 360px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+}
+
+/* line 32, ../../../sass/admin/pages/login3.scss */
+.login .content h3 {
+  color: #000;
+}
+
+/* line 35, ../../../sass/admin/pages/login3.scss */
+.login .content h4 {
+  color: #555;
+}
+
+/* line 39, ../../../sass/admin/pages/login3.scss */
+.login .content p {
+  color: #222;
+}
+
+/* line 43, ../../../sass/admin/pages/login3.scss */
+.login .content .login-form,
+.login .content .forget-form {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* line 49, ../../../sass/admin/pages/login3.scss */
+.login .content .input-icon {
+  border-left: 2px solid #44B6AE !important;
+}
+
+/* line 53, ../../../sass/admin/pages/login3.scss */
+.login .content .input-icon {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 56, ../../../sass/admin/pages/login3.scss */
+.login .content .input-icon .form-control {
+  border-left: 0;
+}
+
+/* line 61, ../../../sass/admin/pages/login3.scss */
+.login .content .forget-form {
+  display: none;
+}
+
+/* line 65, ../../../sass/admin/pages/login3.scss */
+.login .content .register-form {
+  display: none;
+}
+
+/* line 69, ../../../sass/admin/pages/login3.scss */
+.login .content .form-title {
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+/* line 74, ../../../sass/admin/pages/login3.scss */
+.login .content .form-actions {
+  background-color: #fff;
+  clear: both;
+  border: 0px;
+  border-bottom: 1px solid #eee;
+  padding: 0px 30px 25px 30px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+/* line 84, ../../../sass/admin/pages/login3.scss */
+.login .content .form-actions .checkbox {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* line 89, ../../../sass/admin/pages/login3.scss */
+.login .content .forget-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+/* line 95, ../../../sass/admin/pages/login3.scss */
+.login .content .register-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 0px;
+}
+
+/* line 101, ../../../sass/admin/pages/login3.scss */
+.login .content .form-actions .checkbox {
+  margin-top: 8px;
+  display: inline-block;
+}
+
+/* line 106, ../../../sass/admin/pages/login3.scss */
+.login .content .form-actions .btn {
+  margin-top: 1px;
+}
+
+/* line 110, ../../../sass/admin/pages/login3.scss */
+.login .content .forget-password {
+  margin-top: 25px;
+}
+
+/* line 114, ../../../sass/admin/pages/login3.scss */
+.login .content .create-account {
+  border-top: 1px dotted #eee;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+/* line 120, ../../../sass/admin/pages/login3.scss */
+.login .content .create-account a {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+/* select2 dropdowns */
+/* line 126, ../../../sass/admin/pages/login3.scss */
+.login .content .select2-container {
+  border-left: 2px solid #44B6AE !important;
+}
+
+/* line 130, ../../../sass/admin/pages/login3.scss */
+.login .content .select2-container .select2-choice {
+  border-left: none !important;
+}
+
+/* line 134, ../../../sass/admin/pages/login3.scss */
+.login .content .select2-container i {
+  display: inline-block;
+  position: relative;
+  color: #ccc;
+  z-index: 1;
+  top: 1px;
+  margin: 4px 4px 0px -1px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* line 147, ../../../sass/admin/pages/login3.scss */
+.login .content .has-error .select2-container i {
+  color: #b94a48;
+}
+
+/* line 151, ../../../sass/admin/pages/login3.scss */
+.login .content .select2-container a span {
+  font-size: 13px;
+}
+
+/* line 155, ../../../sass/admin/pages/login3.scss */
+.login .content .select2-container a span img {
+  margin-left: 4px;
+}
+
+/* footer copyright */
+/* line 160, ../../../sass/admin/pages/login3.scss */
+.login .copyright {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  color: #999;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  /***
+  Login page
+  ***/
+  /* line 172, ../../../sass/admin/pages/login3.scss */
+  .login .logo {
+    margin-top: 10px;
+  }
+
+  /* line 176, ../../../sass/admin/pages/login3.scss */
+  .login .content {
+    width: 280px;
+  }
+
+  /* line 180, ../../../sass/admin/pages/login3.scss */
+  .login .content h3 {
+    font-size: 22px;
+  }
+
+  /* line 185, ../../../sass/admin/pages/login3.scss */
+  .login .checkbox {
+    font-size: 13px;
+  }
+}

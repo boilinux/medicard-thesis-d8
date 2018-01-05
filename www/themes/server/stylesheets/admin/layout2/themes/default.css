@@ -1,0 +1,535 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/*********** 
+Page Header
+***********/
+/* Header search bar, toggler button & top menu */
+/* line 8, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar {
+  /* Top notification menu/bar */
+  /* Header seaech box */
+}
+/* line 10, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .page-logo {
+  background: #FB5557;
+}
+/* line 14, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .page-top {
+  box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 0.2);
+  background: #ffffff;
+}
+/* line 26, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav {
+  /* Extended Dropdowns */
+  /* Notification */
+  /* Inbox */
+  /* Tasks */
+  /* User */
+  /* Language */
+  /* Dark version */
+}
+/* line 29, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle:hover {
+  background-color: #f9fafc;
+}
+/* line 33, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle > i {
+  color: #C0CDDC;
+}
+/* line 37, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle .badge.badge-default {
+  background-color: #FB5557;
+  color: #ffffff;
+}
+/* line 44, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown.open .dropdown-toggle {
+  background-color: #f9fafc;
+}
+/* line 50, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu:before {
+  border-bottom-color: #e4e8ee;
+}
+/* line 59, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu {
+  border: 1px solid #e4e8ee;
+}
+/* line 62, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu:before {
+  border-bottom-color: #d4dae4;
+}
+/* line 66, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu:after {
+  border-bottom-color: #eaedf2;
+}
+/* line 70, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu > li.external {
+  background: #eaedf2;
+}
+/* line 73, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu > li.external > h3 {
+  color: #62878f;
+}
+/* line 77, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu > li.external > a {
+  color: #5b9bd1;
+}
+/* line 80, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu > li.external > a:hover {
+  color: #3175af;
+  text-decoration: none;
+}
+/* line 89, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu .dropdown-menu-list > li > a {
+  border-bottom: 1px solid #EFF2F6 !important;
+  color: #888888;
+}
+/* line 93, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu .dropdown-menu-list > li > a:hover {
+  background: #f8f9fa;
+}
+/* line 108, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu .dropdown-menu-list > li > a .time {
+  background: #f1f1f1;
+}
+/* line 113, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu .dropdown-menu-list > li > a:hover .time {
+  background: #e4e4e4;
+}
+/* line 126, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-inbox > .dropdown-toggle > .circle {
+  background-color: #FB5557;
+  color: #ffffff;
+}
+/* line 131, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-inbox > .dropdown-toggle > .corner {
+  border-color: transparent transparent transparent #FB5557;
+}
+/* line 139, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-inbox .dropdown-menu .dropdown-menu-list .subject .from {
+  color: #5b9bd1;
+}
+/* line 152, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-tasks .dropdown-menu .dropdown-menu-list .progress {
+  background-color: #dfe2e9;
+}
+/* line 163, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-toggle > .username {
+  color: #7f96ac;
+}
+/* line 167, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-toggle > i {
+  color: #7f96ac;
+}
+/* line 172, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-menu {
+  width: 195px;
+}
+/* line 181, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-language > .dropdown-toggle > .langname {
+  color: #7f96ac;
+}
+/* line 189, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu {
+  background: #536470;
+  border: 0;
+}
+/* line 193, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu:after {
+  border-bottom-color: #536470;
+}
+/* line 197, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu > li.external {
+  background: #414f59;
+}
+/* line 200, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu > li.external > h3 {
+  color: #c5ced4;
+}
+/* line 205, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu > li.external > a:hover {
+  color: #87b6dd;
+}
+/* line 214, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu.dropdown-menu-default > li a,
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu .dropdown-menu-list > li a {
+  color: #d4dadf;
+  border-bottom: 1px solid #607482 !important;
+}
+/* line 218, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu.dropdown-menu-default > li a > i,
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu .dropdown-menu-list > li a > i {
+  color: #b6c2c9;
+}
+/* line 222, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu.dropdown-menu-default > li a:hover,
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu .dropdown-menu-list > li a:hover {
+  background: #5b6f7c;
+}
+/* line 231, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu.dropdown-menu-default > li a {
+  border-bottom: 0 !important;
+}
+/* line 235, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu.dropdown-menu-default > li.divider {
+  background: #607482;
+}
+/* line 248, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification.dropdown-dark .dropdown-menu .dropdown-menu-list > li > a .time {
+  background: #485762;
+}
+/* line 253, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-notification.dropdown-dark .dropdown-menu .dropdown-menu-list > li > a:hover .time {
+  background: #3d4a53;
+}
+/* line 266, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .search-form {
+  background: #fff;
+}
+/* line 274, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .search-form .input-group .form-control {
+  color: #7f96ac;
+}
+/* line 40, ../../../../sass/global/components/_mixins.scss */
+.page-header.navbar .search-form .input-group .form-control::-moz-placeholder {
+  color: #7c94aa;
+  opacity: 1;
+}
+/* line 41, ../../../../sass/global/components/_mixins.scss */
+.page-header.navbar .search-form .input-group .form-control:-ms-input-placeholder {
+  color: #7c94aa;
+}
+/* line 42, ../../../../sass/global/components/_mixins.scss */
+.page-header.navbar .search-form .input-group .form-control::-webkit-input-placeholder {
+  color: #7c94aa;
+}
+/* line 282, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-header.navbar .search-form .input-group .input-group-btn .btn.submit > i {
+  color: #7f96ac;
+}
+
+/* Page sidebar */
+/* line 297, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover,
+.page-sidebar {
+  background-color: #3D4A53;
+  /* Default sidebar */
+}
+/* line 302, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu,
+.page-sidebar .page-sidebar-menu {
+  /* 1st level links */
+  /* All links */
+}
+/* line 306, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a,
+.page-sidebar .page-sidebar-menu > li > a {
+  border-top: 1px solid #43525c;
+  color: #dce2e6;
+}
+@media (max-width: 991px) {
+  /* line 306, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a,
+  .page-sidebar .page-sidebar-menu > li > a {
+    /* 991px */
+    border-top: 1px solid #4e5f6b;
+  }
+}
+/* line 314, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i,
+.page-sidebar .page-sidebar-menu > li > a > i {
+  color: #019660;
+}
+/* line 318, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i[class^="icon-"],
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i[class*="icon-"],
+.page-sidebar .page-sidebar-menu > li > a > i[class^="icon-"],
+.page-sidebar .page-sidebar-menu > li > a > i[class*="icon-"] {
+  color: #01b070;
+}
+/* line 330, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu > li > a > .arrow:before,
+.page-sidebar .page-sidebar-menu > li > a > .arrow.open:before {
+  color: #576976;
+}
+/* line 339, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a,
+.page-sidebar .page-sidebar-menu > li:hover > a,
+.page-sidebar .page-sidebar-menu > li.open > a {
+  background: #37424a;
+  color: #fafbfb;
+}
+/* line 343, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a > i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a > i,
+.page-sidebar .page-sidebar-menu > li:hover > a > i,
+.page-sidebar .page-sidebar-menu > li.open > a > i {
+  color: #01b070;
+}
+/* line 348, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a > .arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu > li:hover > a > .arrow:before,
+.page-sidebar .page-sidebar-menu > li:hover > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu > li.open > a > .arrow:before,
+.page-sidebar .page-sidebar-menu > li.open > a > .arrow.open:before {
+  color: #01b070;
+}
+/* line 358, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a,
+.page-sidebar .page-sidebar-menu > li.active > a,
+.page-sidebar .page-sidebar-menu > li.active.open > a {
+  background: #344047;
+  color: white;
+}
+/* line 362, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a:hover, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a:hover,
+.page-sidebar .page-sidebar-menu > li.active > a:hover,
+.page-sidebar .page-sidebar-menu > li.active.open > a:hover {
+  background: #39454d;
+}
+/* line 366, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > i,
+.page-sidebar .page-sidebar-menu > li.active > a > i,
+.page-sidebar .page-sidebar-menu > li.active.open > a > i {
+  color: #fb5f61;
+}
+/* line 371, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu > li.active > a > .arrow:before,
+.page-sidebar .page-sidebar-menu > li.active > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu > li.active.open > a > .arrow:before,
+.page-sidebar .page-sidebar-menu > li.active.open > a > .arrow.open:before {
+  color: #f3f5f6;
+}
+/* line 380, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:last-child > a,
+.page-sidebar .page-sidebar-menu > li:last-child > a {
+  border-bottom: 1px solid transparent !important;
+}
+/* line 391, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu li > a > .arrow:before,
+.page-sidebar .page-sidebar-menu li > a > .arrow.open:before {
+  color: #576976;
+}
+/* line 401, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li:hover > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li:hover > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu li:hover > a > .arrow:before,
+.page-sidebar .page-sidebar-menu li:hover > a > .arrow.open:before {
+  color: #01b070;
+}
+/* line 412, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li.active > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li.active > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu li.active > a > .arrow:before,
+.page-sidebar .page-sidebar-menu li.active > a > .arrow.open:before {
+  color: #f3f5f6;
+}
+/* line 422, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu:hover .sub-menu, .page-sidebar-closed
+.page-sidebar .page-sidebar-menu:hover .sub-menu {
+  background: #303a41;
+}
+/* line 429, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li > a {
+  color: #ced5db;
+}
+/* line 432, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a > i,
+.page-sidebar .page-sidebar-menu .sub-menu > li > a > i {
+  color: #768b9a;
+}
+/* line 436, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a > i[class^="icon-"],
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a > i[class*="icon-"],
+.page-sidebar .page-sidebar-menu .sub-menu > li > a > i[class^="icon-"],
+.page-sidebar .page-sidebar-menu .sub-menu > li > a > i[class*="icon-"] {
+  color: #8497a5;
+}
+/* line 448, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li > a > .arrow:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li > a > .arrow.open:before {
+  color: #576976;
+}
+/* line 458, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li:hover > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li.open > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li.active > a {
+  background: #37424a !important;
+}
+/* line 461, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a > i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a > i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a > i,
+.page-sidebar .page-sidebar-menu .sub-menu > li:hover > a > i,
+.page-sidebar .page-sidebar-menu .sub-menu > li.open > a > i,
+.page-sidebar .page-sidebar-menu .sub-menu > li.active > a > i {
+  color: #01b070;
+  color: #b0bdc5;
+}
+/* line 473, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a > .arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a > .arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a > .arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li:hover > a > .arrow:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li:hover > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li.open > a > .arrow:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li.open > a > .arrow.open:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li.active > a > .arrow:before,
+.page-sidebar .page-sidebar-menu .sub-menu > li.active > a > .arrow.open:before {
+  color: #01b070;
+}
+
+/******
+Page Footer 
+******/
+/* line 490, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-footer .page-footer-inner {
+  color: #bfc9d0;
+}
+/* line 494, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-footer-fixed .page-footer {
+  background-color: #cdd2cf;
+}
+/* line 497, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-footer-fixed .page-footer .page-footer-inner {
+  color: #121618;
+}
+
+/* line 505, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-boxed .page-footer .page-footer-inner {
+  color: #121618;
+}
+/* line 509, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-footer-fixed .page-boxed .page-footer {
+  background-color: #cdd2cf;
+}
+
+@media (min-width: 992px) {
+  /* 992px */
+  /* Sidebar menu closed */
+  /* line 520, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-menu.page-sidebar-menu-hover-submenu li:hover > .sub-menu {
+    box-shadow: 5px 5px rgba(48, 48, 48, 0.2);
+  }
+
+  /* line 527, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-menu.page-sidebar-menu-closed > li:hover {
+    box-shadow: 5px 5px rgba(48, 48, 48, 0.2);
+  }
+  /* line 530, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-menu.page-sidebar-menu-closed > li:hover > .sub-menu {
+    box-shadow: 5px 5px rgba(48, 48, 48, 0.2);
+  }
+
+  /* Fixed Sidebar */
+  /* line 539, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-fixed:not(.page-footer-fixed) .page-content {
+    border-bottom: 0;
+  }
+  /* line 543, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-fixed:not(.page-footer-fixed) .page-footer {
+    background-color: #F1F3FA;
+  }
+  /* line 546, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-fixed:not(.page-footer-fixed) .page-footer .page-footer-inner {
+    color: #333;
+  }
+
+  /* Boxed Layout */
+  /* line 554, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-boxed {
+    background-color: #c5cbc7 !important;
+    /* Page container */
+  }
+  /* line 558, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-boxed .page-container {
+    background-color: #3D4A53;
+  }
+  /* line 563, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-boxed.page-sidebar-reversed .page-container {
+    border-left: 0;
+  }
+  /* line 569, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-boxed.page-sidebar-fixed .page-container {
+    border-left: 0;
+    border-bottom: 0;
+  }
+  /* line 576, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-boxed.page-sidebar-reversed.page-sidebar-fixed .page-container {
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  /* Sidebar Menu Wirh Hoverable Submenu */
+  /* line 590, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-menu-hover-submenu li:hover a > .arrow {
+    border-right: 8px solid #303a41;
+  }
+  /* line 593, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-reversed .page-sidebar-menu-hover-submenu li:hover a > .arrow {
+    border-left: 8px solid #303a41;
+  }
+  /* line 599, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-sidebar-menu-hover-submenu li:hover > .sub-menu {
+    background: #303a41 !important;
+  }
+}
+@media (max-width: 991px) {
+  /* 991px */
+  /* line 608, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-container {
+    background: #F1F3FA;
+  }
+
+  /* line 612, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-header.navbar {
+    box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 0.2);
+    padding: 0;
+    /* Top menu */
+  }
+  /* line 621, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:hover {
+    background-color: #f6f7fa;
+  }
+  /* line 628, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-header.navbar .page-top {
+    box-shadow: none;
+  }
+}
+@media (max-width: 767px) {
+  /* 767px */
+  /* line 636, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-header.navbar {
+    background: #FB5557;
+    /* Top menu */
+  }
+  /* line 644, ../../../../sass/admin/layout2/themes/_base.scss */
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:hover {
+    background-color: #eff1f6;
+  }
+}
+/****
+ CSS3 Spinner Bar  
+****/
+/* line 657, ../../../../sass/admin/layout2/themes/_base.scss */
+.page-spinner-bar > div,
+.block-spinner-bar > div {
+  background: #fc6e70;
+}
+
+/****
+Boby
+****/
+/* line 667, ../../../../sass/admin/layout2/themes/_base.scss */
+body {
+  background-color: #3D4A53;
+}
+
+/* line 671, ../../../../sass/admin/layout2/themes/_base.scss */
+body.page-boxed {
+  background-color: #cdd2cf;
+}

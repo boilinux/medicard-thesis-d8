@@ -1,0 +1,268 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Lock Page
+***/
+/* line 7, ../../../sass/admin/pages/lock.scss */
+body {
+  background-color: #465568 !important;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 13, ../../../sass/admin/pages/lock.scss */
+.page-lock {
+  margin: 90px auto 30px auto;
+  width: 450px;
+}
+
+/* line 18, ../../../sass/admin/pages/lock.scss */
+.page-lock .page-logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* line 23, ../../../sass/admin/pages/lock.scss */
+.page-lock .page-body {
+  width: 100%;
+  margin-top: 50px;
+  background-color: #3a4554;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+}
+
+/* line 31, ../../../sass/admin/pages/lock.scss */
+.lock-head {
+  display: block;
+  background-color: #323d4b;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #4db3a5;
+  -webkit-border-radius: 7px 7px 0 0;
+  -moz-border-radius: 7px 7px 0 0;
+  -ms-border-radius: 7px 7px 0 0;
+  -o-border-radius: 7px 7px 0 0;
+  border-radius: 7px 7px 0 0;
+}
+
+/* line 43, ../../../sass/admin/pages/lock.scss */
+.lock-body {
+  display: block;
+  margin: 35px;
+  overflow: hidden;
+}
+
+/* line 49, ../../../sass/admin/pages/lock.scss */
+.lock-avatar {
+  margin-top: 15px;
+  height: 110px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+/* line 57, ../../../sass/admin/pages/lock.scss */
+.lock-form {
+  padding-left: 40px;
+}
+
+/* line 61, ../../../sass/admin/pages/lock.scss */
+.lock-form h4 {
+  margin-top: 0px;
+  color: #dbe2ea;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* line 68, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-group {
+  margin-top: 20px;
+}
+
+/* line 72, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-group .form-control {
+  background-color: #303a48;
+  border: none;
+  width: 220px;
+  height: 40px;
+  color: #697687;
+}
+
+/* line 80, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-group .form-control::-moz-placeholder {
+  color: #556376;
+  opacity: 1;
+}
+
+/* line 81, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-group .form-control:-ms-input-placeholder {
+  color: #556376;
+}
+
+/* line 82, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-group .form-control::-webkit-input-placeholder {
+  color: #556376;
+}
+
+/* line 84, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-group .form-control:focus {
+  background-color: #2b3542;
+}
+
+/* line 89, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-actions {
+  margin-top: 20px;
+}
+
+/* line 93, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-actions .btn-success {
+  background-color: #e76070 !important;
+  width: 220px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+/* line 100, ../../../sass/admin/pages/lock.scss */
+.lock-form .form-actions .btn-success:hover {
+  background-color: #d75464 !important;
+}
+
+/* line 104, ../../../sass/admin/pages/lock.scss */
+.lock-bottom {
+  display: block;
+  background-color: #323d4b;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-border-radius: 0 0 7px 7px;
+  -moz-border-radius: 0 0 7px 7px;
+  -ms-border-radius: 0 0 7px 7px;
+  -o-border-radius: 0 0 7px 7px;
+  border-radius: 0 0 7px 7px;
+}
+
+/* line 115, ../../../sass/admin/pages/lock.scss */
+.lock-bottom a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #638cac;
+}
+
+/* line 121, ../../../sass/admin/pages/lock.scss */
+.lock-bottom a:hover {
+  color: #7ba2c0;
+}
+
+/* line 125, ../../../sass/admin/pages/lock.scss */
+.page-footer-custom {
+  text-align: center;
+  padding-top: 40px;
+  color: #5f6e83;
+}
+
+@media (max-width: 768px) {
+  /* line 132, ../../../sass/admin/pages/lock.scss */
+  .page-lock {
+    margin: 100px auto;
+  }
+}
+@media (max-width: 560px) {
+  /* line 139, ../../../sass/admin/pages/lock.scss */
+  .page-lock {
+    margin: 50px auto;
+    width: 400px;
+  }
+
+  /* line 144, ../../../sass/admin/pages/lock.scss */
+  .lock-body {
+    margin: 30px;
+  }
+
+  /* line 148, ../../../sass/admin/pages/lock.scss */
+  .lock-avatar {
+    width: 120px;
+    height: 120px;
+    margin-top: 20px;
+  }
+
+  /* line 154, ../../../sass/admin/pages/lock.scss */
+  .lock-form h4 {
+    font-size: 16px;
+  }
+
+  /* line 158, ../../../sass/admin/pages/lock.scss */
+  .lock-form .form-group .form-control {
+    padding: 20px 20px;
+    width: 170px;
+  }
+
+  /* line 163, ../../../sass/admin/pages/lock.scss */
+  .lock-form .form-actions .btn-success {
+    width: 170px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 420px) {
+  /* line 172, ../../../sass/admin/pages/lock.scss */
+  .page-lock {
+    margin: 30px auto;
+    width: 280px;
+  }
+
+  /* line 177, ../../../sass/admin/pages/lock.scss */
+  .lock-body {
+    margin: 0px;
+  }
+
+  /* line 181, ../../../sass/admin/pages/lock.scss */
+  .page-lock .page-body {
+    margin-top: 30px;
+  }
+
+  /* line 185, ../../../sass/admin/pages/lock.scss */
+  .lock-avatar {
+    margin-top: 20px;
+  }
+
+  /* line 189, ../../../sass/admin/pages/lock.scss */
+  .lock-avatar-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* line 196, ../../../sass/admin/pages/lock.scss */
+  .lock-form {
+    padding-left: 20px;
+  }
+
+  /* line 200, ../../../sass/admin/pages/lock.scss */
+  .lock-form h4 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  /* line 205, ../../../sass/admin/pages/lock.scss */
+  .lock-form .form-group .form-control {
+    padding: 20px 20px;
+    width: 240px;
+  }
+
+  /* line 210, ../../../sass/admin/pages/lock.scss */
+  .lock-form .form-actions .btn-success {
+    width: 240px;
+    margin-bottom: 20px;
+  }
+}

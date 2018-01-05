@@ -1,0 +1,199 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+New Profile Page
+***/
+/* line 8, ../../../sass/admin/pages/profile.scss */
+.profile-sidebar {
+  float: left;
+  width: 300px;
+  margin-right: 20px;
+}
+
+/* line 14, ../../../sass/admin/pages/profile.scss */
+.profile-content {
+  overflow: hidden;
+}
+
+/* PROFILE SIDEBAR */
+/* line 20, ../../../sass/admin/pages/profile.scss */
+.profile-sidebar-portlet {
+  padding: 30px 0 0 0 !important;
+}
+
+/* line 24, ../../../sass/admin/pages/profile.scss */
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+/* line 34, ../../../sass/admin/pages/profile.scss */
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* line 39, ../../../sass/admin/pages/profile.scss */
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+/* line 46, ../../../sass/admin/pages/profile.scss */
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 7px;
+}
+
+/* line 54, ../../../sass/admin/pages/profile.scss */
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* line 59, ../../../sass/admin/pages/profile.scss */
+.profile-userbuttons .btn {
+  margin-right: 5px;
+}
+/* line 62, ../../../sass/admin/pages/profile.scss */
+.profile-userbuttons .btn:last-child {
+  margin-right: 0;
+}
+
+/* line 67, ../../../sass/admin/pages/profile.scss */
+.profile-userbuttons button {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+}
+
+/* line 74, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu {
+  margin-top: 30px;
+  padding-bottom: 20px;
+}
+
+/* line 79, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+/* line 83, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+/* line 87, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* line 93, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* line 98, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+/* line 103, ../../../sass/admin/pages/profile.scss */
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* line 110, ../../../sass/admin/pages/profile.scss */
+.profile-stat {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f4f7;
+}
+
+/* line 115, ../../../sass/admin/pages/profile.scss */
+.profile-stat-title {
+  color: #7f90a4;
+  font-size: 25px;
+  text-align: center;
+}
+
+/* line 121, ../../../sass/admin/pages/profile.scss */
+.profile-stat-text {
+  color: #5b9bd1;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* line 128, ../../../sass/admin/pages/profile.scss */
+.profile-desc-title {
+  color: #7f90a4;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* line 134, ../../../sass/admin/pages/profile.scss */
+.profile-desc-text {
+  color: #7e8c9e;
+  font-size: 14px;
+}
+
+/* line 139, ../../../sass/admin/pages/profile.scss */
+.profile-desc-link i {
+  width: 22px;
+  font-size: 19px;
+  color: #abb6c4;
+  margin-right: 5px;
+}
+
+/* line 146, ../../../sass/admin/pages/profile.scss */
+.profile-desc-link a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5b9bd1;
+}
+
+/* END PROFILE SIDEBAR */
+/* RESPONSIVE MODE */
+@media (max-width: 991px) {
+  /* 991px */
+  /* 991px */
+  /* line 157, ../../../sass/admin/pages/profile.scss */
+  .profile-sidebar {
+    float: none;
+    width: 100% !important;
+    margin: 0;
+  }
+
+  /* line 163, ../../../sass/admin/pages/profile.scss */
+  .profile-sidebar > .portlet {
+    margin-bottom: 20px;
+  }
+
+  /* line 167, ../../../sass/admin/pages/profile.scss */
+  .profile-content {
+    overflow: visible;
+  }
+}

@@ -1,0 +1,54 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Invoice page
+***/
+/* line 7, ../../../sass/admin/pages/invoice.scss */
+.invoice table {
+  margin: 30px 0 30px 0;
+}
+
+/* line 11, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-logo {
+  margin-bottom: 20px;
+}
+
+/* line 15, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-logo p {
+  padding: 5px 0;
+  font-size: 26px;
+  line-height: 28px;
+  text-align: right;
+}
+
+/* line 22, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-logo p span {
+  display: block;
+  font-size: 14px;
+}
+
+/* line 27, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-logo-space {
+  margin-bottom: 15px;
+}
+
+/* line 31, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-payment strong {
+  margin-right: 5px;
+}
+
+/* line 35, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-block {
+  text-align: right;
+}
+
+/* line 39, ../../../sass/admin/pages/invoice.scss */
+.invoice .invoice-block .amounts {
+  margin-top: 20px;
+  font-size: 14px;
+}

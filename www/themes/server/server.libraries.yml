@@ -1,0 +1,84 @@
+metronic-styling:
+  css:
+    theme:
+      assets/global/plugins/font-awesome/css/font-awesome.min.css: {}
+      assets/global/plugins/simple-line-icons/simple-line-icons.min.css: {}
+      assets/global/plugins/bootstrap/css/bootstrap.min.css: {}
+      assets/global/plugins/uniform/css/uniform.default.css: {}
+      assets/global/plugins/bootstrap-toastr/toastr.min.css: {}
+      assets/global/plugins/morris/morris.css: {}
+      assets/admin/pages/css/tasks.css: {}
+      assets/global/css/components-rounded.css: {}
+      assets/global/css/plugins.css: {}
+      assets/admin/layout3/css/layout.css: {}
+      assets/admin/layout3/css/themes/default.css: {}
+      assets/admin/layout3/css/custom.css: {}
+
+      stylesheets/global/components.css: {}
+      stylesheets/global/plugins.css: {}
+      stylesheets/admin/pages/todo.css: {}
+      stylesheets/admin/pages/timeline.css: {}
+      stylesheets/admin/pages/tasks.css: {}
+      stylesheets/admin/pages/search.css: {}
+      stylesheets/admin/pages/profile.css: {}
+      stylesheets/admin/pages/pricing-tables.css: {}
+      stylesheets/admin/pages/portfolio.css: {}
+      stylesheets/admin/pages/news.css: {}
+      stylesheets/admin/pages/login.css: {}
+      stylesheets/admin/pages/lock.css: {}
+      stylesheets/admin/pages/invoice.css: {}
+      stylesheets/admin/pages/inbox.css: {}
+      stylesheets/admin/pages/image-crop.css: {}
+      stylesheets/admin/pages/error.css: {}
+      stylesheets/admin/pages/coming-soon.css: {}
+      stylesheets/admin/pages/blog.css: {}
+      stylesheets/admin/pages/about-us.css: {}
+
+      stylesheets/custom.css: {}
+
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+
+metronic-scripts:
+  js:
+    assets/global/plugins/jquery-ui/jquery-ui.min.js: {}
+    assets/global/plugins/bootstrap/js/bootstrap.min.js: {}
+    assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js: {}
+    assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js: {}
+    assets/global/plugins/jquery.blockui.min.js: {}
+    assets/global/plugins/uniform/jquery.uniform.min.js: {}
+    assets/global/plugins/jquery.cokie.min.js: {}
+    assets/global/plugins/jquery-validation/js/jquery.validate.min.js: {}
+    assets/global/plugins/morris/morris.min.js: {}
+    assets/global/plugins/morris/raphael-min.js: {}
+    assets/global/plugins/jquery.sparkline.min.js: {}
+    assets/global/plugins/bootstrap-toastr/toastr.min.js: {}
+
+    assets/global/scripts/metronic.js: {}
+    assets/admin/pages/scripts/ui-toastr.js: {}
+    assets/admin/layout3/scripts/layout.js: {}
+    assets/admin/layout2/scripts/quick-sidebar.js: {}
+    assets/admin/layout3/scripts/demo.js: {}
+    assets/admin/pages/scripts/tasks.js: {}
+    assets/admin/layout3/scripts/layout.js: {}
+    assets/admin/pages/scripts/login.js: {}  
+
+
+    js/custom.js: {}
+
+bootstrap-scripts:
+  js:
+    bootstrap/assets/javascripts/bootstrap/affix.js: {}
+    bootstrap/assets/javascripts/bootstrap/alert.js: {}
+    bootstrap/assets/javascripts/bootstrap/button.js: {}
+    bootstrap/assets/javascripts/bootstrap/carousel.js: {}
+    bootstrap/assets/javascripts/bootstrap/collapse.js: {}
+    bootstrap/assets/javascripts/bootstrap/dropdown.js: {}
+    bootstrap/assets/javascripts/bootstrap/modal.js: {}
+    bootstrap/assets/javascripts/bootstrap/tooltip.js: {}
+    bootstrap/assets/javascripts/bootstrap/popover.js: {}
+    bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
+    bootstrap/assets/javascripts/bootstrap/tab.js: {}
+    bootstrap/assets/javascripts/bootstrap/transition.js: {}

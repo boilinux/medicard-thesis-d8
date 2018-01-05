@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Customization on all pages.
+ */
+
+/**
+ * Implements hook_theme_suggestions_page() to set 40x template suggestions
+ */
+function custom_general_theme_suggestions_page(array $variables) {
+  $path_args = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+  $suggestions = theme_get_suggestions($path_args, 'page');
+  $http_error_suggestions = [
+    'system.401' => 'page__401',
+    'system.403' => 'page__403',
+    'system.404' => 'page__404',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (isset($http_error_suggestions[$route_name])) {
+    $suggestions[] = $http_error_suggestions[$route_name];
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+// function custom_general_block_view_user_login_block_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+//   $form = $block->build();
+//   print_r($form['#action']);
+//   // $build['actions']['submit']['class'] = 'btn btn-success uppercase';
+// }

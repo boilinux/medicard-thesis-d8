@@ -1,0 +1,394 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Profile Page
+***/
+/* line 7, ../../../sass/admin/pages/profile-old.scss */
+.profile {
+  position: relative;
+}
+
+/* line 11, ../../../sass/admin/pages/profile-old.scss */
+.profile p {
+  color: #636363;
+  font-size: 13px;
+}
+
+/* line 16, ../../../sass/admin/pages/profile-old.scss */
+.profile p a {
+  color: #169ef4;
+}
+
+/* line 20, ../../../sass/admin/pages/profile-old.scss */
+.profile label {
+  margin-top: 10px;
+}
+
+/* line 24, ../../../sass/admin/pages/profile-old.scss */
+.profile label:first-child {
+  margin-top: 0;
+}
+
+/*profile info*/
+/* line 29, ../../../sass/admin/pages/profile-old.scss */
+.profile-classic .profile-image {
+  position: relative;
+}
+
+/* line 33, ../../../sass/admin/pages/profile-old.scss */
+.profile-classic .profile-edit {
+  top: 0;
+  right: 0;
+  margin: 0;
+  color: #fff;
+  opacity: 0.6;
+  padding: 0 9px;
+  font-size: 11px;
+  background: #000;
+  position: absolute;
+  filter: alpha(opacity=60);
+  /*for ie*/
+}
+
+/* line 45, ../../../sass/admin/pages/profile-old.scss */
+.profile-classic .profile-image img {
+  margin-bottom: 15px;
+}
+
+/* line 49, ../../../sass/admin/pages/profile-old.scss */
+.profile-classic li {
+  padding: 8px 0;
+  font-size: 13px;
+  border-top: solid 1px #f5f5f5;
+}
+
+/* line 55, ../../../sass/admin/pages/profile-old.scss */
+.profile-classic li:first-child {
+  border-top: none;
+}
+
+/* line 59, ../../../sass/admin/pages/profile-old.scss */
+.profile-classic li span {
+  color: #666;
+  font-size: 13px;
+  margin-right: 7px;
+}
+
+/*profile tabs*/
+/* line 66, ../../../sass/admin/pages/profile-old.scss */
+.profile .tabbable-custom-profile .nav-tabs > li > a {
+  padding: 6px 12px;
+}
+
+/*profile navigation*/
+/* line 72, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav {
+  margin-bottom: 30px;
+}
+
+/* line 76, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav li {
+  position: relative;
+}
+
+/* line 80, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav li a {
+  color: #557386;
+  display: block;
+  font-size: 14px;
+  padding: 8px 10px;
+  margin-bottom: 1px;
+  background: #f0f6fa;
+  border-left: solid 2px #c4d5df;
+}
+
+/* line 90, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav li a:hover {
+  color: #169ef4;
+  background: #ecf5fb;
+  text-decoration: none;
+  border-left: solid 2px #169ef4;
+}
+
+/* line 97, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav li a.profile-edit {
+  top: 0;
+  right: 0;
+  margin: 0;
+  color: #fff;
+  opacity: 0.6;
+  border: none;
+  padding: 3px 9px;
+  font-size: 12px;
+  background: #000;
+  position: absolute;
+  filter: alpha(opacity=60);
+  /*for ie*/
+}
+
+/* line 111, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav li a.profile-edit:hover {
+  text-decoration: underline;
+}
+
+/* line 115, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav a span {
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 16px;
+  padding: 7px 13px;
+  position: absolute;
+  background: #169ef4;
+}
+
+/* line 125, ../../../sass/admin/pages/profile-old.scss */
+.profile ul.profile-nav a:hover span {
+  background: #0b94ea;
+}
+
+/*profile information*/
+/* line 130, ../../../sass/admin/pages/profile-old.scss */
+.profile-info h1 {
+  color: #383839;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+}
+
+/* line 137, ../../../sass/admin/pages/profile-old.scss */
+.profile-info ul {
+  margin-bottom: 15px;
+}
+
+/* line 141, ../../../sass/admin/pages/profile-old.scss */
+.profile-info li {
+  color: #6b6b6b;
+  font-size: 13px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  padding: 0 !important;
+}
+
+/* line 149, ../../../sass/admin/pages/profile-old.scss */
+.profile-info li i {
+  color: #b5c1c9;
+  font-size: 15px;
+}
+
+/* line 154, ../../../sass/admin/pages/profile-old.scss */
+.profile-info li:hover i {
+  color: #169ef4;
+}
+
+/*profile sales summary*/
+/* line 159, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary ul {
+  margin-top: -10px;
+}
+
+/* line 162, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li {
+  padding: 10px 0;
+  overflow: hidden;
+  border-top: solid 1px #eee;
+}
+
+/* line 168, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li:first-child {
+  border-top: none;
+}
+
+/* line 172, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li .sale-info {
+  margin-top: 4px;
+  float: left;
+  color: #646464;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* line 180, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li .sale-num {
+  float: right;
+  color: #169ef4;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* line 187, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li span i {
+  top: 1px;
+  width: 13px;
+  height: 14px;
+  margin-left: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+/* line 196, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li i.icon-img-up {
+  background: url(../../img/icon-img-up.png) no-repeat !important;
+}
+
+/* line 200, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary li i.icon-img-down {
+  background: url(../../img/icon-img-down.png) no-repeat !important;
+}
+
+/* line 204, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary .caption h4 {
+  color: #383839;
+  font-size: 18px;
+}
+
+/* line 209, ../../../sass/admin/pages/profile-old.scss */
+.sale-summary .caption {
+  border-color: #c9c9c9;
+}
+
+/*latest customers table*/
+/* line 214, ../../../sass/admin/pages/profile-old.scss */
+.profile .table-advance thead tr th {
+  background: #f0f6fa;
+}
+
+/* line 218, ../../../sass/admin/pages/profile-old.scss */
+.profile .table-bordered th,
+.profile .table-bordered td,
+.profile .table-bordered {
+  border-color: #e5eff6;
+}
+
+/* line 224, ../../../sass/admin/pages/profile-old.scss */
+.profile .table-striped tbody > tr:nth-child(2n+1) > td,
+.profile .table-striped tbody > tr:nth-child(2n+1) > th {
+  background: #fcfcfc;
+}
+
+/* line 229, ../../../sass/admin/pages/profile-old.scss */
+.profile .table-hover tbody tr:hover td,
+.profile .table-hover tbody tr:hover th {
+  background: #f5fafd;
+}
+
+/*add portfolio*/
+/* line 235, ../../../sass/admin/pages/profile-old.scss */
+.add-portfolio {
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: #f0f6fa;
+  padding: 12px 14px;
+}
+
+/* line 242, ../../../sass/admin/pages/profile-old.scss */
+.add-portfolio span {
+  float: left;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 22px;
+  margin-top: 0px;
+}
+
+/* line 250, ../../../sass/admin/pages/profile-old.scss */
+.add-portfolio .btn {
+  margin-left: 20px;
+}
+
+/*portfolio block*/
+/* line 255, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-block {
+  background: #f7f7f7;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+/* line 261, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-stat {
+  overflow: hidden;
+}
+
+/*portfolio text*/
+/* line 266, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-text {
+  overflow: hidden;
+}
+
+/* line 271, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-text img {
+  float: left;
+  margin-right: 15px;
+}
+
+/* line 276, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-text .portfolio-text-info {
+  overflow: hidden;
+}
+
+/*portfolio button*/
+/* line 281, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-btn a {
+  display: block;
+  padding: 25px 0;
+  background: #ddd !important;
+}
+
+/* line 287, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-btn a:hover {
+  background: #1d943b !important;
+}
+
+/* line 291, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-btn span {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 200;
+}
+
+/*portfolio info*/
+/* line 298, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-info {
+  float: left;
+  color: #616161;
+  font-size: 12px;
+  padding: 10px 25px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+/* line 307, ../../../sass/admin/pages/profile-old.scss */
+.portfolio-info span {
+  color: #16a1f2;
+  display: block;
+  font-size: 28px;
+  line-height: 28px;
+  margin-top: 0px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+/*portfolio settings*/
+/* line 318, ../../../sass/admin/pages/profile-old.scss */
+.profile-settings {
+  background: #fafafa;
+  padding: 15px 8px 0;
+  margin-bottom: 5px;
+}
+
+/* line 324, ../../../sass/admin/pages/profile-old.scss */
+.profile-settings p {
+  padding-left: 5px;
+  margin-bottom: 3px;
+}
+
+/* line 329, ../../../sass/admin/pages/profile-old.scss */
+.profile-settings .controls > .radio,
+.profile-settings .controls > .checkbox {
+  font-size: 12px;
+  margin-top: 2px !important;
+}

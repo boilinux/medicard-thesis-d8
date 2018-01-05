@@ -1,0 +1,170 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Error Pages
+***/
+/* 404 page option #1 */
+/* line 10, ../../../sass/admin/pages/error.scss */
+.page-404 {
+  text-align: center;
+}
+
+/* line 14, ../../../sass/admin/pages/error.scss */
+.page-404 .number {
+  position: relative;
+  top: 35px;
+  display: inline-block;
+  letter-spacing: -10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  line-height: 128px;
+  font-size: 128px;
+  font-weight: 300;
+  color: #7bbbd6;
+  text-align: right;
+}
+
+/* line 28, ../../../sass/admin/pages/error.scss */
+.page-404 .details {
+  margin-left: 40px;
+  display: inline-block;
+  padding-top: 0px;
+  text-align: left;
+}
+
+/* 500 page option #1 */
+/* line 36, ../../../sass/admin/pages/error.scss */
+.page-500 {
+  text-align: center;
+}
+
+/* line 40, ../../../sass/admin/pages/error.scss */
+.page-500 .number {
+  display: inline-block;
+  letter-spacing: -10px;
+  line-height: 128px;
+  font-size: 128px;
+  font-weight: 300;
+  color: #ec8c8c;
+  text-align: right;
+}
+
+/* line 50, ../../../sass/admin/pages/error.scss */
+.page-500 .details {
+  margin-left: 40px;
+  display: inline-block;
+  text-align: left;
+}
+
+/* 404 page option #2*/
+/* line 57, ../../../sass/admin/pages/error.scss */
+.page-404-full-page {
+  overflow-x: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fafafa !important;
+}
+
+/* line 64, ../../../sass/admin/pages/error.scss */
+.page-404-full-page .details input {
+  background-color: #ffffff;
+}
+
+/* line 68, ../../../sass/admin/pages/error.scss */
+.page-404-full-page .page-404 {
+  margin-top: 100px;
+}
+
+/* 500 page option #2*/
+/* line 73, ../../../sass/admin/pages/error.scss */
+.page-500-full-page {
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: #fafafa !important;
+}
+
+/* line 79, ../../../sass/admin/pages/error.scss */
+.page-500-full-page .details input {
+  background-color: #ffffff;
+}
+
+/* line 83, ../../../sass/admin/pages/error.scss */
+.page-500-full-page .page-500 {
+  margin-top: 100px;
+}
+
+/* 404 page option #3*/
+/* line 89, ../../../sass/admin/pages/error.scss */
+.page-404-3 {
+  background: #000 !important;
+}
+
+/* line 93, ../../../sass/admin/pages/error.scss */
+.page-404-3 .page-inner img {
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+/* line 100, ../../../sass/admin/pages/error.scss */
+.page-404-3 .error-404 {
+  color: #fff;
+  text-align: left;
+  padding: 70px 20px 0;
+}
+
+/* line 106, ../../../sass/admin/pages/error.scss */
+.page-404-3 h1 {
+  color: #fff;
+  font-size: 130px;
+  line-height: 160px;
+}
+
+/* line 112, ../../../sass/admin/pages/error.scss */
+.page-404-3 h2 {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+/* line 118, ../../../sass/admin/pages/error.scss */
+.page-404-3 p {
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  /* line 126, ../../../sass/admin/pages/error.scss */
+  .page-404 .number,
+  .page-500 .number,
+  .page-404 .details,
+  .page-500 .details {
+    text-align: center;
+    margin-left: 0px;
+  }
+
+  /* line 134, ../../../sass/admin/pages/error.scss */
+  .page-404-full-page .page-404 {
+    margin-top: 30px;
+  }
+
+  /* line 138, ../../../sass/admin/pages/error.scss */
+  .page-404-3 .error-404 {
+    text-align: left;
+    padding-top: 10px;
+  }
+
+  /* line 143, ../../../sass/admin/pages/error.scss */
+  .page-404-3 .page-inner img {
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    position: fixed;
+  }
+}

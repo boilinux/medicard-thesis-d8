@@ -1,0 +1,163 @@
+/*--------------------------------------------------
+    [TRANSITION]
+----------------------------------------------------*/
+/* Cubic Bezier Transition */
+/*--------------------------------------------------
+    [RGBA Opacity]
+----------------------------------------------------*/
+/***
+Lock Page
+***/
+/* line 7, ../../../sass/admin/pages/lock2.scss */
+body {
+  background-color: #ddd;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 13, ../../../sass/admin/pages/lock2.scss */
+.page-lock {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -140px;
+  margin-left: -260px;
+}
+
+/* line 21, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-logo {
+  margin-bottom: 15px;
+}
+
+/* line 25, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-body {
+  width: 510px;
+  padding: 15px;
+  background: url(../img/bg-white-lock.png) repeat;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+}
+
+/* line 32, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-body:after,
+.page-lock .page-body:before {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+/* line 39, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-body:after {
+  clear: both;
+}
+
+/* line 43, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-footer-custom {
+  margin-top: 10px;
+  text-align: left !important;
+  font-size: 12px;
+  color: #eaeaea;
+}
+
+/* line 50, ../../../sass/admin/pages/lock2.scss */
+.page-lock img.page-lock-img {
+  float: left;
+  width: 200px;
+  height: auto;
+}
+
+/* line 56, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-lock-info {
+  padding-left: 10px;
+  float: right;
+  width: 280px;
+}
+
+/* line 62, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-lock-info h1 {
+  margin-top: -5px;
+  font-weight: 300;
+  color: #fff;
+  font-size: 28px;
+  line-height: 32px;
+  margin-bottom: 5px;
+}
+
+/* line 71, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-lock-info .email {
+  color: #eee;
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 10px;
+}
+
+/* line 79, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-lock-info .locked {
+  color: #333;
+  font-size: 14px;
+  line-height: 14px;
+  font-style: normal;
+}
+
+/* line 86, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-lock-info form {
+  margin: 28px 0;
+}
+
+/* line 90, ../../../sass/admin/pages/lock2.scss */
+.page-lock .page-lock-info input {
+  background: #fff;
+}
+
+/* line 94, ../../../sass/admin/pages/lock2.scss */
+.page-lock .relogin {
+  margin-top: 10px;
+}
+
+/* line 98, ../../../sass/admin/pages/lock2.scss */
+.page-lock .relogin a {
+  color: #e1e1e1;
+}
+
+/*Responsive*/
+@media (max-width: 768px) {
+  /* line 104, ../../../sass/admin/pages/lock2.scss */
+  .page-lock {
+    top: 0px;
+    width: 280px;
+    margin-top: 20px;
+    margin-left: -140px;
+  }
+
+  /* line 111, ../../../sass/admin/pages/lock2.scss */
+  .page-lock .page-body {
+    padding: 20px 10px;
+    text-align: center;
+    width: 280px;
+  }
+
+  /* line 117, ../../../sass/admin/pages/lock2.scss */
+  .page-lock img.page-lock-img {
+    float: none !important;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  /* line 124, ../../../sass/admin/pages/lock2.scss */
+  .page-lock .page-lock-info {
+    float: none !important;
+    width: 260px;
+    margin: 0 auto;
+  }
+
+  /* line 130, ../../../sass/admin/pages/lock2.scss */
+  .page-lock .page-lock-info input {
+    width: 200px !important;
+  }
+}

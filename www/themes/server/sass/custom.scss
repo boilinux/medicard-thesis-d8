@@ -1,0 +1,97 @@
+body.user-logged-in {
+	.h1, .h2, .h3, h1, h2, h3 {
+		margin-top: 0;
+	}
+
+	.panel-heading {
+		.panel-title {
+			a.accordion-toggle {
+				padding-left: 0px;
+			}
+		}
+	}
+
+	#archives {
+		div.panel-body {
+			padding: 15px 0 0 0;
+		}
+	}
+}
+
+body.path-frontpage {
+	article, h1 {
+		/*display: none;*/
+	}
+}
+
+body.login  {
+
+	h1 {
+		color: #4db3a5;
+		text-align: center;
+		font-size: 28px;
+		font-weight: 400 !important;
+	}
+
+	h2.block-title {
+		color: #4db3a5;
+		text-align: center;
+		font-size: 28px;
+		font-weight: 400 !important;
+	}
+
+	form {
+
+		div.form-item {
+			label {
+				display: none;
+			}
+		}
+
+		div.form-actions {
+
+			button {
+				width: 100%;
+			}
+		}
+	}
+
+	ul.nav-tabs {
+		display: none;
+	}
+}
+
+form.user-form {
+	div.form-managed-file {
+		input.form-file {
+			height: 100%;
+		}
+	}
+}
+
+.custom_message {
+	display: none !important;
+}
+
+.color_red {
+	color: red !important;
+	font-weight: normal;
+}
+
+.color_green {
+	color: #26a69a !important;
+	font-weight: normal;
+}
+
+.loan_name {
+	margin-left: 3px;
+}
+
+.loan_header_fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	padding: 0 0 0 110px;
+}

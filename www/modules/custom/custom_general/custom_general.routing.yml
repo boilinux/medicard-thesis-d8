@@ -1,0 +1,108 @@
+custom_general.create_data:
+  path: '/api/data/create'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\api::data_create'
+    _title: 'Create Data'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::authorize_token'
+
+custom_general.create_credit:
+  path: '/api/data/create_credit'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\api::data_create_credit'
+    _title: 'Create Credit'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::authorize_token'
+
+custom_general.test_page:
+  path: '/api/data/test_page'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\api::test_page'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::authorize_token'
+
+custom_general.print_form:
+  path: '/user/my-prints'
+  defaults:
+    _title: 'Print Me'
+    _form: '\Drupal\custom_general\Form\printForm'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::check_user_auth'
+
+custom_general.print_history:
+  path: '/user/history'
+  defaults:
+    _title: 'Transaction History'
+    _controller: '\Drupal\custom_general\Controller\api::transaction_history'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::check_user_auth'
+
+custom_general.user_print:
+  path: '/api/data/print'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\api::print_me'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::check_user_auth'
+
+custom_general.user_insert_credit:
+  path: '/api/data/insert/credit'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\api::user_insert_credit'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::check_user_auth'
+
+custom_general.user_dashboard:
+  path: '/user/dashboard'
+  defaults:
+    _title: 'Dashboard'
+    _controller: '\Drupal\custom_general\Controller\userDashboard::user_dashboard'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::check_user_auth'
+
+custom_general.user_add_device:
+  path: '/user/add_device'
+  defaults:
+    _title: 'Add device'
+    _form: '\Drupal\custom_general\Form\addDeviceForm'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\api::check_user_auth'
+
+custom_general.user_add_loan:
+  path: '/user/add_loan'
+  defaults:
+    _title: 'Add loan'
+    _form: '\Drupal\custom_general\Form\addLoanForm'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\apiHelper::check_user_auth_loan'
+
+custom_general.user_loan_paid:
+  path: '/user/loan/{loan}/loan_payable/{payable_loan_node}/paid'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\apiLoan::loan_paid'
+  options:
+    parameters:
+      loan:
+        type: entity:node
+      payable_loan_node:
+        type: entity:node
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\apiHelper::check_user_auth_loan'
+
+custom_general.user_loan_archive:
+  path: '/user/loan/{loan}/archive'
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\apiLoan::loan_archive'
+  options:
+    parameters:
+      loan:
+        type: entity:node
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\apiHelper::check_user_auth_loan'
+
+custom_general.microcontroller_post_data:
+  path: '/api/microcontroller/post/create_data'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\microcontroller::create_data'
+  requirements:
+    _access: 'TRUE'
