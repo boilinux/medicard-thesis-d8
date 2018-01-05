@@ -106,3 +106,24 @@ custom_general.microcontroller_post_data:
     _controller: '\Drupal\custom_general\Controller\microcontroller::create_data'
   requirements:
     _access: 'TRUE'
+
+
+custom_general.register_patient:
+  path: '/register/patient'
+  defaults:
+    _title: 'Register Patient'
+    _form: '\Drupal\custom_general\Form\registerPatient'
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth'
+
+custom_general.update_patient:
+  path: '/update/patient/{patient}'
+  defaults:
+    _title: 'Update Patient'
+    _form: '\Drupal\custom_general\Form\updatePatient'
+  options:
+    parameters:
+      patient:
+        type: entity:node
+  requirements:
+    _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth'

@@ -90,10 +90,8 @@
                     <a href="/user/{{ custom_general_get_current_uid() }}/edit">
                     <i class="icon-user"></i> My Profile </a>
                   </li>
-                  {% if not custom_general_check_user_role('loan') %}
-                    <li><a href="/user/add_device"><i class="icon-plus"></i> Add device</a></li>
-                  {% else %}
-                    <li><a href="/user/add_loan"><i class="icon-plus"></i> Add loan</a></li>
+                  {% if custom_general_check_user_role('nurse') %}
+                    <li><a href="/register/patient"><i class="icon-plus"></i> Register Patient</a></li>
                   {% endif %}
                   <li class="divider">
                   </li>
@@ -208,7 +206,7 @@
 
   <div class="page-footer">
     <div class="container">
-      2017 © <a href='http://drupalista.net'>drupalista.net</a> 
+      2018 © medicard 
       {% block footer %}
         <footer class="footer {{ container }}" role="contentinfo">
           {{ page.footer }}
@@ -241,7 +239,7 @@
   </div>
 </div>
 <div class="copyright">
-   2017 © <a href='http://drupalista.net'>drupalista.net</a>
+   2018 © medicard
 </div>
 <!-- END LOGIN -->
 
