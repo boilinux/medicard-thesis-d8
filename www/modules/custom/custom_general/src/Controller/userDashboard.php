@@ -12,15 +12,6 @@ class userDashboard extends ControllerBase {
    */
   public function user_dashboard() {
     $output = "";
-      $accordion = '<div class="panel-group accordion" id="archives">
-        <div class="panel">
-          <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#archives" href="#collapse1">
-            Archives </a>
-            </h4>
-          </div>';
-      $output2 = "";
 
     if (apiHelper::check_user_role('nurse')) {
       $query = \Drupal::database()->query("SELECT nffn.field_first_name_value AS firstname, nfln.field_last_name_value AS lastname, nfd.created AS created, nfd.nid AS nid FROM node_field_data AS nfd 
@@ -31,11 +22,11 @@ class userDashboard extends ControllerBase {
       foreach ($query as $res) {
         $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
 
-        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($res->firstname) . " " . ucwords($res->lastname) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/user/loan/" . $res->nid . "'><i class='fa fa-info-circle'></i> View</a><a class='btn btn-default btn-sm' href='/update/patient/" . $res->nid . "'><i class='fa fa-edit'></i> edit</a></div></div>";
+        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($res->firstname) . " " . ucwords($res->lastname) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/view/patient/" . $res->nid . "'><i class='fa fa-info-circle'></i> View</a><a class='btn btn-default btn-sm' href='/update/patient/" . $res->nid . "'><i class='fa fa-edit'></i> edit</a></div></div>";
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
-            <div class='col-md-5 name'>Created:</div><div class='col-md-7 value'> " . date("d-M-Y", $res->created) . "</div>
+            <div class='col-md-5 name'>Registered:</div><div class='col-md-7 value'> " . date("d-M-Y", $res->created) . "</div>
           </div>
           <div class='row static-info'>
           </div>
