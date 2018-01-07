@@ -7,7 +7,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
-use Drupal\custom_general\Controller\api;
 
 class registerPatient extends FormBase {
   /**

@@ -13,17 +13,31 @@ use Drupal\node\NodeInterface;
 
 class medicardApi extends ControllerBase {
   /**
+   * Check user auth.
+   */
+  public function check_user_auth() {
+    $uid = \Drupal::currentUser()->id();
+
+    if ($uid > 0) {
+      return AccessResult::allowed();
+    }
+    else {
+      return AccessResult::forbidden();
+    }
+  }
+
+  /**
    * Check user auth nurse.
    */
   public function check_user_auth_nurse() {
     $uid = \Drupal::currentUser()->id();
     $roles = \Drupal::currentUser()->getRoles();
 
-    if ($uid == 0 && in_array('nurse', $roles)) {
-      return AccessResult::forbidden();
+    if ($uid > 0 && in_array('nurse', $roles)) {
+      return AccessResult::allowed();
     }
     else {
-      return AccessResult::allowed();
+      return AccessResult::forbidden();
     }
   }
 
@@ -34,11 +48,11 @@ class medicardApi extends ControllerBase {
     $uid = \Drupal::currentUser()->id();
     $roles = \Drupal::currentUser()->getRoles();
 
-    if ($uid == 0 && in_array('doctor', $roles)) {
-      return AccessResult::forbidden();
+    if ($uid > 0 && in_array('doctor', $roles)) {
+      return AccessResult::allowed();
     }
     else {
-      return AccessResult::allowed();
+      return AccessResult::forbidden();
     }
   }
 
@@ -49,11 +63,11 @@ class medicardApi extends ControllerBase {
     $uid = \Drupal::currentUser()->id();
     $roles = \Drupal::currentUser()->getRoles();
 
-    if ($uid == 0 && in_array('pharmacist', $roles)) {
-      return AccessResult::forbidden();
+    if ($uid > 0 && in_array('pharmacist', $roles)) {
+      return AccessResult::allowed();
     }
     else {
-      return AccessResult::allowed();
+      return AccessResult::forbidden();
     }
   }
 
