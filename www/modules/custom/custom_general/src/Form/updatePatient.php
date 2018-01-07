@@ -126,5 +126,8 @@ class updatePatient extends FormBase {
     $node->save();
 
     drupal_set_message("Successfully updated patient " . ucwords($form_state->getValue('firstname')) . " " . ucwords($form_state->getValue('lastname')) . ".");
+
+    $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/");
+    $response->send();
   }
 }
