@@ -11,6 +11,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class medicardApi extends ControllerBase {
   /**
@@ -206,6 +207,41 @@ class medicardApi extends ControllerBase {
       }
     }
 
+    return new JsonResponse($response);
+  }
+
+  /**
+   * Get view patient.
+   */
+  public function get_view_patient(Request $request) {
+    $response = array();
+
+    if (strpos($request->headers->get('Content-Type'), 'application/json') === 0) {
+      $data = json_decode($request->getContent(), TRUE);
+
+      $secret = $request->headers->get('secret');
+      $token = $request->headers->get('token');
+
+      // Check for validation.
+      $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
+
+      $query_token = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+
+      if ($query_secret > 0 && $query_token > 0) {
+
+        $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
+          WHERE nfd.type = 'patient' ORDER BY nfd.created DESC")->fetchAll();
+        
+        foreach ($query as $res) {
+          $response['patient'][] = $res->nid;
+        }
+
+        $response['status'] = 'success';
+      }
+      else {
+        $response = ['status' => 'failed'];
+      }
+    }
     return new JsonResponse($response);
   }
 }

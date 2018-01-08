@@ -6,6 +6,22 @@ custom_general.user_dashboard:
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth'
 
+custom_general.update_patient_post:
+  path: '/api/patient/update'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\medicardApi::post_update_patient'
+  requirements:
+    _access: 'TRUE'
+    
+custom_general.get_view_patient:
+  path: '/api/patient/view'
+  methods: [GET]
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\medicardApi::get_view_patient'
+  requirements:
+    _access: 'TRUE'
+
 # Nurse
 custom_general.view_patient:
   path: '/view/patient/{patient}'
@@ -38,14 +54,6 @@ custom_general.update_patient:
         type: entity:node
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse'
-
-custom_general.update_patient_post:
-  path: '/api/patient/update'
-  methods: [POST]
-  defaults:
-    _controller: '\Drupal\custom_general\Controller\medicardApi::post_update_patient'
-  requirements:
-    _access: 'TRUE'
 
 # Doctor
 custom_general.update_doctor_patient:
