@@ -15,6 +15,16 @@ class userDashboard extends ControllerBase {
     $output = "";
 
     if (apiHelper::check_user_role('nurse')) {
+      $response = \Drupal::httpClient()
+      ->post('http://medicard.local/api/patient/view', [
+        'headers' => [
+          'Content-Type' => 'application/json',
+          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ'
+        ],
+      ])->getBody()->getContents();
+      print_r($response);
+
       $query = \Drupal::database()->query("SELECT nffn.field_first_name_value AS firstname, nfln.field_last_name_value AS lastname, nfd.created AS created, nfd.nid AS nid FROM node_field_data AS nfd 
         LEFT JOIN node__field_first_name AS nffn ON nffn.entity_id = nfd.nid
         LEFT JOIN node__field_last_name As nfln ON nfln.entity_id = nfd.nid
