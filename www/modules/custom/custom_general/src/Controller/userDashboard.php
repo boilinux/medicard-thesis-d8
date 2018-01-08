@@ -7,6 +7,24 @@ use Drupal\custom_general\Controller\apiHelper;
 use Drupal\node\Entity\Node;
 
 class userDashboard extends ControllerBase {
+  private function get_patient() {
+      try {
+        $client = \Drupal::httpClient();
+        $response = $client->post('http://medicard.dev/api/patient/view', [
+          'headers' => [
+            'Content-Type' => 'application/json',
+            'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+            'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+          ],
+        ]);
+
+        $data = json_decode($response->getBody(), TRUE);
+        return $data;
+
+      } catch (RequestException $e) {
+        return false;
+      }
+  }
 
   /**
    * User dashboard
@@ -15,35 +33,24 @@ class userDashboard extends ControllerBase {
     $output = "";
 
     if (apiHelper::check_user_role('nurse')) {
-      $response = \Drupal::httpClient()
-      ->post('http://medicard.local/api/patient/view', [
-        'headers' => [
-          'Content-Type' => 'application/json',
-          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
-          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ'
-        ],
-      ])->getBody()->getContents();
-      print_r($response);
+      $data = userDashboard::get_patient();
 
-      $query = \Drupal::database()->query("SELECT nffn.field_first_name_value AS firstname, nfln.field_last_name_value AS lastname, nfd.created AS created, nfd.nid AS nid FROM node_field_data AS nfd 
-        LEFT JOIN node__field_first_name AS nffn ON nffn.entity_id = nfd.nid
-        LEFT JOIN node__field_last_name As nfln ON nfln.entity_id = nfd.nid
-        WHERE nfd.type = 'patient' AND nfd.uid = " . \Drupal::currentUser()->id() . " ORDER BY nfd.created DESC")->fetchAll();
-      
-      foreach ($query as $res) {
+      foreach ($data['patient'] as $nid) {
+        $node = Node::load($nid);
+
         $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
 
-        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($res->firstname) . " " . ucwords($res->lastname) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/view/patient/" . $res->nid . "'><i class='fa fa-info-circle'></i> View</a><a class='btn btn-default btn-sm' href='/update/patient/" . $res->nid . "'><i class='fa fa-edit'></i> edit</a></div></div>";
+        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($node->get('field_first_name')->value) . " " . ucwords($node->get('field_last_name')->value) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/view/patient/" . $nid . "'><i class='fa fa-info-circle'></i> View</a><a class='btn btn-default btn-sm' href='/update/patient/" . $nid . "'><i class='fa fa-edit'></i> edit</a></div></div>";
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
-            <div class='col-md-5 name'>Registered on</div><div class='col-md-7 value'> " . date("d-M-Y", $res->created) . "</div>
+            <div class='col-md-5 name'>Registered on</div><div class='col-md-7 value'> " . date("d-M-Y", $node->get('created')->value) . "</div>
           </div>
           <div class='row static-info'>
           </div>
         </div>";
 
-        $output .= '<div class="modal fade" id="loan_modal' . $res->nid . '" tabindex="-1" role="basic" aria-hidden="true">
+        $output .= '<div class="modal fade" id="loan_modal' . $nid . '" tabindex="-1" role="basic" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -51,11 +58,11 @@ class userDashboard extends ControllerBase {
                     <h4 class="modal-title">Please confirm</h4>
                   </div>
                   <div class="modal-body">
-                     <span class="color_green">' . ucwords($res->name) . '</span> loan will be archive.
+                     <span class="color_green"> </span> loan will be archive.
                   </div>
                   <div class="modal-footer">
                     <a type="button" class="btn default" data-dismiss="modal">Close</a>
-                    <a href="/user/loan/' . $res->nid . '/archive" class="btn blue">Submit</a>
+                    <a href="/user/loan/' . $nid . '/archive" class="btn blue">Submit</a>
                   </div>
                 </div>
                 <!-- /.modal-content -->
@@ -67,17 +74,14 @@ class userDashboard extends ControllerBase {
       }
     }
     else if (apiHelper::check_user_role('doctor')) {
-      $query = \Drupal::database()->query("SELECT nffn.field_first_name_value AS firstname, nfln.field_last_name_value AS lastname, nfd.created AS created, nfd.nid AS nid FROM node_field_data AS nfd 
-        LEFT JOIN node__field_first_name AS nffn ON nffn.entity_id = nfd.nid
-        LEFT JOIN node__field_last_name As nfln ON nfln.entity_id = nfd.nid
-        WHERE nfd.type = 'patient' ORDER BY nfd.created DESC")->fetchAll();
-      
-      foreach ($query as $res) {
-        $patient = Node::load($res->nid);
+      $data = userDashboard::get_patient();
+
+      foreach ($data['patient'] as $nid) {
+        $patient = Node::load($nid);
 
         $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
 
-        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($res->firstname) . " " . ucwords($res->lastname) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/update/doctor/patient/" . $res->nid . "'><i class='fa fa-edit'></i> Update</a></div></div>";
+        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient->get('field_first_name')->value) . " " . ucwords($patient->get('field_last_name')->value) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/update/doctor/patient/" . $nid . "'><i class='fa fa-edit'></i> Update</a></div></div>";
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
@@ -95,7 +99,7 @@ class userDashboard extends ControllerBase {
           </div>
         </div>";
 
-        $output .= '<div class="modal fade" id="loan_modal' . $res->nid . '" tabindex="-1" role="basic" aria-hidden="true">
+        $output .= '<div class="modal fade" id="loan_modal' . $nid . '" tabindex="-1" role="basic" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -103,11 +107,11 @@ class userDashboard extends ControllerBase {
                     <h4 class="modal-title">Please confirm</h4>
                   </div>
                   <div class="modal-body">
-                     <span class="color_green">' . ucwords($res->name) . '</span> loan will be archive.
+                     <span class="color_green"></span> loan will be archive.
                   </div>
                   <div class="modal-footer">
                     <a type="button" class="btn default" data-dismiss="modal">Close</a>
-                    <a href="/user/loan/' . $res->nid . '/archive" class="btn blue">Submit</a>
+                    <a href="/user/loan/' . $nid . '/archive" class="btn blue">Submit</a>
                   </div>
                 </div>
                 <!-- /.modal-content -->
@@ -122,7 +126,7 @@ class userDashboard extends ControllerBase {
       $output .= "<div class='col-sm-12'>Please insert card.</div>";
     }
 
-    if (empty($query)) {
+    if (empty($data['patient'])) {
       $output .= "<div class='col-sm-12'>No patient yet.</div>";
     }
 
