@@ -110,24 +110,58 @@ class updatePatient extends FormBase {
    * Form submit.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $node = Node::load($form_state->getValue('nid'));
+    // $node = Node::load($form_state->getValue('nid'));
 
-    $node->field_first_name->value = $form_state->getValue('firstname');
-    $node->field_last_name->value = $form_state->getValue('lastname');
-    $node->field_date_of_birth->value = strtotime($form_state->getValue('dob'));
-    $node->field_gender->value = $form_state->getValue('gender');
-    $node->field_patient_address->value = $form_state->getValue('address');
-    $node->field_temperature->value = $form_state->getValue('temp');
-    $node->field_pulse->value = $form_state->getValue('pulse');
-    $node->field_respirations_breathing->value = $form_state->getValue('breathing');
-    $node->field_blood_pressure->value = $form_state->getValue('bp');
+    // $node->field_first_name->value = $form_state->getValue('firstname');
+    // $node->field_last_name->value = $form_state->getValue('lastname');
+    // $node->field_date_of_birth->value = strtotime($form_state->getValue('dob'));
+    // $node->field_gender->value = $form_state->getValue('gender');
+    // $node->field_patient_address->value = $form_state->getValue('address');
+    // $node->field_temperature->value = $form_state->getValue('temp');
+    // $node->field_pulse->value = $form_state->getValue('pulse');
+    // $node->field_respirations_breathing->value = $form_state->getValue('breathing');
+    // $node->field_blood_pressure->value = $form_state->getValue('bp');
 
-    // Node data save.
-    $node->save();
+    // // Node data save.
+    // $node->save();
 
-    drupal_set_message("Successfully updated patient " . ucwords($form_state->getValue('firstname')) . " " . ucwords($form_state->getValue('lastname')) . ".");
+    $data = [
+      'firstname' => $form_state->getValue('firstname'),
+      'lastname' => $form_state->getValue('lastname'),
+      'dob' => $form_state->getValue('dob'),
+      'gender' => $form_state->getValue('gender'),
+      'address' => $form_state->getValue('address'),
+      'temp' => $form_state->getValue('temp'),
+      'pulse' => $form_state->getValue('pulse'),
+      'breathing' => $form_state->getValue('breathing'),
+      'bp' => $form_state->getValue('bp'),
+    ];
 
-    $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/");
-    $response->send();
+    try {
+      $client = \Drupal::httpClient();
+      $response = $client->post('http://192.168.254.102/api/patient/update', [
+        'headers' => [
+          'Content-Type' => 'application/json',
+          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+        ],
+        'body' => json_encode($data),
+      ]);
+
+      $data = json_decode($response->getBody(), TRUE);
+      
+      if ($data['status'] == 'success') {
+        drupal_set_message("Successfully updated patient " . ucwords($form_state->getValue('firstname')) . " " . ucwords($form_state->getValue('lastname')) . ".");
+
+        $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/");
+        $response->send();
+      }
+      else {
+        drupal_set_message("There are errors upon submission.", "error");
+      }
+
+    } catch (RequestException $e) {
+      drupal_set_message("There are errors upon submission.", "error");
+    }
   }
 }
