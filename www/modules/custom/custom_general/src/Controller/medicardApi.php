@@ -114,6 +114,7 @@ class medicardApi extends ControllerBase {
       $nid = $request->headers->get('nid');
       $role = $request->headers->get('role');
       $action = $request->headers->get('action');
+      $username = $request->headers->get('username');
 
       // Check for validation.
       $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
@@ -123,8 +124,6 @@ class medicardApi extends ControllerBase {
       if ($query_secret > 0 && $query_token > 0) {
 
         $entity_id = \Drupal::database()->query("SELECT entity_id FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
-
-        $uid = \Drupal::database()->query("SELECT uid FROM node_field_data WHERE nid = '" . $entity_id . "'")->fetchField();
 
         if ($action == 'update' && $role == 'nurse') {
           $node = Node::load($nid);
@@ -150,7 +149,6 @@ class medicardApi extends ControllerBase {
           $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
           $track .= "Blood Pressure: " . $data['bp'] . "\n";
           $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
-          $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
           $track .= "User: " . $username . "\n";
           $track .= "Role: Nurse";
 
@@ -192,10 +190,9 @@ class medicardApi extends ControllerBase {
           $track .= "Prescription: " . $data['prescription'] . "\n";
 
           $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
-          $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
           $track .= "User: " . $username . "\n";
           $track .= "Role: Doctor";
-          
+
           $node->field_updates_track->appendItem($track);
         }
 
