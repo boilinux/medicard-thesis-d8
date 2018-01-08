@@ -10,6 +10,7 @@ use Drupal\Component\Serialization\Json;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\node\NodeInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class medicardApi extends ControllerBase {
   /**
@@ -97,5 +98,117 @@ class medicardApi extends ControllerBase {
     </div>";
 
     return array('#markup' => $output, '#cache' => ['max-age' => 0,]);
+  }
+
+  /**
+   * Update via post patient.
+   */
+  public function post_update_patient(Request $request) {
+    $response = "";
+
+    if (strpos($request->headers->get('Content-Type'), 'application/json') === 0) {
+      $data = json_decode($request->getContent(), TRUE);
+
+      $secret = $request->headers->get('secret');
+      $token = $request->headers->get('token');
+      $nid = $request->headers->get('nid');
+      $role = $request->headers->get('role');
+      $action = $request->headers->get('action');
+
+      // Check for validation.
+      $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
+
+      $query_token = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+
+      if ($query_secret > 0 && $query_token > 0) {
+
+        $entity_id = \Drupal::database()->query("SELECT entity_id FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+
+        $uid = \Drupal::database()->query("SELECT uid FROM node_field_data WHERE nid = '" . $entity_id . "'")->fetchField();
+
+        if ($action == 'update' && $role == 'nurse') {
+          $node = Node::load($nid);
+
+          $node->field_first_name->value = $data['firstname'];
+          $node->field_last_name->value = $data['lastname'];
+          $node->field_date_of_birth->value = strtotime($data['dob']);
+          $node->field_gender->value = $data['gender'];
+          $node->field_patient_address->value = $data['address'];
+          $node->field_temperature->value = $data['temp'];
+          $node->field_pulse->value = $data['pulse'];
+          $node->field_respirations_breathing->value = $data['breathing'];
+          $node->field_blood_pressure->value = $data['bp'];
+
+          // Tracking
+          $track = "First Name: " . $data['firstname'] . "\n";
+          $track .= "Last Name: " . $data['lastname'] . "\n";
+          $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+          $track .= "Gender: " . $data['gender'] . "\n";
+          $track .= "address: " . $data['address'] . "\n";
+          $track .= "Temperature: " . $data['temp'] . "\n";
+          $track .= "Pulse: " . $data['pulse'] . "\n";
+          $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
+          $track .= "Blood Pressure: " . $data['bp'] . "\n";
+          $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
+          $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
+          $track .= "User: " . $username . "\n";
+          $track .= "Role: Nurse";
+
+          $node->field_updates_track->appendItem($track);
+
+        }
+        else if ($action == 'update' && $role == 'doctor') {
+          $node = Node::load($nid);
+
+          $node->field_first_name->value = $data['firstname'];
+          $node->field_last_name->value = $data['lastname'];
+          $node->field_date_of_birth->value = strtotime($data['dob']);
+          $node->field_gender->value = $data['gender'];
+          $node->field_patient_address->value = $data['address'];
+          $node->field_temperature->value = $data['temp'];
+          $node->field_pulse->value = $data['pulse'];
+          $node->field_respirations_breathing->value = $data['breathing'];
+          $node->field_blood_pressure->value = $data['bp'];
+
+          $node->field_findings->value = $data['findings'];
+          $node->field_recommendation->value = $data['recommendation'];
+          $node->field_result->value = $data['result'];
+          $node->field_prescription->value = $data['prescription'];
+
+          // Tracking
+          $track = "First Name: " . $data['firstname'] . "\n";
+          $track .= "Last Name: " . $data['lastname'] . "\n";
+          $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+          $track .= "Gender: " . $data['gender'] . "\n";
+          $track .= "address: " . $data['address'] . "\n";
+          $track .= "Temperature: " . $data['temp'] . "\n";
+          $track .= "Pulse: " . $data['pulse'] . "\n";
+          $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
+          $track .= "Blood Pressure: " . $data['bp'] . "\n";
+
+          $track .= "Findings: " . $data['findings'] . "\n";
+          $track .= "Recommendation: " . $data['recommendation'] . "\n";
+          $track .= "Result: " . $data['result'] . "\n";
+          $track .= "Prescription: " . $data['prescription'] . "\n";
+
+          $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
+          $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
+          $track .= "User: " . $username . "\n";
+          $track .= "Role: Doctor";
+          
+          $node->field_updates_track->appendItem($track);
+        }
+
+        // Node data save.
+        $node->save();
+
+        $response = ['status' => 'success'];
+      }
+      else {
+        $response = ['status' => 'faield'];
+      }
+    }
+
+    return new JsonResponse($response);
   }
 }

@@ -108,6 +108,9 @@ class userDashboard extends ControllerBase {
         $output .= "</div></div>";
       }
     }
+    else if (apiHelper::check_user_role('pharmacist')) {
+      $output .= "<div class='col-sm-12'>Please insert card.</div>";
+    }
 
     if (empty($query)) {
       $output .= "<div class='col-sm-12'>No patient yet.</div>";

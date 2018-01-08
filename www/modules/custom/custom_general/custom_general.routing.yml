@@ -39,6 +39,14 @@ custom_general.update_patient:
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse'
 
+custom_general.update_patient_post:
+  path: '/api/patient/update'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\medicardApi::post_update_patient'
+  requirements:
+    _access: 'TRUE'
+
 # Doctor
 custom_general.update_doctor_patient:
   path: '/update/doctor/patient/{patient}'
