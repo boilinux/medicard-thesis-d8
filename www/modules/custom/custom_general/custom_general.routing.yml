@@ -16,7 +16,7 @@ custom_general.update_patient_post:
     
 custom_general.get_view_patient:
   path: '/api/patient/view'
-  methods: [GET]
+  methods: [POST]
   defaults:
     _controller: '\Drupal\custom_general\Controller\medicardApi::get_view_patient'
   requirements:
