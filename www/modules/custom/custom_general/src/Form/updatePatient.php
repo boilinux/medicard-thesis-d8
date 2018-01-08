@@ -110,6 +110,10 @@ class updatePatient extends FormBase {
    * Form submit.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $nid = $form_state->getValue('nid');
+    $uid = \Drupal::currentUser()->id();
+
+    $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
     // $node = Node::load($form_state->getValue('nid'));
 
     // $node->field_first_name->value = $form_state->getValue('firstname');
@@ -144,6 +148,10 @@ class updatePatient extends FormBase {
           'Content-Type' => 'application/json',
           'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
           'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+          'nid' => $nid,
+          'role' => 'nurse',
+          'action' => 'update',
+          'username' => $username,
         ],
         'body' => json_encode($data),
       ]);
