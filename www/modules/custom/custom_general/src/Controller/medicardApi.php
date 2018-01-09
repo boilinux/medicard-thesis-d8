@@ -197,16 +197,6 @@ class medicardApi extends ControllerBase {
         else if ($action == 'update' && $role == 'doctor') {
           $node = Node::load($nid);
 
-          $node->field_first_name->value = $data['firstname'];
-          $node->field_last_name->value = $data['lastname'];
-          $node->field_date_of_birth->value = strtotime($data['dob']);
-          $node->field_gender->value = $data['gender'];
-          $node->field_patient_address->value = $data['address'];
-          $node->field_temperature->value = $data['temp'];
-          $node->field_pulse->value = $data['pulse'];
-          $node->field_respirations_breathing->value = $data['breathing'];
-          $node->field_blood_pressure->value = $data['bp'];
-
           $node->field_findings->value = $data['findings'];
           $node->field_recommendation->value = $data['recommendation'];
           $node->field_result->value = $data['result'];
