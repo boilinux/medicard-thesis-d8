@@ -151,7 +151,7 @@ class medicardApi extends ControllerBase {
             'title' => 'Patient---' . $data['firstname'] . ' ' . $data['firstname'] . \Drupal::time()->getRequestTime(),
             'field_first_name' => ['value' => $data['firstname']],
             'field_last_name' => ['value' => $data['lastname']],
-            'field_date_of_birth' => ['value' => $data['dob']],
+            'field_date_of_birth' => ['value' => strtotime($data['dob'])],
             'field_gender' => ['value' => $data['gender']],
             'field_patient_address' => ['value' => $data['address']],
             'field_temperature' => ['value' => $data['temp']],
