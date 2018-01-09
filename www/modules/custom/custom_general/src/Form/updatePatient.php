@@ -114,20 +114,6 @@ class updatePatient extends FormBase {
     $uid = \Drupal::currentUser()->id();
 
     $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
-    // $node = Node::load($form_state->getValue('nid'));
-
-    // $node->field_first_name->value = $form_state->getValue('firstname');
-    // $node->field_last_name->value = $form_state->getValue('lastname');
-    // $node->field_date_of_birth->value = strtotime($form_state->getValue('dob'));
-    // $node->field_gender->value = $form_state->getValue('gender');
-    // $node->field_patient_address->value = $form_state->getValue('address');
-    // $node->field_temperature->value = $form_state->getValue('temp');
-    // $node->field_pulse->value = $form_state->getValue('pulse');
-    // $node->field_respirations_breathing->value = $form_state->getValue('breathing');
-    // $node->field_blood_pressure->value = $form_state->getValue('bp');
-
-    // // Node data save.
-    // $node->save();
 
     $data = [
       'firstname' => $form_state->getValue('firstname'),

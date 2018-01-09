@@ -7,10 +7,13 @@ use Drupal\custom_general\Controller\apiHelper;
 use Drupal\node\Entity\Node;
 
 class userDashboard extends ControllerBase {
-  private function get_patient() {
+  /**
+   * Get patient data from main server.
+   */
+  public function get_patient() {
       try {
         $client = \Drupal::httpClient();
-        $response = $client->post('http://medicard.dev/api/patient/view', [
+        $response = $client->post('http://192.168.254.102/api/patient/view', [
           'headers' => [
             'Content-Type' => 'application/json',
             'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
@@ -35,16 +38,15 @@ class userDashboard extends ControllerBase {
     if (apiHelper::check_user_role('nurse')) {
       $data = userDashboard::get_patient();
 
-      foreach ($data['patient'] as $nid) {
-        $node = Node::load($nid);
+      foreach ($data['patient'] as $nid => $patient) {
 
         $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
 
-        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($node->get('field_first_name')->value) . " " . ucwords($node->get('field_last_name')->value) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/view/patient/" . $nid . "'><i class='fa fa-info-circle'></i> View</a><a class='btn btn-default btn-sm' href='/update/patient/" . $nid . "'><i class='fa fa-edit'></i> edit</a></div></div>";
+        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/view/patient/" . $nid . "'><i class='fa fa-info-circle'></i> View</a><a class='btn btn-default btn-sm' href='/update/patient/" . $nid . "'><i class='fa fa-edit'></i> edit</a></div></div>";
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
-            <div class='col-md-5 name'>Registered on</div><div class='col-md-7 value'> " . date("d-M-Y", $node->get('created')->value) . "</div>
+            <div class='col-md-5 name'>Registered on</div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
           </div>
           <div class='row static-info'>
           </div>
@@ -76,26 +78,25 @@ class userDashboard extends ControllerBase {
     else if (apiHelper::check_user_role('doctor')) {
       $data = userDashboard::get_patient();
 
-      foreach ($data['patient'] as $nid) {
-        $patient = Node::load($nid);
+      foreach ($data['patient'] as $nid => $patient) {
 
         $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
 
-        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient->get('field_first_name')->value) . " " . ucwords($patient->get('field_last_name')->value) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/update/doctor/patient/" . $nid . "'><i class='fa fa-edit'></i> Update</a></div></div>";
+        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/update/doctor/patient/" . $nid . "'><i class='fa fa-edit'></i> Update</a></div></div>";
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
-            <div class='col-md-5 name'>Date Of Birth:</div><div class='col-md-7 value'> " . date("d-M-Y", $patient->get('field_date_of_birth')->value) . "</div>
-            <div class='col-md-5 name'>Gender:</div><div class='col-md-7 value'> " . ucwords($patient->get('field_gender')->value) . "</div>
-            <div class='col-md-5 name'>Address:</div><div class='col-md-7 value'> " . ucwords($patient->get('field_patient_address')->value) . "</div>
+            <div class='col-md-5 name'>Date Of Birth:</div><div class='col-md-7 value'> " . date("d-M-Y", $patient['dob']) . "</div>
+            <div class='col-md-5 name'>Gender:</div><div class='col-md-7 value'> " . ucwords($patient['gender']) . "</div>
+            <div class='col-md-5 name'>Address:</div><div class='col-md-7 value'> " . ucwords($patient['address']) . "</div>
             <div class='col-md-12 name'><p><h2>Vital signs</h2></p></div>
-            <div class='col-md-5 name'>Temperature:</div><div class='col-md-7 value'> " . ucwords($patient->get('field_temperature')->value) . "</div>
-            <div class='col-md-5 name'>Pulse:</div><div class='col-md-7 value'> " . ucwords($patient->get('field_pulse')->value) . "</div>
-            <div class='col-md-5 name'>Respirations/Breathing:</div><div class='col-md-7 value'> " . ucwords($patient->get('field_respirations_breathing')->value) . "</div>
-            <div class='col-md-5 name'>Blood Pressure:</div><div class='col-md-7 value'> " . ucwords($patient->get('field_blood_pressure')->value) . "</div>
+            <div class='col-md-5 name'>Temperature:</div><div class='col-md-7 value'> " . ucwords($patient['temp']) . "</div>
+            <div class='col-md-5 name'>Pulse:</div><div class='col-md-7 value'> " . ucwords($patient['pulse']) . "</div>
+            <div class='col-md-5 name'>Respirations/Breathing:</div><div class='col-md-7 value'> " . ucwords($patient['breathing']) . "</div>
+            <div class='col-md-5 name'>Blood Pressure:</div><div class='col-md-7 value'> " . ucwords($patient['bp']) . "</div>
           </div>
           <div class='row static-info'>
-            <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient->get('created')->value) . "</div>
+            <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
           </div>
         </div>";
 
