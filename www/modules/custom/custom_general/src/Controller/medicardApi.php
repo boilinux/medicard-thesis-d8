@@ -233,7 +233,24 @@ class medicardApi extends ControllerBase {
           WHERE nfd.type = 'patient' ORDER BY nfd.created DESC")->fetchAll();
         
         foreach ($query as $res) {
-          $response['patient'][] = $res->nid;
+          $node = Node::load($res->nid);
+
+          $response['patient'][$res->nid] = [
+            'firstname' => $node->get('field_first_name')->value,
+            'lastname' => $node->get('field_last_name')->value,
+            'dob' => $node->get('field_date_of_birth')->value,
+            'gender' => $node->get('field_gender')->value,
+            'address' => $node->get('field_patient_address')->value,
+            'temp' => $node->get('field_temperature')->value,
+            'pulse' => $node->get('field_pulse')->value,
+            'breathing' => $node->get('field_respirations_breathing')->value,
+            'bp' => $node->get('field_blood_pressure')->value,
+            'findings' => $node->get('field_findings')->value,
+            'recommendation' => $node->get('field_recommendation')->value,
+            'result' => $node->get('field_result')->value,
+            'prescription' => $node->get('field_prescription')->value,
+            'created' => $node->get('created')->value,
+          ];
         }
 
         $response['status'] = 'success';
