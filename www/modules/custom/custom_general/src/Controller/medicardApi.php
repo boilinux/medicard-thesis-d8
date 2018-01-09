@@ -129,6 +129,7 @@ class medicardApi extends ControllerBase {
       if ($query_secret > 0 && $query_token > 0) {
 
         $entity_id = \Drupal::database()->query("SELECT entity_id FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+
         if ($action == 'register' && $role == 'nurse') {
           // Tracking
           $track = "First Name: " . $data['firstname'] . "\n";
@@ -159,7 +160,9 @@ class medicardApi extends ControllerBase {
             'field_blood_pressure' => ['value' => $data['bp']],
             'field_updates_track' => ['value' => $track],
           ];
-          
+
+          $node = Node::create($values);
+
         }
         else if ($action == 'update' && $role == 'nurse') {
           $node = Node::load($nid);
