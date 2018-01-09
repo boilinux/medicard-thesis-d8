@@ -8,6 +8,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\custom_general\Controller\medicardApi;
 
 class updatePatient extends FormBase {
   /**
@@ -20,16 +21,19 @@ class updatePatient extends FormBase {
   /**
    * Form builder.
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $patient = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $patient_id = NULL) {
+    $patient = medicardApi::get_patient();
+    $patient = $patient['patient'][$patient_id];
+
     $form['nid'] = array(
       '#type' => 'hidden',
-      '#value' => $patient->get('nid')->value,
+      '#value' => $patient_id,
     );
 
     $form['firstname'] = array(
       '#type' => 'textfield',
       '#title' => t("First Name"),
-      '#default_value' => $patient->get('field_first_name')->value,
+      '#default_value' => $patient['firstname'],
       '#required' => TRUE,
     );
     $form['firstname']['#prefix'] = '<div class="portlet box green">
@@ -41,26 +45,26 @@ class updatePatient extends FormBase {
     $form['lastname'] = array(
       '#type' => 'textfield',
       '#title' => t("Last Name"),
-      '#default_value' => $patient->get('field_last_name')->value,
+      '#default_value' => $patient['lastname'],
       '#required' => TRUE,
     );
     $form['dob'] = array(
       '#type' => 'date',
       '#title' => t("Date Of Birth"),
-      '#default_value' => date("Y-m-d", $patient->get('field_date_of_birth')->value),
+      '#default_value' => date("Y-m-d", $patient['dob']),
       '#required' => TRUE,
     ); 
     $form['gender'] = array(
       '#type' => 'select',
       '#title' => t("Gender"),
       '#options' => array('male' => 'Male', 'female' => 'Female'),
-      '#default_value' => $patient->get('field_gender')->value,
+      '#default_value' => $patient['gender'],
       '#required' => TRUE,
     );
     $form['address'] = array(
       '#type' => 'textarea',
       '#title' => t("Address"),
-      '#default_value' => $patient->get('field_patient_address')->value,
+      '#default_value' => $patient['address'],
       '#required' => TRUE,
     );
     $form['address']['#suffix'] = "</div></div>";
@@ -68,7 +72,7 @@ class updatePatient extends FormBase {
     $form['temp'] = array(
       '#type' => 'textfield',
       '#title' => t("Temperature"),
-      '#default_value' => $patient->get('field_temperature')->value,
+      '#default_value' => $patient['temp'],
       '#required' => TRUE,
     );
     $form['temp']['#prefix'] = '<div class="portlet box blue">
@@ -79,19 +83,19 @@ class updatePatient extends FormBase {
     $form['pulse'] = array(
       '#type' => 'textfield',
       '#title' => t("Pulse"),
-      '#default_value' => $patient->get('field_pulse')->value,
+      '#default_value' => $patient['pulse'],
       '#required' => TRUE,
     );
     $form['breathing'] = array(
       '#type' => 'textfield',
       '#title' => t("Respirations/Breathing"),
-      '#default_value' => $patient->get('field_respirations_breathing')->value,
+      '#default_value' => $patient['breathing'],
       '#required' => TRUE,
     );
     $form['bp'] = array(
       '#type' => 'textfield',
       '#title' => t("Blood pressure"),
-      '#default_value' => $patient->get('field_blood_pressure')->value,
+      '#default_value' => $patient['bp'],
       '#required' => TRUE,
     );
     $form['bp']['#suffix'] = "</div></div>";

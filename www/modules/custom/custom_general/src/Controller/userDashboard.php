@@ -5,30 +5,9 @@ namespace Drupal\custom_general\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\custom_general\Controller\apiHelper;
 use Drupal\node\Entity\Node;
+use Drupal\custom_general\Controller\medicardApi;
 
 class userDashboard extends ControllerBase {
-  /**
-   * Get patient data from main server.
-   */
-  public function get_patient() {
-      try {
-        $client = \Drupal::httpClient();
-        $response = $client->post('http://192.168.254.102/api/patient/view', [
-          'headers' => [
-            'Content-Type' => 'application/json',
-            'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
-            'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
-          ],
-        ]);
-
-        $data = json_decode($response->getBody(), TRUE);
-        return $data;
-
-      } catch (RequestException $e) {
-        return false;
-      }
-  }
-
   /**
    * User dashboard
    */
@@ -36,7 +15,7 @@ class userDashboard extends ControllerBase {
     $output = "";
 
     if (apiHelper::check_user_role('nurse')) {
-      $data = userDashboard::get_patient();
+      $data = medicardApi::get_patient();
 
       foreach ($data['patient'] as $nid => $patient) {
 
@@ -76,7 +55,7 @@ class userDashboard extends ControllerBase {
       }
     }
     else if (apiHelper::check_user_role('doctor')) {
-      $data = userDashboard::get_patient();
+      $data = medicardApi::get_patient();
 
       foreach ($data['patient'] as $nid => $patient) {
 
