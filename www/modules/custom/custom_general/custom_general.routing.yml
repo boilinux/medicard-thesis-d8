@@ -24,14 +24,10 @@ custom_general.get_view_patient:
 
 # Nurse
 custom_general.view_patient:
-  path: '/view/patient/{patient}'
+  path: '/view/patient/{patient_id}'
   defaults:
     _title: 'Patient Record'
     _controller: '\Drupal\custom_general\Controller\medicardApi::view_patient'
-  options:
-    parameters:
-      patient:
-        type: entity:node
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse'
 
@@ -44,14 +40,10 @@ custom_general.register_patient:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse'
 
 custom_general.update_patient:
-  path: '/update/patient/{patient}'
+  path: '/update/patient/{patient_id}'
   defaults:
     _title: 'Update Patient'
     _form: '\Drupal\custom_general\Form\updatePatient'
-  options:
-    parameters:
-      patient:
-        type: entity:node
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse'
 
