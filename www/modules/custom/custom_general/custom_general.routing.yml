@@ -49,13 +49,9 @@ custom_general.update_patient:
 
 # Doctor
 custom_general.update_doctor_patient:
-  path: '/update/doctor/patient/{patient}'
+  path: '/update/doctor/patient/{patient_id}'
   defaults:
     _title: 'Update Patient'
     _form: '\Drupal\custom_general\Form\updateDoctorPatient'
-  options:
-    parameters:
-      patient:
-        type: entity:node
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_doctor'
