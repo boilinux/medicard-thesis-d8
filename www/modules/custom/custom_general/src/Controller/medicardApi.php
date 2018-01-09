@@ -129,8 +129,40 @@ class medicardApi extends ControllerBase {
       if ($query_secret > 0 && $query_token > 0) {
 
         $entity_id = \Drupal::database()->query("SELECT entity_id FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+        if ($action == 'register' && $role == 'nurse') {
+          // Tracking
+          $track = "First Name: " . $data['firstname'] . "\n";
+          $track .= "Last Name: " . $data['lastname'] . "\n";
+          $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+          $track .= "Gender: " . $data['gender'] . "\n";
+          $track .= "address: " . $data['address'] . "\n";
+          $track .= "Temperature: " . $data['temp'] . "\n";
+          $track .= "Pulse: " . $data['pulse'] . "\n";
+          $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
+          $track .= "Blood Pressure: " . $data['bp'] . "\n";
+          $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
+          $track .= "User: " . $username . "\n";
+          $track .= "Role: Nurse";
 
-        if ($action == 'update' && $role == 'nurse') {
+          $values = [
+            'type' => 'patient',
+            'uid' => 1,
+            'title' => 'Patient---' . $data['firstname'] . ' ' . $data['firstname'] . \Drupal::time()->getRequestTime(),
+            'field_first_name' => ['value' => $data['firstname']],
+            'field_last_name' => ['value' => $data['lastname']],
+            'field_date_of_birth' => ['value' => $data['dob']],
+            'field_gender' => ['value' => $data['gender']],
+            'field_patient_address' => ['value' => $data['address']],
+            'field_temperature' => ['value' => $data['temp']],
+            'field_pulse' => ['value' => $data['pulse']],
+            'field_respirations_breathing' => ['value' => $data['breathing']],
+            'field_blood_pressure' => ['value' => $data['bp']],
+            'field_updates_track' => ['value' => $track],
+          ];
+
+          $node->field_updates_track->appendItem($track);
+        }
+        else if ($action == 'update' && $role == 'nurse') {
           $node = Node::load($nid);
 
           $node->field_first_name->value = $data['firstname'];

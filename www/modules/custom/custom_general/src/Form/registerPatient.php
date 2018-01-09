@@ -98,11 +98,50 @@ class registerPatient extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $uid = \Drupal::currentUser()->id();
 
-    $values = array(
-      'type' => 'patient',
-      'uid' => $uid,
-      'title' => 'Patient---' . $uid . '---' . \Drupal::time()->getRequestTime(),
-    );
+    $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
+
+    $data = [
+      'firstname' => $form_state->getValue('firstname'),
+      'lastname' => $form_state->getValue('lastname'),
+      'dob' => $form_state->getValue('dob'),
+      'gender' => $form_state->getValue('gender'),
+      'address' => $form_state->getValue('address'),
+      'temp' => $form_state->getValue('temp'),
+      'pulse' => $form_state->getValue('pulse'),
+      'breathing' => $form_state->getValue('breathing'),
+      'bp' => $form_state->getValue('bp'),
+    ];
+
+    try {
+      $client = \Drupal::httpClient();
+      $response = $client->post('http://192.168.254.102/api/patient/update', [
+        'headers' => [
+          'Content-Type' => 'application/json',
+          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+          'role' => 'nurse',
+          'action' => 'register',
+          'username' => $username,
+        ],
+        'body' => json_encode($data),
+      ]);
+
+      $data = json_decode($response->getBody(), TRUE);
+      
+      if ($data['status'] == 'success') {
+        drupal_set_message("Successfully registered patient " . ucwords($form_state->getValue('firstname')) . " " . ucwords($form_state->getValue('lastname')) . ".");
+
+        $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/");
+        $response->send();
+      }
+      else {
+        drupal_set_message("There are errors upon submission.", "error");
+      }
+
+    } catch (RequestException $e) {
+      drupal_set_message("There are errors upon submission.", "error");
+    }
+
 
     $values['field_first_name'] = array(
       'value' => $form_state->getValue('firstname'),
