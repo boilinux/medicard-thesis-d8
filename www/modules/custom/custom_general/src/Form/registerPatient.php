@@ -141,40 +141,5 @@ class registerPatient extends FormBase {
     } catch (RequestException $e) {
       drupal_set_message("There are errors upon submission.", "error");
     }
-
-
-    $values['field_first_name'] = array(
-      'value' => $form_state->getValue('firstname'),
-    );
-    $values['field_last_name'] = array(
-      'value' => $form_state->getValue('lastname'),
-    );
-    $values['field_date_of_birth'] = array(
-      'value' => strtotime($form_state->getValue('dob')),
-    );
-    $values['field_gender'] = array(
-      'value' => $form_state->getValue('gender'),
-    );
-    $values['field_patient_address'] = array(
-      'value' => $form_state->getValue('address'),
-    );
-    $values['field_temperature'] = array(
-      'value' => $form_state->getValue('temp'),
-    );
-    $values['field_pulse'] = array(
-      'value' => $form_state->getValue('pulse'),
-    );
-    $values['field_respirations_breathing'] = array(
-      'value' => $form_state->getValue('breathing'),
-    );
-    $values['field_blood_pressure'] = array(
-      'value' => $form_state->getValue('bp'),
-    );
-
-    // Node data save.
-    $node = Node::create($values);
-    $node->save();
-
-    drupal_set_message("Successfully registered new patient.");
   }
 }

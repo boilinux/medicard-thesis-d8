@@ -159,8 +159,7 @@ class medicardApi extends ControllerBase {
             'field_blood_pressure' => ['value' => $data['bp']],
             'field_updates_track' => ['value' => $track],
           ];
-
-          $node->field_updates_track->appendItem($track);
+          
         }
         else if ($action == 'update' && $role == 'nurse') {
           $node = Node::load($nid);
