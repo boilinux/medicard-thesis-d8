@@ -122,11 +122,6 @@ class updateDoctorPatient extends FormBase {
 
     $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
 
-    $node->field_findings->value = $form_state->getValue(['findings', 'value']);
-    $node->field_recommendation->value = $form_state->getValue(['recommendation', 'value']);
-    $node->field_result->value = $form_state->getValue(['result', 'value']);
-    $node->field_prescription->value = $form_state->getValue(['prescription', 'value']);
-
     $data = [
       'findings' => $form_state->getValue(['findings', 'value']),
       'recommendation' => $form_state->getValue(['recommendation', 'value']),
@@ -136,7 +131,7 @@ class updateDoctorPatient extends FormBase {
 
     try {
       $client = \Drupal::httpClient();
-      $response = $client->post('http://192.168.254.102/api/patient/update', [
+      $response = $client->post('http://192.168.254.124/api/patient/update', [
         'headers' => [
           'Content-Type' => 'application/json',
           'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',

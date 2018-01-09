@@ -133,7 +133,7 @@ class updatePatient extends FormBase {
 
     try {
       $client = \Drupal::httpClient();
-      $response = $client->post('http://192.168.254.102/api/patient/update', [
+      $response = $client->post('http://192.168.254.124/api/patient/update', [
         'headers' => [
           'Content-Type' => 'application/json',
           'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
