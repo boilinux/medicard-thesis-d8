@@ -212,7 +212,7 @@ class medicardApi extends ControllerBase {
           $values = [
             'type' => 'patient',
             'uid' => 1,
-            'title' => 'Patient---' . $data['firstname'] . ' ' . $data['firstname'] . \Drupal::time()->getRequestTime(),
+            'title' => 'Patient---' . $data['firstname'] . ' ' . $data['lastname'] . \Drupal::time()->getRequestTime(),
             'field_card_id' => ['value' => $data['card_id']],
             'field_first_name' => ['value' => $data['firstname']],
             'field_last_name' => ['value' => $data['lastname']],
