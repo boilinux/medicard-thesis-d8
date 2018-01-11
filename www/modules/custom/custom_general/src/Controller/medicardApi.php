@@ -64,10 +64,10 @@ class medicardApi extends ControllerBase {
         $query = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_card_id WHERE field_card_id_value = '" . $card_id . "'")->fetchField();
 
         if ($query > 0) {
-          $response['status'] = 'true';
+          $response = ['status' => 'true'];
         }
         else {
-          $response['status'] = 'false';
+          $response = ['status' => 'false'];
         }
       }
       else {
