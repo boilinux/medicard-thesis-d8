@@ -28,12 +28,14 @@ class medicardApi extends ControllerBase {
    */
   public function check_card_id($card_id = NULL) {
     $client = \Drupal::httpClient();
+
+    $data['card_id'] = $card_id;
+
     $response = $client->post('http://192.168.10.124/api/patient/view/card_id', [
       'headers' => [
         'Content-Type' => 'application/json',
         'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
         'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
-        'card_id' => $card_id,
       ],
       'body' => json_encode($data),
     ]);
@@ -61,7 +63,8 @@ class medicardApi extends ControllerBase {
 
       $secret = $request->headers->get('secret');
       $token = $request->headers->get('token');
-      $card_id = $request->headers->get('card_id');
+
+      $card_id = $data['card_id'];
 
       // Check for validation.
       $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
