@@ -295,7 +295,7 @@ class medicardApi extends ControllerBase {
   public function get_patient() {
       try {
         $client = \Drupal::httpClient();
-        $response = $client->post('http://192.168.254.124/api/patient/view', [
+        $response = $client->post('http://192.168.10.124/api/patient/view', [
           'headers' => [
             'Content-Type' => 'application/json',
             'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
