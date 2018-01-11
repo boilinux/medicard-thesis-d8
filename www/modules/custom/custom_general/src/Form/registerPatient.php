@@ -22,6 +22,7 @@ class registerPatient extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $card = medicardApi::get_card_id();
+    $card = trim($card);
     $status = medicardApi::check_card_id($card);
 
     if (empty($card) && $status == 'failed') {
