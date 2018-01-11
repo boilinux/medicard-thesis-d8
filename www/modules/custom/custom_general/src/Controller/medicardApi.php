@@ -102,9 +102,24 @@ class medicardApi extends ControllerBase {
   }
 
   /**
+   * Check user auth nurse register.
+   */
+  public function check_user_auth_nurse_register() {
+    $uid = \Drupal::currentUser()->id();
+    $roles = \Drupal::currentUser()->getRoles();
+
+    if ($uid > 0 && in_array('nurse', $roles)) {
+      return AccessResult::allowed();
+    }
+    else {
+      return AccessResult::forbidden();
+    }
+  }
+
+  /**
    * Check user auth nurse.
    */
-  public function check_user_auth_nurse($patient_id) {
+  public function check_user_auth_nurse($patient_id = NULL) {
     $uid = \Drupal::currentUser()->id();
     $roles = \Drupal::currentUser()->getRoles();
 
@@ -134,7 +149,7 @@ class medicardApi extends ControllerBase {
   /**
    * Check user auth doctor.
    */
-  public function check_user_auth_doctor() {
+  public function check_user_auth_doctor($patient_id = NULL) {
     $uid = \Drupal::currentUser()->id();
     $roles = \Drupal::currentUser()->getRoles();
 

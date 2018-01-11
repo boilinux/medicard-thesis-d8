@@ -45,7 +45,7 @@ custom_general.register_patient:
     _title: 'Register Patient'
     _form: '\Drupal\custom_general\Form\registerPatient'
   requirements:
-    _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse'
+    _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_nurse_register'
 
 custom_general.update_patient:
   path: '/update/patient/{patient_id}'
