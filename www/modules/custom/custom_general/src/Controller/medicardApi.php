@@ -61,10 +61,7 @@ class medicardApi extends ControllerBase {
       $query_token = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
 
       if ($query_secret > 0 && $query_token > 0) {
-
-        $query = \Drupal::database()->query("SELECT COUNT(*) FROM node_field_data AS nfd 
-          LEFT JOIN node__field_card_id AS nfci ON nfci.entity_id = nfd.nid
-          WHERE nfd.type = 'patient' AND nfci.field_card_id_value = " . $card_id . " ORDER BY nfd.created DESC")->fetchField();
+        $query = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_card_id WHERE field_card_id_value = '" . $card_id . "'")->fetchField();
 
         if ($query > 0) {
           $response['status'] = 'true';
