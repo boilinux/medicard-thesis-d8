@@ -104,7 +104,7 @@ class medicardApi extends ControllerBase {
   /**
    * Check user auth nurse.
    */
-  public function check_user_auth_nurse() {
+  public function check_user_auth_nurse($patient_id) {
     $uid = \Drupal::currentUser()->id();
     $roles = \Drupal::currentUser()->getRoles();
 
@@ -113,11 +113,17 @@ class medicardApi extends ControllerBase {
       $card = str_replace(' ', '', $card);
       $status = medicardApi::check_card_id($card);
 
+      $patient = medicardApi::get_patient();
+      $data = $patient['patient'][$patient_id];
+
       if (empty($card) || $status == 'failed') {
         return AccessResult::forbidden();
       }
-      else if(!empty($card) && $status == 'exist') {
+      else if(!empty($card) && $status == 'exist' && $data == $card) {
         return AccessResult::allowed();
+      }
+      else {
+        return AccessResult::forbidden();
       }
     }
     else {
@@ -378,6 +384,7 @@ class medicardApi extends ControllerBase {
             'result' => $node->get('field_result')->value,
             'prescription' => $node->get('field_prescription')->value,
             'created' => $node->get('created')->value,
+            'card_id' => $node->get('field_card_id')->value,
           ];
         }
 
