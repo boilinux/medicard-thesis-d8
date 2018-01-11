@@ -40,7 +40,15 @@ class medicardApi extends ControllerBase {
 
     $data = json_decode($response->getBody(), TRUE);
 
-    return $data['status'] == 'true' ? true : false;
+    if ($data['status'] == 'true') {
+      return 'exist';
+    }
+    else if($data['status'] == 'false') {
+      return 'not yet';
+    }
+    else {
+      return 'failed';
+    }
   }
   /**
    * post card id.

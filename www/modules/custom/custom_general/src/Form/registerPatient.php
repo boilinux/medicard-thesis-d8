@@ -22,14 +22,25 @@ class registerPatient extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $card = medicardApi::get_card_id();
+    $status = medicardApi::check_card_id($card);
 
-    if (empty($card) && medicardApi::check_card_id($card) == false) {
+    if (empty($card) && $status == 'failed') {
       $form['actions']['#type'] = 'actions';
       $form['actions']['submit'] = array(
         '#type' => 'submit',
         '#value' => $this->t('Refresh'),
         '#button_type' => 'primary',
         '#prefix' => "<h2>Please insert card.</h2>",
+      );
+      return $form;
+    }
+    else if(empty($card) && $status == 'exist') {
+      $form['actions']['#type'] = 'actions';
+      $form['actions']['submit'] = array(
+        '#type' => 'submit',
+        '#value' => $this->t('Refresh'),
+        '#button_type' => 'primary',
+        '#prefix' => "<h2>Your card is already registered.<br>Please insert another card.</h2>",
       );
       return $form;
     }
