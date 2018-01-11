@@ -114,7 +114,7 @@ class medicardApi extends ControllerBase {
       $status = medicardApi::check_card_id($card);
 
       $patient = medicardApi::get_patient();
-      $data = $patient['patient'][$patient_id]['card_id'];
+      $data = str_replace(' ', '', $patient['patient'][$patient_id]['card_id']);
 
       if (empty($card) || $status == 'failed') {
         return AccessResult::forbidden();
