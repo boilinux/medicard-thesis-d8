@@ -20,7 +20,8 @@ class registerPatient extends FormBase {
    * Form builder.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/smartcard.py > /dev/null 2>&1 &");
+    drupal_set_message();
+    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py > /dev/null 2>&1 &");
 
     if (empty($card)) {
       $form['actions']['#type'] = 'actions';
@@ -110,7 +111,7 @@ class registerPatient extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     if ($form_state->getValue('op') == 'Refresh') {
-      
+
     }
     else {  
       $uid = \Drupal::currentUser()->id();
