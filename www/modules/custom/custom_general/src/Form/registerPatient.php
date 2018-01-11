@@ -20,6 +20,19 @@ class registerPatient extends FormBase {
    * Form builder.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/smartcard.py > /dev/null 2>&1 &");
+
+    if (empty($card)) {
+      $form['actions']['#type'] = 'actions';
+      $form['actions']['submit'] = array(
+        '#type' => 'submit',
+        '#value' => $this->t('Refresh'),
+        '#button_type' => 'primary',
+        '#prefix' => "<h2>Please insert card.</h2>",
+      );
+
+      return $form;
+    }
 
     $form['firstname'] = array(
       '#type' => 'textfield',
@@ -96,50 +109,55 @@ class registerPatient extends FormBase {
    * Form submit.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $uid = \Drupal::currentUser()->id();
-
-    $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
-
-    $data = [
-      'firstname' => $form_state->getValue('firstname'),
-      'lastname' => $form_state->getValue('lastname'),
-      'dob' => $form_state->getValue('dob'),
-      'gender' => $form_state->getValue('gender'),
-      'address' => $form_state->getValue('address'),
-      'temp' => $form_state->getValue('temp'),
-      'pulse' => $form_state->getValue('pulse'),
-      'breathing' => $form_state->getValue('breathing'),
-      'bp' => $form_state->getValue('bp'),
-    ];
-
-    try {
-      $client = \Drupal::httpClient();
-      $response = $client->post('http://192.168.10.124/api/patient/update', [
-        'headers' => [
-          'Content-Type' => 'application/json',
-          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
-          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
-          'role' => 'nurse',
-          'action' => 'register',
-          'username' => $username,
-        ],
-        'body' => json_encode($data),
-      ]);
-
-      $data = json_decode($response->getBody(), TRUE);
+    if ($form_state->getValue('op') == 'Refresh') {
       
-      if ($data['status'] == 'success') {
-        drupal_set_message("Successfully registered patient " . ucwords($form_state->getValue('firstname')) . " " . ucwords($form_state->getValue('lastname')) . ".");
+    }
+    else {  
+      $uid = \Drupal::currentUser()->id();
 
-        $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/");
-        $response->send();
-      }
-      else {
+      $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
+
+      $data = [
+        'firstname' => $form_state->getValue('firstname'),
+        'lastname' => $form_state->getValue('lastname'),
+        'dob' => $form_state->getValue('dob'),
+        'gender' => $form_state->getValue('gender'),
+        'address' => $form_state->getValue('address'),
+        'temp' => $form_state->getValue('temp'),
+        'pulse' => $form_state->getValue('pulse'),
+        'breathing' => $form_state->getValue('breathing'),
+        'bp' => $form_state->getValue('bp'),
+      ];
+
+      try {
+        $client = \Drupal::httpClient();
+        $response = $client->post('http://192.168.10.124/api/patient/update', [
+          'headers' => [
+            'Content-Type' => 'application/json',
+            'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+            'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+            'role' => 'nurse',
+            'action' => 'register',
+            'username' => $username,
+          ],
+          'body' => json_encode($data),
+        ]);
+
+        $data = json_decode($response->getBody(), TRUE);
+        
+        if ($data['status'] == 'success') {
+          drupal_set_message("Successfully registered patient " . ucwords($form_state->getValue('firstname')) . " " . ucwords($form_state->getValue('lastname')) . ".");
+
+          $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/");
+          $response->send();
+        }
+        else {
+          drupal_set_message("There are errors upon submission.", "error");
+        }
+
+      } catch (RequestException $e) {
         drupal_set_message("There are errors upon submission.", "error");
       }
-
-    } catch (RequestException $e) {
-      drupal_set_message("There are errors upon submission.", "error");
     }
   }
 }
