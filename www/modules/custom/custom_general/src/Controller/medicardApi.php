@@ -31,7 +31,7 @@ class medicardApi extends ControllerBase {
 
     $data['card_id'] = $card_id;
 
-    $response = $client->post('http://192.168.10.124/api/patient/view/card_id', [
+    $response = $client->post('http://192.168.10.123/api/patient/view/card_id', [
       'headers' => [
         'Content-Type' => 'application/json',
         'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
@@ -423,7 +423,7 @@ class medicardApi extends ControllerBase {
   public function get_patient() {
       try {
         $client = \Drupal::httpClient();
-        $response = $client->post('http://192.168.10.124/api/patient/view', [
+        $response = $client->post('http://192.168.10.123/api/patient/view', [
           'headers' => [
             'Content-Type' => 'application/json',
             'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
