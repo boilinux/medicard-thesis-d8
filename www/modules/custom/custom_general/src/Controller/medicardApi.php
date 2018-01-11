@@ -109,7 +109,16 @@ class medicardApi extends ControllerBase {
     $roles = \Drupal::currentUser()->getRoles();
 
     if ($uid > 0 && in_array('nurse', $roles)) {
-      return AccessResult::allowed();
+      $card = medicardApi::get_card_id();
+      $card = str_replace(' ', '', $card);
+      $status = medicardApi::check_card_id($card);
+
+      if (empty($card) || $status == 'failed') {
+        return AccessResult::forbidden();
+      }
+      else if(!empty($card) && $status == 'exist') {
+        return AccessResult::allowed();
+      }
     }
     else {
       return AccessResult::forbidden();
@@ -124,7 +133,16 @@ class medicardApi extends ControllerBase {
     $roles = \Drupal::currentUser()->getRoles();
 
     if ($uid > 0 && in_array('doctor', $roles)) {
-      return AccessResult::allowed();
+      $card = medicardApi::get_card_id();
+      $card = str_replace(' ', '', $card);
+      $status = medicardApi::check_card_id($card);
+
+      if (empty($card) || $status == 'failed') {
+        return AccessResult::forbidden();
+      }
+      else if(!empty($card) && $status == 'exist') {
+        return AccessResult::allowed();
+      }
     }
     else {
       return AccessResult::forbidden();
@@ -139,7 +157,16 @@ class medicardApi extends ControllerBase {
     $roles = \Drupal::currentUser()->getRoles();
 
     if ($uid > 0 && in_array('pharmacist', $roles)) {
-      return AccessResult::allowed();
+      $card = medicardApi::get_card_id();
+      $card = str_replace(' ', '', $card);
+      $status = medicardApi::check_card_id($card);
+
+      if (empty($card) || $status == 'failed') {
+        return AccessResult::forbidden();
+      }
+      else if(!empty($card) && $status == 'exist') {
+        return AccessResult::allowed();
+      }
     }
     else {
       return AccessResult::forbidden();
