@@ -23,7 +23,7 @@ class registerPatient extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $card = medicardApi::get_card_id();
 
-    if (empty($card)) {
+    if (empty($card) && medicardApi::check_card_id($card) == false) {
       $form['actions']['#type'] = 'actions';
       $form['actions']['submit'] = array(
         '#type' => 'submit',
