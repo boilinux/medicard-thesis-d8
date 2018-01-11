@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
+use Drupal\custom_general\Controller\medicardApi;
 
 class registerPatient extends FormBase {
   /**
@@ -20,7 +21,7 @@ class registerPatient extends FormBase {
    * Form builder.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py");
+    $card = medicardApi::get_card_id();
 
     if (empty($card)) {
       $form['actions']['#type'] = 'actions';

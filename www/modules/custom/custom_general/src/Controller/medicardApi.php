@@ -16,6 +16,14 @@ use Drupal\custom_general\Controller\medicardApi;
 
 class medicardApi extends ControllerBase {
   /**
+   * get card id.
+   */
+  public function get_card_id() {
+    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py");
+
+    return $card;
+  }
+  /**
    * Check user auth.
    */
   public function check_user_auth() {
