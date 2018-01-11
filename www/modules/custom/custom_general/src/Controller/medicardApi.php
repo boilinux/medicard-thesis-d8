@@ -24,6 +24,62 @@ class medicardApi extends ControllerBase {
     return $card;
   }
   /**
+   * check card id.
+   */
+  public function check_card_id($card_id = NULL) {
+    $client = \Drupal::httpClient();
+    $response = $client->post('http://192.168.10.124/api/patient/view/card_id', [
+      'headers' => [
+        'Content-Type' => 'application/json',
+        'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+        'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+        'card_id' => $card_id,
+      ],
+      'body' => json_encode($data),
+    ]);
+
+    $data = json_decode($response->getBody(), TRUE);
+
+    return $data['status'] == 'true' ? true : false;
+  }
+  /**
+   * post card id.
+   */
+  public function get_view_patient_card_id($card_id = NULL) {
+    $response = array();
+
+    if (strpos($request->headers->get('Content-Type'), 'application/json') === 0) {
+      $data = json_decode($request->getContent(), TRUE);
+
+      $secret = $request->headers->get('secret');
+      $token = $request->headers->get('token');
+      $card_id = $request->headers->get('card_id');
+
+      // Check for validation.
+      $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
+
+      $query_token = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+
+      if ($query_secret > 0 && $query_token > 0) {
+
+        $query = \Drupal::database()->query("SELECT COUNT(*) FROM node_field_data AS nfd 
+          LEFT JOIN node__field_card_id AS nfci ON nfci.entity_id = nfd.nid
+          WHERE nfd.type = 'patient' AND nfci.field_card_id_value = " . $card_id . " ORDER BY nfd.created DESC")->fetchField();
+
+        if ($query > 0) {
+          $response['status'] = 'true';
+        }
+        else {
+          $response['status'] = 'false';
+        }
+      }
+      else {
+        $response = ['status' => 'failed'];
+      }
+    }
+    return new JsonResponse($response);
+  }
+  /**
    * Check user auth.
    */
   public function check_user_auth() {
