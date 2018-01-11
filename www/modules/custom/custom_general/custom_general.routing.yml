@@ -21,6 +21,14 @@ custom_general.get_view_patient:
     _controller: '\Drupal\custom_general\Controller\medicardApi::get_view_patient'
   requirements:
     _access: 'TRUE'
+    
+custom_general.get_view_patient_card_id:
+  path: '/api/patient/view/card_id'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\medicardApi::get_view_patient_card_id'
+  requirements:
+    _access: 'TRUE'
 
 # Nurse
 custom_general.view_patient:
