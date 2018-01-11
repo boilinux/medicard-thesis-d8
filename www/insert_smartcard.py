@@ -10,13 +10,12 @@ class PrintObserver(CardObserver):
     def update(self, observable, actions):
         (addedcards, removedcards) = actions
         for card in addedcards:
-            toHexString(card.atr)
+            print (toHexString(card.atr))
 
 if __name__ == '__main__':
     cardmonitor = CardMonitor()
     cardobserver = PrintObserver()
     cardmonitor.addObserver(cardobserver)
-
-    # don't forget to remove observer, or the
-    # monitor will poll forever...
+    sleep(3)
+    
     cardmonitor.deleteObserver(cardobserver)
