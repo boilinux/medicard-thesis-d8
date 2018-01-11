@@ -20,8 +20,7 @@ class registerPatient extends FormBase {
    * Form builder.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    drupal_set_message();
-    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py > /dev/null 2>&1 &");
+    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py");
 
     if (empty($card)) {
       $form['actions']['#type'] = 'actions';
@@ -34,6 +33,12 @@ class registerPatient extends FormBase {
 
       return $form;
     }
+
+    $form['card_id'] = array(
+      '#type' => 'hidden',
+      '#default_value' => $card,
+      '#required' => TRUE,
+    );
 
     $form['firstname'] = array(
       '#type' => 'textfield',
@@ -111,7 +116,8 @@ class registerPatient extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     if ($form_state->getValue('op') == 'Refresh') {
-
+      $response = new \Symfony\Component\HttpFoundation\RedirectResponse("/register/patient");
+      $response->send();
     }
     else {  
       $uid = \Drupal::currentUser()->id();
@@ -119,6 +125,7 @@ class registerPatient extends FormBase {
       $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
 
       $data = [
+        'card_id' => $form_state->getValue('card_id'),
         'firstname' => $form_state->getValue('firstname'),
         'lastname' => $form_state->getValue('lastname'),
         'dob' => $form_state->getValue('dob'),
