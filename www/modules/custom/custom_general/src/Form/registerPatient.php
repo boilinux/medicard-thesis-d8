@@ -25,7 +25,7 @@ class registerPatient extends FormBase {
     $card = str_replace(' ', '', $card);
     $status = medicardApi::check_card_id($card);
 
-    if (empty($card) && $status == 'failed') {
+    if (empty($card) || $status == 'failed') {
       $form['actions']['#type'] = 'actions';
       $form['actions']['submit'] = array(
         '#type' => 'submit',
