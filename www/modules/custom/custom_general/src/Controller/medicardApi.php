@@ -45,7 +45,7 @@ class medicardApi extends ControllerBase {
   /**
    * post card id.
    */
-  public function get_view_patient_card_id() {
+  public function get_view_patient_card_id(Request $request) {
     $response = array();
 
     if (strpos($request->headers->get('Content-Type'), 'application/json') === 0) {
