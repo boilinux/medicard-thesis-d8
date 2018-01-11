@@ -30,7 +30,6 @@ class registerPatient extends FormBase {
         '#button_type' => 'primary',
         '#prefix' => "<h2>Please insert card.</h2>",
       );
-
       return $form;
     }
 
