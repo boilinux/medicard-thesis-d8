@@ -124,7 +124,7 @@ class userDashboard extends ControllerBase {
       }
     }
 
-    if (empty($data['patient'])) {
+    if (empty($data['patient']) && !apiHelper::check_user_role('pharmacist')) {
       $output .= "<div class='col-sm-12'>No patient yet.</div>";
     }
 
