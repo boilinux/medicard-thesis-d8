@@ -19,7 +19,7 @@ class medicardApi extends ControllerBase {
    * get card id.
    */
   public function get_card_id() {
-    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py");
+    $card = exec("sudo python " . $_SERVER['DOCUMENT_ROOT'] . "/insert_smartcard.py 0");
 
     return $card;
   }
