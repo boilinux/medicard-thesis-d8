@@ -22,7 +22,7 @@ class PrintObserver(CardObserver):
 # get all the available readers
 r = readers()
 
-reader = r[sys.argv[1]]
+reader = r[int(sys.argv[1])]
 
 connection = reader.createConnection()
 connection.connect()
