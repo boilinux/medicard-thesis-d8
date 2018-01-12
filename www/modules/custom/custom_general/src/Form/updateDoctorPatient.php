@@ -126,7 +126,7 @@ class updateDoctorPatient extends FormBase {
       'findings' => $form_state->getValue(['findings', 'value']),
       'recommendation' => $form_state->getValue(['recommendation', 'value']),
       'result' => $form_state->getValue(['result', 'value']),
-      'prescription' => $form_state->getValue(['prescription', 'value']),
+      'prescription' => $form_state->getValue(['prescription', 'value']) . "\n Prescribe by Dr. " . $username,
     ];
 
     try {
