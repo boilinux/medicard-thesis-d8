@@ -393,6 +393,11 @@ class medicardApi extends ControllerBase {
 
           $node->field_updates_track->appendItem($track);
         }
+        else if ($action == 'update' && $role == 'pharmacist') {
+          $node = Node::load($nid);
+
+          $node->field_pharma_comment->appendItem($data['pharmacomment']);
+        }
 
         // Node data save.
         $node->save();
@@ -454,6 +459,7 @@ class medicardApi extends ControllerBase {
             'recommendation' => $node->get('field_recommendation')->getValue(),
             'result' => $node->get('field_result')->getValue(),
             'prescription' => $node->get('field_prescription')->getValue(),
+            'pharmacomment' => $node->get('field_pharma_comment')->getValue(),
             'created' => $node->get('created')->value,
             'card_id' => $node->get('field_card_id')->value,
             'revision' => $node->get('field_updates_track')->getValue(),

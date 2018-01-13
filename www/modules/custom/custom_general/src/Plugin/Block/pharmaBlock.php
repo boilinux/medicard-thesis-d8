@@ -3,7 +3,6 @@
 namespace Drupal\custom_general\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\custom_general\Controller\medicardApi;
 
 /**
  *
