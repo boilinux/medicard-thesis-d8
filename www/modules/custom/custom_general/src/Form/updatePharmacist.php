@@ -9,12 +9,12 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
 use Drupal\custom_general\Controller\medicardApi;
 
-class registerPatient extends FormBase {
+class updatePharmacist extends FormBase {
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'register_patient';
+    return 'pharmacist_comment_form';
   }
 
   /**

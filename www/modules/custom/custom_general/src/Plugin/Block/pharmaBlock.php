@@ -19,6 +19,7 @@ class pharmaBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    drupal_set_message('Test');
     $builtForm = \Drupal::formBuilder()->getForm('Drupal\custom_general\Form\updatePharmacist');
     $renderArray['form'] = $builtForm;
 
