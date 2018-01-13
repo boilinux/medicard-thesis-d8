@@ -242,7 +242,7 @@ class medicardApi extends ControllerBase {
       $track = "First Name: " . $data['firstname'] . "\n";
       $track .= "Middle Name: " . $data['middlename'] . "\n";
       $track .= "Last Name: " . $data['lastname'] . "\n";
-      $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+      $track .= "Date Of Birth: " . $data['dob'] . "\n";
       $track .= "Gender: " . $data['gender'] . "\n";
       $track .= "Status: " . $data['status'] . "\n";
       $track .= "Phone number: " . $data['phonenumber'] . "\n";
@@ -264,7 +264,7 @@ class medicardApi extends ControllerBase {
       $track = "First Name: " . $data['firstname'] . "\n";
       $track .= "Middle Name: " . $data['middlename'] . "\n";
       $track .= "Last Name: " . $data['lastname'] . "\n";
-      $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+      $track .= "Date Of Birth: " . $data['dob'] . "\n";
       $track .= "Gender: " . $data['gender'] . "\n";
       $track .= "Status: " . $data['status'] . "\n";
       $track .= "Phone number: " . $data['phonenumber'] . "\n";
