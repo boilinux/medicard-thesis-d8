@@ -84,3 +84,8 @@ form.user-form div.form-managed-file input.form-file {
 div.form-type-checkbox {
   margin-left: 20px !important;
 }
+
+/* line 102, ../sass/custom.scss */
+.doctor-box {
+  margin-bottom: 3px !important;
+}
