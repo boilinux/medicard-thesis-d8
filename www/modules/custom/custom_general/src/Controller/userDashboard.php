@@ -154,9 +154,8 @@ class userDashboard extends ControllerBase {
               <div class='row static-info'>
                 <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
               </div>
+              " . $accordion . "
             </div>";
-            
-            $output .= $accordion;
           }
         }
       }
