@@ -116,31 +116,12 @@ class registerPatient extends FormBase {
       '#required' => TRUE,
     );
     $form['immunization'] = array(
-      '#type' => 'checkboxes',
-      '#title' => t("Immunization"),
-      '#options' => [
-        'TD' => 'TD',
-        'Flu' => 'Flu',
-        'Pneumovax' => 'Pneumovax',
-        'Hep.b' => 'Hep.B',
-        'Hep.c' => 'Hep.C',
-        'varicella' => 'Varicella',
-      ],
-      '#required' => TRUE,
+      '#type' => 'textarea',
+      '#title' => t("immunization"),
     );
     $form['labtest'] = array(
-      '#type' => 'checkboxes',
+      '#type' => 'textarea',
       '#title' => t("Laboratory test"),
-      '#options' => [
-        'CBC' => 'CBC',
-        'CHEM' => 'CHEM',
-        'TSH' => 'TSH',
-        'PSA' => 'PSA',
-        'Liquid profile' => 'Liquid profile',
-        'U/A' => 'U/A',
-        'Hemoccults' => 'Hemoccults',
-      ],
-      '#required' => TRUE,
     );
     $form['labtest']['#suffix'] = "</div></div>";
 
