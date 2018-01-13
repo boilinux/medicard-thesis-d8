@@ -41,7 +41,15 @@
 		}
 
 		$('div.doctor-box div.actions a').click(function() {
-			$('div#' + $(this).attr('data-name')).show();
+			var box = $('div#' + $(this).attr('data-name'));
+			if (box.hasClass('hide')) {
+				box.removeClass('hide');
+				box.slideDown('slow');
+			}
+			else {
+				box.slideUp('slow');
+				box.addClass('hide');
+			}
 		});
 	});
 })(jQuery);
