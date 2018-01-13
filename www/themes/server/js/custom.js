@@ -39,5 +39,9 @@
 
 			toastr[custom_msg.attr('data-notice')](custom_msg.text(), "System message");
 		}
+
+		$('div.doctor-box div.actions a').click(function() {
+			$('div#' + $(this).attr('data-name')).show();
+		});
 	});
 })(jQuery);
