@@ -63,6 +63,11 @@ class registerPatient extends FormBase {
       </div>
       <div class="portlet-body">';
 
+    $form['middlename'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Middle Name"),
+      '#required' => TRUE,
+    );
     $form['lastname'] = array(
       '#type' => 'textfield',
       '#title' => t("Last Name"),
@@ -79,12 +84,48 @@ class registerPatient extends FormBase {
       '#options' => array('male' => 'Male', 'female' => 'Female'),
       '#required' => TRUE,
     );
+    $form['status'] = array(
+      '#type' => 'select',
+      '#title' => t("Status"),
+      '#options' => array('single' => 'Single', 'married' => 'Married', 'divorced' => 'Divorced', 'widowed' => 'Widowed'),
+      '#required' => TRUE,
+    );
+    $form['phonenumber'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Phone number"),
+      '#required' => TRUE,
+    );
+    $form['email'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Email"),
+      '#required' => TRUE,
+    );
     $form['address'] = array(
       '#type' => 'textarea',
       '#title' => t("Address"),
       '#required' => TRUE,
     );
-    $form['address']['#suffix'] = "</div></div>";
+    $form['employer'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Employer"),
+      '#required' => TRUE,
+    );
+    $form['companyaddress'] = array(
+      '#type' => 'textarea',
+      '#title' => t("Company address"),
+      '#required' => TRUE,
+    );
+    $form['immunization'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Immunization"),
+      '#required' => TRUE,
+    );
+    $form['labtest'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Laboratory test"),
+      '#required' => TRUE,
+    );
+    $form['labtest']['#suffix'] = "</div></div>";
 
     $form['temp'] = array(
       '#type' => 'textfield',
@@ -139,9 +180,17 @@ class registerPatient extends FormBase {
       $data = [
         'card_id' => $form_state->getValue('card_id'),
         'firstname' => $form_state->getValue('firstname'),
+        'middlename' => $form_state->getValue('middlename'),
         'lastname' => $form_state->getValue('lastname'),
         'dob' => $form_state->getValue('dob'),
         'gender' => $form_state->getValue('gender'),
+        'status' => $form_state->getValue('status'),
+        'phonenumber' => $form_state->getValue('phonenumber'),
+        'email' => $form_state->getValue('email'),
+        'employer' => $form_state->getValue('employer'),
+        'companyaddress' => $form_state->getValue('companyaddress'),
+        'immunization' => $form_state->getValue('immunization'),
+        'labtest' => $form_state->getValue('labtest'),
         'address' => $form_state->getValue('address'),
         'temp' => $form_state->getValue('temp'),
         'pulse' => $form_state->getValue('pulse'),
