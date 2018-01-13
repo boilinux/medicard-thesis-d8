@@ -1,0 +1,28 @@
+<?php
+
+namespace Drupal\custom_general\Plugin\Block;
+
+use Drupal\Core\Block\BlockBase;
+use Drupal\custom_general\Controller\medicardApi;
+
+/**
+ *
+ * @Block(
+ *   id = "pharma_block",
+ *   admin_label = @Translation("Pharmacist comment"),
+ *   category = @Translation("Pharmacist commet block form"),
+ * )
+ */
+class pharmaBlock extends BlockBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build() {
+    $builtForm = \Drupal::formBuilder()->getForm('Drupal\custom_general\Form\updatePharmacist');
+    $renderArray['form'] = $builtForm;
+
+    return $renderArray;
+  }
+
+}
