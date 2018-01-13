@@ -42,6 +42,12 @@ class updatePatient extends FormBase {
       </div>
       <div class="portlet-body">';
 
+    $form['middlename'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Middle Name"),
+      '#default_value' => $patient['middlename'],
+      '#required' => TRUE,
+    );
     $form['lastname'] = array(
       '#type' => 'textfield',
       '#title' => t("Last Name"),
@@ -61,13 +67,54 @@ class updatePatient extends FormBase {
       '#default_value' => $patient['gender'],
       '#required' => TRUE,
     );
+    $form['status'] = array(
+      '#type' => 'select',
+      '#title' => t("Status"),
+      '#options' => array('single' => 'Single', 'married' => 'Married', 'divorced' => 'Divorced', 'widowed' => 'Widowed'),
+      '#default_value' => $patient['status'],
+      '#required' => TRUE,
+    );
+    $form['phonenumber'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Phone number"),
+      '#default_value' => $patient['phonenumber'],
+      '#required' => TRUE,
+    );
+    $form['email'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Email"),
+      '#default_value' => $patient['email'],
+      '#required' => TRUE,
+    );
     $form['address'] = array(
       '#type' => 'textarea',
       '#title' => t("Address"),
       '#default_value' => $patient['address'],
       '#required' => TRUE,
     );
-    $form['address']['#suffix'] = "</div></div>";
+    $form['employer'] = array(
+      '#type' => 'textfield',
+      '#title' => t("Employer"),
+      '#default_value' => $patient['employer'],
+      '#required' => TRUE,
+    );
+    $form['companyaddress'] = array(
+      '#type' => 'textarea',
+      '#title' => t("Company address"),
+      '#default_value' => $patient['companyaddress'],
+      '#required' => TRUE,
+    );
+    $form['immunization'] = array(
+      '#type' => 'textarea',
+      '#title' => t("immunization"),
+      '#default_value' => $patient['immunization'],
+    );
+    $form['labtest'] = array(
+      '#type' => 'textarea',
+      '#title' => t("Laboratory test"),
+      '#default_value' => $patient['labtest'],
+    );
+    $form['labtest']['#suffix'] = "</div></div>";
 
     $form['temp'] = array(
       '#type' => 'textfield',
@@ -121,9 +168,17 @@ class updatePatient extends FormBase {
 
     $data = [
       'firstname' => $form_state->getValue('firstname'),
+      'middlename' => $form_state->getValue('middlename'),
       'lastname' => $form_state->getValue('lastname'),
       'dob' => $form_state->getValue('dob'),
       'gender' => $form_state->getValue('gender'),
+      'status' => $form_state->getValue('status'),
+      'phonenumber' => $form_state->getValue('phonenumber'),
+      'email' => $form_state->getValue('email'),
+      'employer' => $form_state->getValue('employer'),
+      'companyaddress' => $form_state->getValue('companyaddress'),
+      'immunization' => $form_state->getValue('immunization'),
+      'labtest' => $form_state->getValue('labtest'),
       'address' => $form_state->getValue('address'),
       'temp' => $form_state->getValue('temp'),
       'pulse' => $form_state->getValue('pulse'),
