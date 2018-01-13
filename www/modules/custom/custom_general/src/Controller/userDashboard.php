@@ -121,7 +121,7 @@ class userDashboard extends ControllerBase {
 
         foreach ($data['patient'] as $nid => $patient) {
           if ($patient['card_id'] == $card) {
-            $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
+            $output .= "<div class='col-sm-12'><div class='portlet yellow-crusta box'>";
 
             $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div></div>";
 
