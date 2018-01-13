@@ -43,6 +43,18 @@ class userDashboard extends ControllerBase {
 
         $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/update/doctor/patient/" . $nid . "'><i class='fa fa-edit'></i> Update</a></div></div>";
 
+        $accordion = "";
+
+        if (!empty($patient['findings'])) {
+          $accordion = "<div class='col-md-6 col-sm-12'><div class='portlet red box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' href='#'><i class='fa fa-edit'></i> Show</a></div></div>";
+          $accordion .= "<div class='portlet-body'>";
+          foreach ($patient['findings'] as $val) {
+            $accordion .= "<div>" . $val->value . "</div>";
+          }
+          $accordion .= "</div></div>";
+        }
+
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
             <div class='col-md-5 name'>Date Of Birth:</div><div class='col-md-7 value'> " . date("d-M-Y", $patient['dob']) . "</div>
@@ -67,6 +79,7 @@ class userDashboard extends ControllerBase {
         </div>";
 
         $output .= "</div></div>";
+        $output .= $accordion;
       }
     }
     else if (apiHelper::check_user_role('pharmacist')) {
