@@ -237,7 +237,7 @@ class medicardApi extends ControllerBase {
   private function set_patient_revision($data = NULL, $role = NULL) {
     // Tracking
     $track = "";
-    
+
     if ($role == 'nurse') {
       $track = "First Name: " . $data['firstname'] . "\n";
       $track .= "Middle Name: " . $data['middlename'] . "\n";
@@ -305,6 +305,8 @@ class medicardApi extends ControllerBase {
       $role = $request->headers->get('role');
       $action = $request->headers->get('action');
       $username = $request->headers->get('username');
+      
+      $data['username'] = $username;
 
       // Check for validation.
       $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
