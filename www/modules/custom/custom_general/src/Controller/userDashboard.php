@@ -125,9 +125,19 @@ class userDashboard extends ControllerBase {
 
             $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div></div>";
 
+            $prescription = "";
+            if (!empty($patient['prescription'])) {
+              foreach ($patient['prescription'] as $val) {
+                $prescription .= "<div>" . $val['value'] . "</div>";
+              }
+            }
+            else {
+              $prescription .= "<div>No Prescription.</div>";
+            }
+
             $output .= "<div class='portlet-body'>
               <div class='row static-info'>
-                <div class='col-md-5 name'>Prescription:</div><div class='col-md-7 value'> " . date("d-M-Y", $patient['prescription']) . "</div>
+                <div class='col-md-5 name'>Prescription:</div><div class='col-md-7 value'> " . $prescription . "</div>
               </div>
               <div class='row static-info'>
                 <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
