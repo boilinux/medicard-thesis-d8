@@ -121,7 +121,7 @@ class userDashboard extends ControllerBase {
 
         foreach ($data['patient'] as $nid => $patient) {
           if ($patient['card_id'] == $card) {
-            $output .= "<div class='col-sm-12'><div class='portlet yellow-crusta box'>";
+            $output .= "<div class='cols-m-12'><div class='portlet yellow-crusta box'>";
 
             $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div></div>";
 
@@ -133,6 +133,18 @@ class userDashboard extends ControllerBase {
             }
             else {
               $prescription .= "<div>No Prescription.</div>";
+            }
+
+            $accordion = "";
+
+            if (!empty($patient['pharmacomment'])) {
+              $accordion = "<div class='portlet green box doctor-box'>";
+              $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Latest comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+              $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
+              foreach ($patient['pharmacomment'] as $val) {
+                $accordion .= "<div>" . $val['value'] . "</div>";
+              }
+              $accordion .= "</div></div>";
             }
 
             $output .= "<div class='portlet-body'>
