@@ -211,13 +211,20 @@ class medicardApi extends ControllerBase {
 
     $output .= "<div class=''><div class='portlet green box'>";
 
-    $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div><div class='actions'>Registered: " . date("d-M-Y", $patient['created']) . "</div></div>";
+    $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['middlename']) . " " . ucwords($patient['lastname']) . "</div><div class='actions'>Registered: " . date("d-M-Y", $patient['created']) . "</div></div>";
 
     $output .= "<div class='portlet-body'>
       <div class='row static-info'>
         <div class='col-md-5 name'>Date Of Birth:</div><div class='col-md-7 value'> " . date("d-M-Y", $patient['dob']) . "</div>
         <div class='col-md-5 name'>Gender:</div><div class='col-md-7 value'> " . ucwords($patient['gender']) . "</div>
+        <div class='col-md-5 name'>Status:</div><div class='col-md-7 value'> " . ucwords($patient['status']) . "</div>
+        <div class='col-md-5 name'>Phone number:</div><div class='col-md-7 value'> " . ucwords($patient['phonenumber']) . "</div>
+        <div class='col-md-5 name'>Email:</div><div class='col-md-7 value'> " . ucwords($patient['email']) . "</div>
         <div class='col-md-5 name'>Address:</div><div class='col-md-7 value'> " . ucwords($patient['address']) . "</div>
+        <div class='col-md-5 name'>Employer:</div><div class='col-md-7 value'> " . ucwords($patient['employer']) . "</div>
+        <div class='col-md-5 name'>Company address:</div><div class='col-md-7 value'> " . ucwords($patient['companyaddress']) . "</div>
+        <div class='col-md-5 name'>Immunization:</div><div class='col-md-7 value'> " . ucwords($patient['immunization']) . "</div>
+        <div class='col-md-5 name'>Laboratory test:</div><div class='col-md-7 value'> " . ucwords($patient['labtest']) . "</div>
         <div class='col-md-12 name'><p><h2>Vital signs</h2></p></div>
         <div class='col-md-5 name'>Temperature:</div><div class='col-md-7 value'> " . ucwords($patient['temp']) . "</div>
         <div class='col-md-5 name'>Pulse:</div><div class='col-md-7 value'> " . ucwords($patient['pulse']) . "</div>
