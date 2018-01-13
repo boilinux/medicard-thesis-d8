@@ -232,6 +232,65 @@ class medicardApi extends ControllerBase {
   }
 
   /**
+   * set tracking for revision.
+   */
+  private function set_patient_revision($data = NULL, $role = NULL) {
+    // Tracking
+    $track = "";
+    
+    if ($role == 'nurse') {
+      $track = "First Name: " . $data['firstname'] . "\n";
+      $track .= "Middle Name: " . $data['middlename'] . "\n";
+      $track .= "Last Name: " . $data['lastname'] . "\n";
+      $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+      $track .= "Gender: " . $data['gender'] . "\n";
+      $track .= "Status: " . $data['status'] . "\n";
+      $track .= "Phone number: " . $data['phonenumber'] . "\n";
+      $track .= "Email: " . $data['email'] . "\n";
+      $track .= "Employer: " . $data['employer'] . "\n";
+      $track .= "Company address: " . $data['companyaddress'] . "\n";
+      $track .= "Immunization: " . implode(',', $data['immunization']) . "\n";
+      $track .= "Laboratory test: " . implode(',', $data['labtest']) . "\n";
+      $track .= "address: " . $data['address'] . "\n";
+      $track .= "Temperature: " . $data['temp'] . "\n";
+      $track .= "Pulse: " . $data['pulse'] . "\n";
+      $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
+      $track .= "Blood Pressure: " . $data['bp'] . "\n";
+      $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
+      $track .= "User: " . $data['username'] . "\n";
+      $track .= "Role: Nurse";
+    }
+    else if ($role == 'doctor') {
+      $track = "First Name: " . $data['firstname'] . "\n";
+      $track .= "Middle Name: " . $data['middlename'] . "\n";
+      $track .= "Last Name: " . $data['lastname'] . "\n";
+      $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
+      $track .= "Gender: " . $data['gender'] . "\n";
+      $track .= "Status: " . $data['status'] . "\n";
+      $track .= "Phone number: " . $data['phonenumber'] . "\n";
+      $track .= "Email: " . $data['email'] . "\n";
+      $track .= "Employer: " . $data['employer'] . "\n";
+      $track .= "Company address: " . $data['companyaddress'] . "\n";
+      $track .= "Immunization: " . implode(',', $data['immunization']) . "\n";
+      $track .= "Laboratory test: " . implode(',', $data['labtest']) . "\n";
+      $track .= "address: " . $data['address'] . "\n";
+      $track .= "Temperature: " . $data['temp'] . "\n";
+      $track .= "Pulse: " . $data['pulse'] . "\n";
+      $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
+      $track .= "Blood Pressure: " . $data['bp'] . "\n";
+      $track .= "Findings: " . implode(',', $data['findings']) . "\n";
+      $track .= "Recommendation: " . implode(',', $data['recommendation']) . "\n";
+      $track .= "Result: " . implode(',', $data['result']) . "\n";
+      $track .= "Prescription: " . implode(',', $data['prescription']) . "\n";
+      $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
+      $track .= "User: " . $data['username'] . "\n";
+      $track .= "Role: Doctor";
+    }
+
+    return $track;
+  }
+
+  /**
    * Update via post patient.
    */
   public function post_update_patient(Request $request) {
@@ -257,24 +316,12 @@ class medicardApi extends ControllerBase {
         $entity_id = \Drupal::database()->query("SELECT entity_id FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
 
         if ($action == 'register' && $role == 'nurse') {
-          // Tracking
-          $track = "First Name: " . $data['firstname'] . "\n";
-          $track .= "Last Name: " . $data['lastname'] . "\n";
-          $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
-          $track .= "Gender: " . $data['gender'] . "\n";
-          $track .= "address: " . $data['address'] . "\n";
-          $track .= "Temperature: " . $data['temp'] . "\n";
-          $track .= "Pulse: " . $data['pulse'] . "\n";
-          $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
-          $track .= "Blood Pressure: " . $data['bp'] . "\n";
-          $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
-          $track .= "User: " . $username . "\n";
-          $track .= "Role: Nurse";
+          $track = medicardApi::set_patient_revision($data, 'nurse');
 
           $values = [
             'type' => 'patient',
             'uid' => 1,
-            'title' => 'Patient---' . $data['firstname'] . ' ' . $data['lastname'] . \Drupal::time()->getRequestTime(),
+            'title' => 'Patient---' . $data['firstname'] . ' ' . $data['lastname'] . "-" . \Drupal::time()->getRequestTime(),
             'field_card_id' => ['value' => $data['card_id']],
             'field_first_name' => ['value' => $data['firstname']],
             'field_middle_name' => ['value' => $data['middlename']],
@@ -320,19 +367,7 @@ class medicardApi extends ControllerBase {
           $node->field_respirations_breathing->value = $data['breathing'];
           $node->field_blood_pressure->value = $data['bp'];
 
-          // Tracking
-          $track = "First Name: " . $data['firstname'] . "\n";
-          $track .= "Last Name: " . $data['lastname'] . "\n";
-          $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
-          $track .= "Gender: " . $data['gender'] . "\n";
-          $track .= "address: " . $data['address'] . "\n";
-          $track .= "Temperature: " . $data['temp'] . "\n";
-          $track .= "Pulse: " . $data['pulse'] . "\n";
-          $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
-          $track .= "Blood Pressure: " . $data['bp'] . "\n";
-          $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
-          $track .= "User: " . $username . "\n";
-          $track .= "Role: Nurse";
+          $track = medicardApi::set_patient_revision($data, 'nurse');
 
           $node->field_updates_track->appendItem($track);
 
@@ -345,25 +380,7 @@ class medicardApi extends ControllerBase {
           $node->field_result->appendItem($data['result']);
           $node->field_prescription->appendItem($data['prescription']);
 
-          // Tracking
-          $track = "First Name: " . $data['firstname'] . "\n";
-          $track .= "Last Name: " . $data['lastname'] . "\n";
-          $track .= "Date Of Birth: " . date("d-M-Y", $data['dob']) . "\n";
-          $track .= "Gender: " . $data['gender'] . "\n";
-          $track .= "address: " . $data['address'] . "\n";
-          $track .= "Temperature: " . $data['temp'] . "\n";
-          $track .= "Pulse: " . $data['pulse'] . "\n";
-          $track .= "Respirations/Breathing: " . $data['breathing'] . "\n";
-          $track .= "Blood Pressure: " . $data['bp'] . "\n";
-
-          $track .= "Findings: " . $data['findings'] . "\n";
-          $track .= "Recommendation: " . $data['recommendation'] . "\n";
-          $track .= "Result: " . $data['result'] . "\n";
-          $track .= "Prescription: " . $data['prescription'] . "\n";
-
-          $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
-          $track .= "User: " . $username . "\n";
-          $track .= "Role: Doctor";
+          $track = medicardApi::set_patient_revision($data, 'doctor');
 
           $node->field_updates_track->appendItem($track);
         }
@@ -430,6 +447,7 @@ class medicardApi extends ControllerBase {
             'prescription' => $node->get('field_prescription')->getValue(),
             'created' => $node->get('created')->value,
             'card_id' => $node->get('field_card_id')->value,
+            'revision' => $node->get('field_updates_track')->getValue(),
           ];
         }
 
