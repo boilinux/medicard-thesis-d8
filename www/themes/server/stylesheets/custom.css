@@ -79,3 +79,8 @@ form.user-form div.form-managed-file input.form-file {
   background: #fff;
   padding: 0 0 0 110px;
 }
+
+/* line 99, ../sass/custom.scss */
+div.form-type-checkbox {
+  margin-left: 20px !important;
+}
