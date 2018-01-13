@@ -130,10 +130,10 @@ class updateDoctorPatient extends FormBase {
     $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
 
     $data = [
-      'findings' => $form_state->getValue(['findings', 'value']) . "\n posted by Dr. " . $username,
-      'recommendation' => $form_state->getValue(['recommendation', 'value']) . "\n posted by Dr. " . $username,
-      'result' => $form_state->getValue(['result', 'value']) . "\n posted by Dr. " . $username,
-      'prescription' => $form_state->getValue(['prescription', 'value']) . "\n posted by Dr. " . $username,
+      'findings' => $form_state->getValue(['findings', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
+      'recommendation' => $form_state->getValue(['recommendation', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
+      'result' => $form_state->getValue(['result', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
+      'prescription' => $form_state->getValue(['prescription', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
     ];
 
     try {
