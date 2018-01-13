@@ -277,9 +277,17 @@ class medicardApi extends ControllerBase {
             'title' => 'Patient---' . $data['firstname'] . ' ' . $data['lastname'] . \Drupal::time()->getRequestTime(),
             'field_card_id' => ['value' => $data['card_id']],
             'field_first_name' => ['value' => $data['firstname']],
+            'field_middle_name' => ['value' => $data['middlename']],
             'field_last_name' => ['value' => $data['lastname']],
             'field_date_of_birth' => ['value' => strtotime($data['dob'])],
             'field_gender' => ['value' => $data['gender']],
+            'field_patient_status' => ['value' => $data['status']],
+            'field_phone_number' => ['value' => $data['phonenumber']],
+            'field_patient_email' => ['value' => $data['email']],
+            'field_patient_employer' => ['value' => $data['employer']],
+            'field_company_address' => ['value' => $data['companyaddress']],
+            'field_immunizations' => ['value' => $data['immunization']],
+            'field_laboratory_test' => ['value' => $data['labtest']],
             'field_patient_address' => ['value' => $data['address']],
             'field_temperature' => ['value' => $data['temp']],
             'field_pulse' => ['value' => $data['pulse']],
@@ -295,9 +303,17 @@ class medicardApi extends ControllerBase {
           $node = Node::load($nid);
 
           $node->field_first_name->value = $data['firstname'];
+          $node->field_middle_name->value = $data['middlename'];
           $node->field_last_name->value = $data['lastname'];
           $node->field_date_of_birth->value = strtotime($data['dob']);
           $node->field_gender->value = $data['gender'];
+          $node->field_patient_status->value = $data['status'];
+          $node->field_phone_number->value = $data['phonenumber'];
+          $node->field_patient_email->value = $data['email'];
+          $node->field_patient_employer->value = $data['employer'];
+          $node->field_company_address->value = $data['companyaddress'];
+          $node->field_immunizations->value = $data['immunization'];
+          $node->field_laboratory_test->value = $data['labtest'];
           $node->field_patient_address->value = $data['address'];
           $node->field_temperature->value = $data['temp'];
           $node->field_pulse->value = $data['pulse'];
@@ -324,10 +340,10 @@ class medicardApi extends ControllerBase {
         else if ($action == 'update' && $role == 'doctor') {
           $node = Node::load($nid);
 
-          $node->field_findings->value = $data['findings'];
-          $node->field_recommendation->value = $data['recommendation'];
-          $node->field_result->value = $data['result'];
-          $node->field_prescription->value = $data['prescription'];
+          $node->field_findings->appendItem($data['findings']);
+          $node->field_recommendation->appendItem($data['recommendation']);
+          $node->field_result->appendItem($data['result']);
+          $node->field_prescription->appendItem($data['prescription']);
 
           // Tracking
           $track = "First Name: " . $data['firstname'] . "\n";
@@ -392,18 +408,26 @@ class medicardApi extends ControllerBase {
 
           $response['patient'][$res->nid] = [
             'firstname' => $node->get('field_first_name')->value,
+            'middlename' => $node->get('field_middle_name')->value,
             'lastname' => $node->get('field_last_name')->value,
             'dob' => $node->get('field_date_of_birth')->value,
             'gender' => $node->get('field_gender')->value,
+            'status' => $node->get('field_patient_status')->value,
+            'phonenumber' => $node->get('field_phone_number')->value,
+            'email' => $node->get('field_patient_email')->value,
+            'employer' => $node->get('field_patient_employer')->value,
+            'companyaddress' => $node->get('field_company_address')->value,
+            'immunization' => $node->get('field_immunizations')->getValue(),
+            'labtest' => $node->get('field_laboratory_test')->getValue(),
             'address' => $node->get('field_patient_address')->value,
             'temp' => $node->get('field_temperature')->value,
             'pulse' => $node->get('field_pulse')->value,
             'breathing' => $node->get('field_respirations_breathing')->value,
             'bp' => $node->get('field_blood_pressure')->value,
-            'findings' => $node->get('field_findings')->value,
-            'recommendation' => $node->get('field_recommendation')->value,
-            'result' => $node->get('field_result')->value,
-            'prescription' => $node->get('field_prescription')->value,
+            'findings' => $node->get('field_findings')->getValue(),
+            'recommendation' => $node->get('field_recommendation')->getValue(),
+            'result' => $node->get('field_result')->getValue(),
+            'prescription' => $node->get('field_prescription')->getValue(),
             'created' => $node->get('created')->value,
             'card_id' => $node->get('field_card_id')->value,
           ];
