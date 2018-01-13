@@ -81,6 +81,15 @@ class userDashboard extends ControllerBase {
           }
           $accordion .= "</div></div>";
         }
+        if (!empty($patient['pharmacomment'])) {
+          $accordion .= "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
+          foreach ($patient['pharmacomment'] as $val) {
+            $accordion .= "<div>" . $val['value'] . "</div>";
+          }
+          $accordion .= "</div></div>";
+        }
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
