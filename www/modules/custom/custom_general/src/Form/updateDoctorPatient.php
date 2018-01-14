@@ -66,6 +66,7 @@ class updateDoctorPatient extends FormBase {
       '#type' => 'text_format',
       '#format' => 'doctor_text',
       '#default_value' => $patient['findings'],
+      '#required' => TRUE,
       '#prefix' => $output . '<div class="portlet box red">
       <div class="portlet-title">
         <div class="caption"><i class="fa fa-upload"></i> Findings</div>
@@ -78,6 +79,7 @@ class updateDoctorPatient extends FormBase {
       '#type' => 'text_format',
       '#format' => 'doctor_text',
       '#default_value' => $patient['recommendation'],
+      '#required' => TRUE,
       '#prefix' => '<div class="portlet box red">
       <div class="portlet-title">
         <div class="caption"><i class="fa fa-upload"></i> Recommendation</div>
@@ -90,6 +92,7 @@ class updateDoctorPatient extends FormBase {
       '#type' => 'text_format',
       '#format' => 'doctor_text',
       '#default_value' => $patient['result'],
+      '#required' => TRUE,
       '#prefix' => '<div class="portlet box red">
       <div class="portlet-title">
         <div class="caption"><i class="fa fa-upload"></i> Result</div>
@@ -102,6 +105,7 @@ class updateDoctorPatient extends FormBase {
       '#type' => 'text_format',
       '#format' => 'doctor_text',
       '#default_value' => $patient['prescription'],
+      '#required' => TRUE,
       '#prefix' => '<div class="portlet box red">
       <div class="portlet-title">
         <div class="caption"><i class="fa fa-upload"></i> Prescription</div>
