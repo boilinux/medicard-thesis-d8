@@ -41,6 +41,7 @@
 		}
 		$('div.doctor-box div.portlet-body').each(function() {
 			$(this).attr('style', 'display:none;');
+			$(this).removeClass('hide');
 		});
 		$('div.doctor-box div.actions a').click(function() {
 			var box = $('div#' + $(this).attr('data-name'));
