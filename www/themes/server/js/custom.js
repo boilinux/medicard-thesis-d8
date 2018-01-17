@@ -43,8 +43,8 @@
 		$('div.doctor-box div.actions a').click(function() {
 			var box = $('div#' + $(this).attr('data-name'));
 			if (box.hasClass('hide')) {
-				box.removeClass('hide');
 				box.slideDown('slow');
+				box.removeClass('hide');
 			}
 			else {
 				box.slideUp('slow');
