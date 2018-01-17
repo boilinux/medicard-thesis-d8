@@ -39,16 +39,18 @@
 
 			toastr[custom_msg.attr('data-notice')](custom_msg.text(), "System message");
 		}
-
+		$('div.doctor-box div.portlet-body').each(function() {
+			$(this).attr('style', 'display:none;');
+		});
 		$('div.doctor-box div.actions a').click(function() {
 			var box = $('div#' + $(this).attr('data-name'));
-			if (box.hasClass('hide')) {
+			if (box.hasClass('hide2')) {
 				box.slideDown('slow');
-				box.removeClass('hide');
+				box.removeClass('hide2');
 			}
 			else {
 				box.slideUp('slow');
-				box.addClass('hide');
+				box.addClass('hide2');
 			}
 		});
 	});
