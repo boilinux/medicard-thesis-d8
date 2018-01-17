@@ -47,8 +47,8 @@ class userDashboard extends ControllerBase {
 
         if (!empty($patient['findings'])) {
           $accordion = "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' data-name='findings' href='#findings'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='findings' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' data-name='findings" . $nid . "' href='#findings" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='findings" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['findings'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -56,8 +56,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['recommendation'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Recommendation</div><div class='actions'><a class='btn btn-default btn-sm' data-name='recommendation' href='#recommendation'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='recommendation' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Recommendation</div><div class='actions'><a class='btn btn-default btn-sm' data-name='recommendation" . $nid . "' href='#recommendation" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='recommendation" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['recommendation'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -65,8 +65,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['result'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Result</div><div class='actions'><a class='btn btn-default btn-sm' data-name='result' href='#result'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='result' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Result</div><div class='actions'><a class='btn btn-default btn-sm' data-name='result" . $nid . "' href='#result" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='result" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['result'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -74,8 +74,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['prescription'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Prescription</div><div class='actions'><a class='btn btn-default btn-sm' data-name='prescription' href='#prescription'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='prescription' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Prescription</div><div class='actions'><a class='btn btn-default btn-sm' data-name='prescription" . $nid . "' href='#prescription" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='prescription" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['prescription'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -83,8 +83,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['pharmacomment'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment" . $nid . "' href='#pharmacomment" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='pharmacomment" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['pharmacomment'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -186,8 +186,8 @@ class userDashboard extends ControllerBase {
 
         if (!empty($patient['findings'])) {
           $accordion = "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' data-name='findings' href='#findings'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='findings' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' data-name='findings" . $nid . "' href='#findings" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='findings" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['findings'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -195,8 +195,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['recommendation'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Recommendation</div><div class='actions'><a class='btn btn-default btn-sm' data-name='recommendation' href='#recommendation'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='recommendation' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Recommendation</div><div class='actions'><a class='btn btn-default btn-sm' data-name='recommendation" . $nid . "' href='#recommendation" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='recommendation" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['recommendation'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -204,8 +204,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['result'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Result</div><div class='actions'><a class='btn btn-default btn-sm' data-name='result' href='#result'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='result' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Result</div><div class='actions'><a class='btn btn-default btn-sm' data-name='result" . $nid . "' href='#result" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='result" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['result'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -213,8 +213,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['prescription'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Prescription</div><div class='actions'><a class='btn btn-default btn-sm' data-name='prescription' href='#prescription'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='prescription' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Prescription</div><div class='actions'><a class='btn btn-default btn-sm' data-name='prescription" . $nid . "' href='#prescription" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='prescription" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['prescription'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -222,8 +222,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['pharmacomment'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment" . $nid . "' href='#pharmacomment" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='pharmacomment" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['pharmacomment'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
@@ -231,8 +231,8 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['revision'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Revision</div><div class='actions'><a class='btn btn-default btn-sm' data-name='revision' href='#revision'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-          $accordion .= "<div id='revision' class='portlet-body hide'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Revision</div><div class='actions'><a class='btn btn-default btn-sm' data-name='revision" . $nid . "' href='#revision" . $nid . "'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='revision" . $nid . "' class='portlet-body hide'>";
           foreach ($patient['revision'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
           }
