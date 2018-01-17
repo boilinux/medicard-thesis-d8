@@ -50,7 +50,7 @@ class userDashboard extends ControllerBase {
           $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' data-name='findings' href='#findings'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
           $accordion .= "<div id='findings' class='portlet-body hide'>";
           foreach ($patient['findings'] as $val) {
-            $accordion .= "<div>" . $val['value'] . "</div>";
+            $accordion .= "<p>" . $val['value'] . "</p>";
           }
           $accordion .= "</div></div>";
         }
@@ -59,7 +59,7 @@ class userDashboard extends ControllerBase {
           $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Recommendation</div><div class='actions'><a class='btn btn-default btn-sm' data-name='recommendation' href='#recommendation'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
           $accordion .= "<div id='recommendation' class='portlet-body hide'>";
           foreach ($patient['recommendation'] as $val) {
-            $accordion .= "<div>" . $val['value'] . "</div>";
+            $accordion .= "<p>" . $val['value'] . "</p>";
           }
           $accordion .= "</div></div>";
         }
@@ -68,7 +68,7 @@ class userDashboard extends ControllerBase {
           $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Result</div><div class='actions'><a class='btn btn-default btn-sm' data-name='result' href='#result'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
           $accordion .= "<div id='result' class='portlet-body hide'>";
           foreach ($patient['result'] as $val) {
-            $accordion .= "<div>" . $val['value'] . "</div>";
+            $accordion .= "<p>" . $val['value'] . "</p>";
           }
           $accordion .= "</div></div>";
         }
@@ -77,7 +77,7 @@ class userDashboard extends ControllerBase {
           $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Prescription</div><div class='actions'><a class='btn btn-default btn-sm' data-name='prescription' href='#prescription'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
           $accordion .= "<div id='prescription' class='portlet-body hide'>";
           foreach ($patient['prescription'] as $val) {
-            $accordion .= "<div>" . $val['value'] . "</div>";
+            $accordion .= "<p>" . $val['value'] . "</p>";
           }
           $accordion .= "</div></div>";
         }
@@ -86,7 +86,7 @@ class userDashboard extends ControllerBase {
           $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
           $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
           foreach ($patient['pharmacomment'] as $val) {
-            $accordion .= "<div>" . $val['value'] . "</div>";
+            $accordion .= "<p>" . $val['value'] . "</p>";
           }
           $accordion .= "</div></div>";
         }
@@ -151,7 +151,7 @@ class userDashboard extends ControllerBase {
               $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Latest comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
               $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
               foreach ($patient['pharmacomment'] as $val) {
-                $accordion .= "<div>" . $val['value'] . "</div>";
+                $accordion .= "<p>" . $val['value'] . "</p>";
               }
               $accordion .= "</div></div>";
             }
@@ -180,13 +180,77 @@ class userDashboard extends ControllerBase {
 
         $output .= "<div class='col-md-6 col-sm-12'><div class='portlet yellow-crusta box'>";
 
-        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div></div>";
+        $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div><div class='actions'><a class='btn btn-default btn-sm' href='/update/doctor/patient/" . $nid . "'><i class='fa fa-edit'></i> Update</a></div></div>";
+
+        $accordion = "";
+
+        if (!empty($patient['findings'])) {
+          $accordion = "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Findings</div><div class='actions'><a class='btn btn-default btn-sm' data-name='findings' href='#findings'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='findings' class='portlet-body hide'>";
+          foreach ($patient['findings'] as $val) {
+            $accordion .= "<p>" . $val['value'] . "</p>";
+          }
+          $accordion .= "</div></div>";
+        }
+        if (!empty($patient['recommendation'])) {
+          $accordion .= "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Recommendation</div><div class='actions'><a class='btn btn-default btn-sm' data-name='recommendation' href='#recommendation'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='recommendation' class='portlet-body hide'>";
+          foreach ($patient['recommendation'] as $val) {
+            $accordion .= "<p>" . $val['value'] . "</p>";
+          }
+          $accordion .= "</div></div>";
+        }
+        if (!empty($patient['result'])) {
+          $accordion .= "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Result</div><div class='actions'><a class='btn btn-default btn-sm' data-name='result' href='#result'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='result' class='portlet-body hide'>";
+          foreach ($patient['result'] as $val) {
+            $accordion .= "<p>" . $val['value'] . "</p>";
+          }
+          $accordion .= "</div></div>";
+        }
+        if (!empty($patient['prescription'])) {
+          $accordion .= "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Prescription</div><div class='actions'><a class='btn btn-default btn-sm' data-name='prescription' href='#prescription'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='prescription' class='portlet-body hide'>";
+          foreach ($patient['prescription'] as $val) {
+            $accordion .= "<p>" . $val['value'] . "</p>";
+          }
+          $accordion .= "</div></div>";
+        }
+        if (!empty($patient['pharmacomment'])) {
+          $accordion .= "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='pharmacomment' class='portlet-body hide'>";
+          foreach ($patient['pharmacomment'] as $val) {
+            $accordion .= "<p>" . $val['value'] . "</p>";
+          }
+          $accordion .= "</div></div>";
+        }
+        if (!empty($patient['revision'])) {
+          $accordion .= "<div class='portlet green box doctor-box'>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='revision' href='#revision'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div id='revision' class='portlet-body hide'>";
+          foreach ($patient['revision'] as $val) {
+            $accordion .= "<p>" . $val['value'] . "</p>";
+          }
+          $accordion .= "</div></div>";
+        }
 
         $output .= "<div class='portlet-body'>
           <div class='row static-info'>
             <div class='col-md-5 name'>Date Of Birth:</div><div class='col-md-7 value'> " . date("d-M-Y", $patient['dob']) . "</div>
             <div class='col-md-5 name'>Gender:</div><div class='col-md-7 value'> " . ucwords($patient['gender']) . "</div>
+            <div class='col-md-5 name'>Status:</div><div class='col-md-7 value'> " . ucwords($patient['status']) . "</div>
+            <div class='col-md-5 name'>Phone number:</div><div class='col-md-7 value'> " . ucwords($patient['phonenumber']) . "</div>
+            <div class='col-md-5 name'>Email:</div><div class='col-md-7 value'> " . ucwords($patient['email']) . "</div>
             <div class='col-md-5 name'>Address:</div><div class='col-md-7 value'> " . ucwords($patient['address']) . "</div>
+            <div class='col-md-5 name'>Employer:</div><div class='col-md-7 value'> " . ucwords($patient['employer']) . "</div>
+            <div class='col-md-5 name'>Company address:</div><div class='col-md-7 value'> " . ucwords($patient['companyaddress']) . "</div>
+            <div class='col-md-5 name'>Immunization:</div><div class='col-md-7 value'> " . ucwords($patient['immunization']) . "</div>
+            <div class='col-md-5 name'>Laboratory test:</div><div class='col-md-7 value'> " . ucwords($patient['labtest']) . "</div>
             <div class='col-md-12 name'><p><h2>Vital signs</h2></p></div>
             <div class='col-md-5 name'>Temperature:</div><div class='col-md-7 value'> " . ucwords($patient['temp']) . "</div>
             <div class='col-md-5 name'>Pulse:</div><div class='col-md-7 value'> " . ucwords($patient['pulse']) . "</div>
@@ -196,8 +260,8 @@ class userDashboard extends ControllerBase {
           <div class='row static-info'>
             <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
           </div>
+          " . $accordion . "
         </div>";
-
         $output .= "</div></div>";
       }
     }

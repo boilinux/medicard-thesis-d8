@@ -133,11 +133,13 @@ class updateDoctorPatient extends FormBase {
 
     $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
 
+    $suffix = "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username . " @ Hospital";
+
     $data = [
-      'findings' => $form_state->getValue(['findings', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
-      'recommendation' => $form_state->getValue(['recommendation', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
-      'result' => $form_state->getValue(['result', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
-      'prescription' => $form_state->getValue(['prescription', 'value']) . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by Dr. " . $username,
+      'findings' => $form_state->getValue(['findings', 'value']) . $suffix,
+      'recommendation' => $form_state->getValue(['recommendation', 'value']) . $suffix,
+      'result' => $form_state->getValue(['result', 'value']) . $suffix,
+      'prescription' => $form_state->getValue(['prescription', 'value']) . $suffix,
     ];
 
     try {
@@ -151,6 +153,7 @@ class updateDoctorPatient extends FormBase {
           'role' => 'doctor',
           'action' => 'update',
           'username' => $username,
+          'site' => 'Hospital',
         ],
         'body' => json_encode($data),
       ]);

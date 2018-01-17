@@ -206,6 +206,7 @@ class registerPatient extends FormBase {
             'role' => 'nurse',
             'action' => 'register',
             'username' => $username,
+            'site' => 'Hospital',
           ],
           'body' => json_encode($data),
         ]);

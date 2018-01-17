@@ -197,6 +197,7 @@ class updatePatient extends FormBase {
           'role' => 'nurse',
           'action' => 'update',
           'username' => $username,
+          'site' => 'Hospital',
         ],
         'body' => json_encode($data),
       ]);

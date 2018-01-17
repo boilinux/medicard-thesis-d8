@@ -265,6 +265,7 @@ class medicardApi extends ControllerBase {
       $track .= "Blood Pressure: " . $data['bp'] . "\n";
       $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
       $track .= "User: " . $data['username'] . "\n";
+      $track .= "Site: " . $data['site'] . "\n";
       $track .= "Role: Nurse";
     }
     else if ($role == 'doctor') {
@@ -291,6 +292,7 @@ class medicardApi extends ControllerBase {
       $track .= "Prescription: " . implode(',', $data['prescription']) . "\n";
       $track .= "Created: " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . "\n";
       $track .= "User: " . $data['username'] . "\n";
+      $track .= "Site: " . $data['site'] . "\n";
       $track .= "Role: Doctor";
     }
 
@@ -312,8 +314,10 @@ class medicardApi extends ControllerBase {
       $role = $request->headers->get('role');
       $action = $request->headers->get('action');
       $username = $request->headers->get('username');
+      $site = $request->headers->get('site');
       
       $data['username'] = $username;
+      $data['site'] = $site;
 
       // Check for validation.
       $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();

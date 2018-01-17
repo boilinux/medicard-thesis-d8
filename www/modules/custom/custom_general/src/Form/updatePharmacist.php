@@ -69,8 +69,10 @@ class updatePharmacist extends FormBase {
 
     $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
 
+    $suffix = "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by " . $username . " @ Hospital";
+
     $data = [
-      'pharmacomment' => $form_state->getValue('pharmacomment') . "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by " . $username,
+      'pharmacomment' => $form_state->getValue('pharmacomment') . $suffix,
     ];
 
     try {
@@ -84,6 +86,7 @@ class updatePharmacist extends FormBase {
           'role' => 'pharmacist',
           'action' => 'update',
           'username' => $username,
+          'site' => 'Hospital',
         ],
         'body' => json_encode($data),
       ]);
