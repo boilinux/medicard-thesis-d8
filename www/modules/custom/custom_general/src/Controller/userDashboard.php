@@ -231,7 +231,7 @@ class userDashboard extends ControllerBase {
         }
         if (!empty($patient['revision'])) {
           $accordion .= "<div class='portlet green box doctor-box'>";
-          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Pharmacist comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='revision' href='#revision'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+          $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Revision</div><div class='actions'><a class='btn btn-default btn-sm' data-name='revision' href='#revision'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
           $accordion .= "<div id='revision' class='portlet-body hide'>";
           foreach ($patient['revision'] as $val) {
             $accordion .= "<p>" . $val['value'] . "</p>";
