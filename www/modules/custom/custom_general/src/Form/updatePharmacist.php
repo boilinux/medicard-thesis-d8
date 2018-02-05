@@ -86,7 +86,7 @@ class updatePharmacist extends FormBase {
           'role' => 'pharmacist',
           'action' => 'update',
           'username' => $username,
-          'site' => 'Hospital',
+          'site' => 'Pharmacy',
         ],
         'body' => json_encode($data),
       ]);
