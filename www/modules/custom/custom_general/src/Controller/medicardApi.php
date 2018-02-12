@@ -154,22 +154,7 @@ class medicardApi extends ControllerBase {
     $roles = \Drupal::currentUser()->getRoles();
 
     if ($uid > 0 && in_array('doctor', $roles)) {
-      $card = medicardApi::get_card_id();
-      $card = str_replace(' ', '', $card);
-      $status = medicardApi::check_card_id($card);
-
-      $patient = medicardApi::get_patient();
-      $data = str_replace(' ', '', $patient['patient'][$patient_id]['card_id']);
-
-      if (empty($card) || $status == 'failed') {
-        return AccessResult::forbidden();
-      }
-      else if(!empty($card) && $status == 'exist' && $data == $card) {
-        return AccessResult::allowed();
-      }
-      else {
-        return AccessResult::forbidden();
-      }
+      return AccessResult::allowed();
     }
     else {
       return AccessResult::forbidden();
