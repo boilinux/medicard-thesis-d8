@@ -3,12 +3,18 @@ jQuery(function($) {
 		var addmed = $('#add_medicine');
 		var reset = $('#reset_medicine');
 		var pharmatext = $('#edit-pharmacomment');
+		var desc = $('ul.desc-medicine li');
 
+		// hide desc
+		desc.hide();
 		pharmatext.attr('readonly','readonly');
-		// pharmatext.hide();
+
+		$('ul.desc-medicine li.' . $('#edit-medicine option:selected').val()).show();
 
 		addmed.click(function(e) {
 			e.preventDefault();
+
+			desc.hide();
 
 			var med = $('#edit-medicine option:selected').val();
 			var quantity = $('#edit-medicine-quantity').val();
@@ -19,6 +25,8 @@ jQuery(function($) {
 			else {
 				alert("Quantiy is invalid!");
 			}
+
+			$('ul.desc-medicine li.' . med).show();
 
 		});
 
