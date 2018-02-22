@@ -46,11 +46,12 @@ class updatePharmacist extends FormBase {
           WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
 
     $medicines = [];
-    $output .= "<ul class='opt-medicine'>";
+    $output .= "<p>Description:</p><ul class='desc-medicine'>";
     foreach ($query as $res) {
       $node = Node::load($res->nid);
 
       $medicines[$node->get('title')->value] = $node->get('title')->value;
+      $output .= "<li class='" . str_replace(' ', '', $node->get('title')->value) . "'><p>" . $node->get('field_body')->value . "</p></li>";
     }
     $output .= "</ul>";
 
