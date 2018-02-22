@@ -37,17 +37,45 @@ class updatePharmacist extends FormBase {
           '#value' => ucwords($patient['firstname']) . " " . ucwords($patient['lastname']),
         );
       }
-    }    
+    }
+
+    $output = "";
+
+
+    $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
+          WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
+
+    $medicines = [];
+    $output .= "<ul class='opt-medicine'>";
+    foreach ($query as $res) {
+      $node = Node::load($res->nid);
+
+      $medicines[$node->get('title')->value] = $node->get('title')->value;
+    }
+    $output .= "</ul>";
+
+    $form['medicine'] = [
+      '#type' => 'select',
+      '#title' => 'Choose a medicine',
+      '#options' => $medicines,
+    ];
+    $form['medicine']['#prefix'] = '<div class="portlet box green">
+      <div class="portlet-title">
+        <div class="caption"><i class="fa fa-upload"></i> Medicine</div>
+      </div>
+      <div class="portlet-body">' . $output;
+
+    $form['medicine_quantity'] = [
+      '#type' => 'textfield',
+      '#title' => 'Quantity',
+      '#default_value' => 1,
+      '#suffix' => "<p><a id='add_medicine' href='#' class='btn btn-info'>Add medicine</a><a id='reset_medicine' href='#' class='btn btn-info'>reset</a></p>",
+    ];
 
     $form['pharmacomment'] = array(
       '#type' => 'textarea',
       '#required' => TRUE,
     );
-    $form['pharmacomment']['#prefix'] = '<div class="portlet box green">
-      <div class="portlet-title">
-        <div class="caption"><i class="fa fa-upload"></i> Comment</div>
-      </div>
-      <div class="portlet-body">';
     $form['pharmacomment']['#suffix'] = "</div></div>";
 
     $form['actions']['#type'] = 'actions';
@@ -56,6 +84,8 @@ class updatePharmacist extends FormBase {
       '#value' => $this->t('Submit'),
       '#button_type' => 'primary',
     );
+    
+    $form['#attached']['library'][] = 'custom_general/custom_general_script';
 
     return $form;
   }
