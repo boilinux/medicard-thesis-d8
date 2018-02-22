@@ -9,12 +9,10 @@ jQuery(function($) {
 		desc.hide();
 		pharmatext.attr('readonly','readonly');
 
-		$('ul.desc-medicine li.' . $('#edit-medicine option:selected').val()).show();
+		$('ul.desc-medicine li.' + $('#edit-medicine').val()).show();
 
 		addmed.click(function(e) {
 			e.preventDefault();
-
-			desc.hide();
 
 			var med = $('#edit-medicine option:selected').val();
 			var quantity = $('#edit-medicine-quantity').val();
@@ -26,8 +24,12 @@ jQuery(function($) {
 				alert("Quantiy is invalid!");
 			}
 
-			$('ul.desc-medicine li.' . med).show();
+		});
 
+		$('#edit-medicine').change(function() {
+			desc.hide();
+
+			$('ul.desc-medicine li.' + $(this).val()).show();
 		});
 
 		reset.click(function(e) {

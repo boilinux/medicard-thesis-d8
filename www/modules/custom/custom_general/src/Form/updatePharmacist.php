@@ -51,7 +51,7 @@ class updatePharmacist extends FormBase {
       $node = Node::load($res->nid);
 
       $medicines[$node->get('title')->value] = $node->get('title')->value;
-      $output .= "<li class='" . str_replace(' ', '', $node->get('title')->value) . "'><p>" . $node->get('field_body')->value . "</p></li>";
+      $output .= "<li class='" . str_replace(' ', '', $node->get('title')->value) . "'><p>" . $node->get('body')->value . "</p></li>";
     }
     $output .= "</ul>";
 
