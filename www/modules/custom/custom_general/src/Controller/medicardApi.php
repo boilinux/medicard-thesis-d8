@@ -385,6 +385,23 @@ class medicardApi extends ControllerBase {
         else if ($action == 'update' && $role == 'pharmacist') {
           $node = Node::load($nid);
 
+          $date_created = 0;
+          $pharmacomment2 = json_decode($data['pharmacomment2']);
+          foreach ($pharmacomment2 as $val) {
+            $date_created = $val->date;
+          }
+
+          $prescription = $patient2->get('field_prescription')->getValue();
+          foreach ($prescription as $res) {
+            $data2 = json_decode($res['value']);
+
+            foreach ($data2 as $key => $res2) {
+              if ($res2->date == $date_created) {
+                $node->field_prescription[$key] = $data['pharmacomment2'];
+              }
+            }
+          }
+
           $node->field_pharma_comment->appendItem($data['pharmacomment']);
         }
 

@@ -1,3 +1,7 @@
 custom_general_script:
   js:
     js/custom2.js: {}
+
+custom_general_script2:
+  js:
+    js/custom3.js: {}
