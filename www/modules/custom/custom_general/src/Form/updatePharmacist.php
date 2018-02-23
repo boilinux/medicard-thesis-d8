@@ -23,10 +23,14 @@ class updatePharmacist extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $card = medicardApi::get_card_id();
     $card = str_replace(' ', '', $card);
+    $buffer_comment = 0;
+
+    $patient_id = 0;
 
     $data = medicardApi::get_patient();
     foreach ($data['patient'] as $nid => $patient) {
       if ($patient['card_id'] == $card) {
+        $patient_id = $nid;
         $form['nid'] = array(
           '#type' => 'hidden',
           '#value' => $nid,
@@ -39,54 +43,63 @@ class updatePharmacist extends FormBase {
       }
     }
 
-    $output = "";
+    $patient2 = Node::load($patient_id);
 
+    $prescription = $patient2->get('field_prescription')->getValue();
 
-    $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
-          WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
+    $arr = [];
+    foreach ($prescription as $res) {
+      $data2 = json_decode($res['value']);
 
-    $medicines = [];
-    $output .= "<p>Description:</p><ul class='desc-medicine'>";
-    foreach ($query as $res) {
-      $node = Node::load($res->nid);
+      foreach ($data2 as $res2) {
+        foreach ($res2->patient as $res3) {
+          $query_title = \Drupal::database()->query("SELECT nfd.title FROM node_field_data AS nfd 
+          WHERE nfd.type = 'medicine' AND nfd.nid = " . $res3->med_nid)->fetchField();
 
-      $medicines["medicine-" . $res->nid] = $node->get('title')->value;
-      $output .= "<li class='medicine-" . $res->nid . "'><p>" . $node->get('body')->value . "</p></li>";
+          if ($res3->quantity != $res3->acquire) {
+            $form['medicine-' . $res3->med_nid] = [
+              '#type' => 'textfield',
+              '#title' => $query_title . " - " . abs($res3->quantity - $res3->acquire) . " " . $res3->comment,
+              '#default_value' => 1,
+              '#attributes' => [
+                'data-nid' => $res3->med_nid,
+                'data-title' => $query_title,
+                'class' => ['medicine-textfield'],
+              ],
+            ];
+
+            $arr[$res2->date] = $res2;
+            $buffer_comment = 1;
+          }
+        }
+      }
     }
-    $output .= "</ul>";
 
-    $form['medicine'] = [
-      '#type' => 'select',
-      '#title' => 'Choose a medicine',
-      '#options' => $medicines,
-    ];
-    $form['medicine']['#prefix'] = '<div class="portlet box green">
-      <div class="portlet-title">
-        <div class="caption"><i class="fa fa-upload"></i> Medicine</div>
-      </div>
-      <div class="portlet-body">' . $output;
+    foreach ($arr as $arr2) {
+      $form['#attached']['drupalSettings']['custom_general']['custom_general_script2']['data'][] = $arr2;
+    }
 
-    $form['medicine_quantity'] = [
-      '#type' => 'textfield',
-      '#title' => 'Quantity',
-      '#default_value' => 1,
-      '#suffix' => "<p><a id='add_medicine' href='#' class='btn btn-info'>Add medicine</a><a id='reset_medicine' href='#' class='btn btn-info'>reset</a></p>",
-    ];
+    if ($buffer_comment) {
+      $form['pharmacomment'] = array(
+        '#type' => 'textarea',
+      );
 
-    $form['pharmacomment'] = array(
-      '#type' => 'textarea',
-      '#required' => TRUE,
-    );
-    $form['pharmacomment']['#suffix'] = "</div></div>";
+      $form['pharmacomment2'] = array(
+        '#type' => 'textarea',
+      );
 
-    $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Submit'),
-      '#button_type' => 'primary',
-    );
+      $form['actions']['#type'] = 'actions';
+      $form['actions']['submit'] = array(
+        '#type' => 'submit',
+        '#value' => $this->t('Submit'),
+        '#button_type' => 'primary',
+      );
+    }
+    else {
+      drupal_set_message('No prescription from a doctor.', 'warning');
+    }
     
-    $form['#attached']['library'][] = 'custom_general/custom_general_script';
+    $form['#attached']['library'][] = 'custom_general/custom_general_script2';
 
     return $form;
   }
@@ -104,6 +117,7 @@ class updatePharmacist extends FormBase {
 
     $data = [
       'pharmacomment' => $form_state->getValue('pharmacomment') . $suffix,
+      'pharmacomment2' => $form_state->getValue('pharmacomment'),
     ];
 
     try {
