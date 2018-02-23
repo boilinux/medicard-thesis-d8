@@ -59,6 +59,7 @@ jQuery(function($) {
 							'user': username,
 							'status': 0,
 							'acquire': 0,
+							'date': $.datepicker.formatDate('d-m-y', new Date()),
 						});
 					});
 

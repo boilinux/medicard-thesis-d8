@@ -110,7 +110,7 @@ class updateDoctorPatient extends FormBase {
     $output2 = "<p>Description:</p><ul class='desc-medicine'>";
     foreach ($query as $res) {
       $node = Node::load($res->nid);
-      
+
       $medicines["medicine-" . $res->nid] = $node->get('title')->value;
       
       $output2 .= "<li data-nid='" . $res->nid . "' class='medicine-" . $res->nid . "'><p>" . $node->get('body')->value . "</p></li>";
@@ -178,7 +178,7 @@ class updateDoctorPatient extends FormBase {
       'findings' => $form_state->getValue(['findings', 'value']) . $suffix,
       'recommendation' => $form_state->getValue(['recommendation', 'value']) . $suffix,
       'result' => $form_state->getValue(['result', 'value']) . $suffix,
-      'prescription' => $form_state->getValue(['prescription', 'value']) . $suffix,
+      'prescription' => $form_state->getValue('prescription'),
     ];
 
     try {
