@@ -100,7 +100,7 @@ class updatePharmacist extends FormBase {
 
     $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
 
-    $suffix = "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by " . $username . " @ Hospital";
+    $suffix = "\n posted on " . date("d-M-Y H:i", \Drupal::time()->getRequestTime()) . " by " . $username . " @ Pharmacy";
 
     $data = [
       'pharmacomment' => $form_state->getValue('pharmacomment') . $suffix,
