@@ -101,17 +101,49 @@ class updateDoctorPatient extends FormBase {
       '#suffix' => '</div></div>',
     );
 
-    $form['prescription'] = array(
-      '#type' => 'text_format',
-      '#format' => 'doctor_text',
-      '#default_value' => $patient['prescription'],
-      '#required' => TRUE,
-      '#prefix' => '<div class="portlet box red">
+
+    // Doctor's prescription
+    $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
+          WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
+
+    $medicines = [];
+    $output2 = "<p>Description:</p><ul class='desc-medicine'>";
+    foreach ($query as $res) {
+      $node = Node::load($res->nid);
+
+      $medicines["medicine-" . $res->nid] = $node->get('title')->value;
+      
+      $output2 .= "<li data-nid='" . $res->nid . "' class='medicine-" . $res->nid . "'><p>" . $node->get('body')->value . "</p></li>";
+    }
+    $output2 .= "</ul>";
+
+    $form['medicine'] = [
+      '#type' => 'select',
+      '#title' => 'Choose a medicine',
+      '#options' => $medicines,
+    ];
+    $form['medicine']['#prefix'] = '<div class="portlet box green">
       <div class="portlet-title">
         <div class="caption"><i class="fa fa-upload"></i> Prescription</div>
       </div>
-      <div class="portlet-body">',
-      '#suffix' => '</div></div>',
+      <div class="portlet-body">' . $output2;
+
+    $form['medicine_quantity'] = [
+      '#type' => 'textfield',
+      '#title' => 'Quantity',
+      '#default_value' => 1,
+    ];
+
+    $form['medicine_comment'] = [
+      '#type' => 'textfield',
+      '#title' => 'Dosage',
+      '#suffix' => "<p><a id='add_medicine' href='#' class='btn btn-info'>Add medicine</a><a id='reset_medicine' href='#' class='btn btn-info'>reset</a></p><div class='med-list'><p>List of medicine:</p><ul></ul</div>",
+    ];
+
+    $form['prescription'] = array(
+      '#type' => 'textarea',
+      '#required' => TRUE,
+      '#suffix' => '</div></div></div>',
     );
 
     $form['actions']['#type'] = 'actions';
@@ -120,6 +152,13 @@ class updateDoctorPatient extends FormBase {
       '#value' => $this->t('Submit'),
       '#button_type' => 'primary',
     );
+
+    $uid = \Drupal::currentUser()->id();
+    $username = \Drupal::database()->query("SELECT name FROM users_field_data WHERE uid = " . $uid)->fetchField();
+
+    $form['#attached']['drupalSettings']['custom_general']['custom_general_script']['username'] = $username;
+    $form['#attached']['drupalSettings']['custom_general']['custom_general_script']['patient_id'] = $patient_id;
+    $form['#attached']['library'][] = 'custom_general/custom_general_script';
 
     return $form;
   }
@@ -139,7 +178,7 @@ class updateDoctorPatient extends FormBase {
       'findings' => $form_state->getValue(['findings', 'value']) . $suffix,
       'recommendation' => $form_state->getValue(['recommendation', 'value']) . $suffix,
       'result' => $form_state->getValue(['result', 'value']) . $suffix,
-      'prescription' => $form_state->getValue(['prescription', 'value']) . $suffix,
+      'prescription' => $form_state->getValue('prescription'),
     ];
 
     try {
