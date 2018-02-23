@@ -31,6 +31,11 @@ jQuery(function($) {
 
 								var insert_text = title + " - " + acquire;
 
+								if (data2[i2].quantity > new_acquire) {
+									var out_of = parseInt(data2[i2].quantity) - parseInt(new_acquire);
+									insert_text += " out of " + out_of;
+								}
+
 								pharma_content.append(insert_text);
 							}
 							else {
