@@ -9,7 +9,7 @@ jQuery(function($) {
 		desc.hide();
 		pharmatext.attr('readonly','readonly');
 
-		$('ul.desc-medicine li.' + $('#edit-medicine').val()).show();
+		$('ul.desc-medicine li.' + $('#edit-medicine').val().replace(/\s+/, "") ).show();
 
 		addmed.click(function(e) {
 			e.preventDefault();
@@ -29,7 +29,7 @@ jQuery(function($) {
 		$('#edit-medicine').change(function() {
 			desc.hide();
 
-			$('ul.desc-medicine li.' + $(this).val()).show();
+			$('ul.desc-medicine li.' + $(this).val().replace(/\s+/, "")).show();
 		});
 
 		reset.click(function(e) {
