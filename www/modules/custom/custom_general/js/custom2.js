@@ -45,6 +45,7 @@ jQuery(function($) {
 				var data_list = $('div.med-list ul li');
 				if (data_list.length) {
 					var val = [];
+					var val2 = [];
 
 					data_list.each(function() {
 						var nid2 = $(this).attr('data-nid');
@@ -52,18 +53,22 @@ jQuery(function($) {
 						var comment2 = $(this).attr('data-comment');
 
 						val.push({
-							'patient_nid': patient_id,
 							'med_nid': nid2,
 							'quantity': quantity2,
 							'comment': comment2,
 							'user': username,
 							'status': 0,
 							'acquire': 0,
-							'date': $.datepicker.formatDate('d-m-y', new Date()),
 						});
 					});
 
-					prescription.val(JSON.stringify(val));
+					val2.push({
+						'patient': val,
+						'patient_nid': patient_id,
+						'date': $.now(),
+					});
+
+					prescription.val(JSON.stringify(val2));
 				}
 			}
 			else {
