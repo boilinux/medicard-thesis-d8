@@ -9,12 +9,12 @@ jQuery(function($) {
 		desc.hide();
 		pharmatext.attr('readonly','readonly');
 
-		$('ul.desc-medicine li.' + $('#edit-medicine').val().replace(/\s+/, "") ).show();
+		$('ul.desc-medicine li.' + $('#edit-medicine').val()).show();
 
 		addmed.click(function(e) {
 			e.preventDefault();
 
-			var med = $('#edit-medicine option:selected').val();
+			var med = $('#edit-medicine option:selected').text();
 			var quantity = $('#edit-medicine-quantity').val();
 
 			if ($.isNumeric(quantity)) {
@@ -29,7 +29,7 @@ jQuery(function($) {
 		$('#edit-medicine').change(function() {
 			desc.hide();
 
-			$('ul.desc-medicine li.' + $(this).val().replace(/\s+/, "")).show();
+			$('ul.desc-medicine li.' + $(this).val()).show();
 		});
 
 		reset.click(function(e) {
