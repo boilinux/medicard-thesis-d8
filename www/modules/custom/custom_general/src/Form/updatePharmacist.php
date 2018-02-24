@@ -25,6 +25,8 @@ class updatePharmacist extends FormBase {
     $card = str_replace(' ', '', $card);
     $buffer_comment = 0;
 
+    $prescription = [];
+
     $data = medicardApi::get_patient();
     foreach ($data['patient'] as $nid => $patient) {
       if ($patient['card_id'] == $card) {
@@ -38,10 +40,10 @@ class updatePharmacist extends FormBase {
           '#type' => 'hidden',
           '#value' => ucwords($patient['firstname']) . " " . ucwords($patient['lastname']),
         );
+
+        $prescription = $patient['prescription'];
       }
     }
-
-    $prescription = $data['prescription'];
 
     $arr = [];
     foreach ($prescription as $res) {
