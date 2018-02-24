@@ -376,7 +376,7 @@ class medicardApi extends ControllerBase {
           $node->field_findings->appendItem($data['findings']);
           $node->field_recommendation->appendItem($data['recommendation']);
           $node->field_result->appendItem($data['result']);
-          $node->field_prescription->appendItem($data['prescription']);
+          $node->field_prescription->value = $data['prescription'];
 
           $track = medicardApi::set_patient_revision($data, 'doctor');
 
@@ -385,22 +385,7 @@ class medicardApi extends ControllerBase {
         else if ($action == 'update' && $role == 'pharmacist') {
           $node = Node::load($nid);
 
-          $date_created = 0;
-          $pharmacomment2 = json_decode($data['pharmacomment2']);
-          foreach ($pharmacomment2 as $val) {
-            $date_created = $val->date;
-          }
-
-          $prescription = $patient2->get('field_prescription')->getValue();
-          foreach ($prescription as $res) {
-            $data2 = json_decode($res['value']);
-
-            foreach ($data2 as $key => $res2) {
-              if ($res2->date == $date_created) {
-                $node->field_prescription[$key] = $data['pharmacomment2'];
-              }
-            }
-          }
+          $node->field_prescription->value = $data['pharmacomment2'];
 
           $node->field_pharma_comment->appendItem($data['pharmacomment']);
         }
@@ -464,7 +449,7 @@ class medicardApi extends ControllerBase {
             'findings' => $node->get('field_findings')->getValue(),
             'recommendation' => $node->get('field_recommendation')->getValue(),
             'result' => $node->get('field_result')->getValue(),
-            'prescription' => $node->get('field_prescription')->getValue(),
+            'prescription' => $node->get('field_prescription')->value,
             'pharmacomment' => $node->get('field_pharma_comment')->getValue(),
             'created' => $node->get('created')->value,
             'card_id' => $node->get('field_card_id')->value,
