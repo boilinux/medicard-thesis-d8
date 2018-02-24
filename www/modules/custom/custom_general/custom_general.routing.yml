@@ -63,3 +63,11 @@ custom_general.update_doctor_patient:
     _form: '\Drupal\custom_general\Form\updateDoctorPatient'
   requirements:
     _custom_access: '\Drupal\custom_general\Controller\medicardApi::check_user_auth_doctor'
+
+custom_general.get_all_medicine_pharmacy:
+  path: '/api/medicine/all'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\custom_general\Controller\medicardApi::get_medicine_pharmacy'
+  requirements:
+    _access: 'TRUE'

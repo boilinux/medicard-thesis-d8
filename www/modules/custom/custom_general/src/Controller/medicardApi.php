@@ -484,21 +484,84 @@ class medicardApi extends ControllerBase {
    * Get patient data from main server.
    */
   public function get_patient() {
-      try {
-        $client = \Drupal::httpClient();
-        $response = $client->post('http://192.168.10.123/api/patient/view', [
-          'headers' => [
-            'Content-Type' => 'application/json',
-            'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
-            'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
-          ],
-        ]);
+    try {
+      $client = \Drupal::httpClient();
+      $response = $client->post('http://192.168.10.123/api/patient/view', [
+        'headers' => [
+          'Content-Type' => 'application/json',
+          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+        ],
+      ]);
 
-        $data = json_decode($response->getBody(), TRUE);
-        return $data;
+      $data = json_decode($response->getBody(), TRUE);
+      return $data;
 
-      } catch (RequestException $e) {
-        return false;
+    } catch (RequestException $e) {
+      return false;
+    }
+  }
+
+  /**
+   * Return all medicine from pharmacy
+   */
+  public function get_medicine_pharmacy() {
+    $response = array();
+
+    if (strpos($request->headers->get('Content-Type'), 'application/json') === 0) {
+      $data = json_decode($request->getContent(), TRUE);
+
+      $secret = $request->headers->get('secret');
+      $token = $request->headers->get('token');
+
+      // Check for validation.
+      $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
+
+      $query_token = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
+
+      if ($query_secret > 0 && $query_token > 0) {
+
+        $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
+          WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
+        
+        foreach ($query as $res) {
+          $node = Node::load($res->nid);
+
+          $response['medicine'][$res->nid] = [
+            'med_id' => $res->nid,
+            'med_name' => $node->get('title')->value,
+            'med_desc' => $node->get('body')->value,
+          ];
+        }
+
+        $response['status'] = 'success';
       }
+      else {
+        $response = ['status' => 'failed'];
+      }
+    }
+    return new JsonResponse($response);
+  }
+
+  /**
+   * Get medicine from pharmacy
+   */
+  public function view_all_medicine_pharmacy() {
+    try {
+      $client = \Drupal::httpClient();
+      $response = $client->post('http://192.168.10.126/api/medicine/all', [ // pharmacy request
+        'headers' => [
+          'Content-Type' => 'application/json',
+          'token' => 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr',
+          'secret' => 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ',
+        ],
+      ]);
+
+      $data = json_decode($response->getBody(), TRUE);
+      return $data;
+
+    } catch (RequestException $e) {
+      return false;
+    }
   }
 }
