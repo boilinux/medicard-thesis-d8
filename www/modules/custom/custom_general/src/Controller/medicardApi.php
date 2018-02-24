@@ -505,7 +505,7 @@ class medicardApi extends ControllerBase {
   /**
    * Return all medicine from pharmacy
    */
-  public function get_medicine_pharmacy() {
+  public function get_medicine_pharmacy(Request $request) {
     $response = array();
 
     if (strpos($request->headers->get('Content-Type'), 'application/json') === 0) {
