@@ -27,7 +27,7 @@ def espeak_func (txt):
 # get all the available readers
 
 
-espeaktxt = "espeak " + voice + "\"Please insert card. Thank you!\""
+espeaktxt = "espeak " + voice + " \"Please insert card. Thank you!\""
 espeak_func(espeaktxt)
 
 
