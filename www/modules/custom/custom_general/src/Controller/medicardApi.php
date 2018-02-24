@@ -514,12 +514,7 @@ class medicardApi extends ControllerBase {
       $secret = $request->headers->get('secret');
       $token = $request->headers->get('token');
 
-      // Check for validation.
-      $query_secret = \Drupal::database()->query("SELECT COUNT(*) FROM node_revision__field_secret_api WHERE field_secret_api_value = '" . $secret . "'")->fetchField();
-
-      $query_token = \Drupal::database()->query("SELECT COUNT(*) FROM node__field_device_token WHERE field_device_token_value = '" . $token . "'")->fetchField();
-
-      if ($query_secret > 0 && $query_token > 0) {
+      if ($secret == 'VH7HutKJ5qsp52zSfSrJtbxz0oHuPTmJ' && $token == 'AAtqwghtXGCbcUsQuYDuIdmUL8KgVaFr') {
 
         $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
           WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
