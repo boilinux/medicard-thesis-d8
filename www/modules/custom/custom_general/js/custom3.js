@@ -24,7 +24,7 @@ jQuery(function($) {
 					data2 = data[i]['patient'];
 					for(var i2 in data2) {
 						if (data2[i2].med_nid == med_id) {
-							if (Math.abs((acquire - data2[i2].acquire)) <= data2[i2].quantity) {
+							if (Math.abs((acquire + data2[i2].acquire)) <= data2[i2].quantity) {
 								var new_acquire = parseInt(acquire) + parseInt(data2[i2].acquire);
 
 								data[i]['patient'][i2].acquire = new_acquire;
