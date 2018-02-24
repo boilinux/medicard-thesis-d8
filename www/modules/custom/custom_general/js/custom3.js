@@ -47,7 +47,7 @@ jQuery(function($) {
 					}
 				}
 
-				pharma_content2.append(JSON.stringify(data));
+				pharma_content2.append(JSON.stringify(data[1]));
 			});
 		});
 	});
