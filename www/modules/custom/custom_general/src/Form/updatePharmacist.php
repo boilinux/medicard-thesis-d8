@@ -46,29 +46,27 @@ class updatePharmacist extends FormBase {
     }
 
     $arr = [];
-    foreach ($prescription as $res) {
-      $data2 = json_decode($res['value']);
+    $data2 = json_decode($prescription);
 
-      foreach ($data2 as $res2) {
-        foreach ($res2->patient as $res3) {
-          $query_title = \Drupal::database()->query("SELECT nfd.title FROM node_field_data AS nfd 
-          WHERE nfd.type = 'medicine' AND nfd.nid = " . $res3->med_nid)->fetchField();
+    foreach ($data2 as $res2) {
+      foreach ($res2->patient as $res3) {
+        $query_title = \Drupal::database()->query("SELECT nfd.title FROM node_field_data AS nfd 
+        WHERE nfd.type = 'medicine' AND nfd.nid = " . $res3->med_nid)->fetchField();
 
-          if ($res3->quantity != $res3->acquire) {
-            $form['medicine-' . $res3->med_nid] = [
-              '#type' => 'textfield',
-              '#title' => $query_title . " - " . abs($res3->quantity - $res3->acquire) . " " . $res3->comment,
-              '#default_value' => 1,
-              '#attributes' => [
-                'data-nid' => $res3->med_nid,
-                'data-title' => $query_title,
-                'class' => ['medicine-textfield'],
-              ],
-            ];
+        if ($res3->quantity != $res3->acquire) {
+          $form['medicine-' . $res3->med_nid] = [
+            '#type' => 'textfield',
+            '#title' => $query_title . " - " . abs($res3->quantity - $res3->acquire) . " " . $res3->comment,
+            '#default_value' => 1,
+            '#attributes' => [
+              'data-nid' => $res3->med_nid,
+              'data-title' => $query_title,
+              'class' => ['medicine-textfield'],
+            ],
+          ];
 
-            $arr[$res2->date] = $res2;
-            $buffer_comment = 1;
-          }
+          $arr[$res2->date] = $res2;
+          $buffer_comment = 1;
         }
       }
     }
@@ -115,7 +113,7 @@ class updatePharmacist extends FormBase {
 
     $data = [
       'pharmacomment' => $form_state->getValue('pharmacomment') . $suffix,
-      'pharmacomment2' => $form_state->getValue('pharmacomment'),
+      'pharmacomment2' => $form_state->getValue('pharmacomment2'),
     ];
 
     try {
