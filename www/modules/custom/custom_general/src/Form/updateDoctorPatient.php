@@ -103,17 +103,14 @@ class updateDoctorPatient extends FormBase {
 
 
     // Doctor's prescription
-    $query = \Drupal::database()->query("SELECT nfd.nid AS nid FROM node_field_data AS nfd 
-          WHERE nfd.type = 'medicine' ORDER BY nfd.created DESC")->fetchAll();
+    $query = medicardApi::view_all_medicine_pharmacy();
 
     $medicines = [];
     $output2 = "<p>Description:</p><ul class='desc-medicine'>";
-    foreach ($query as $res) {
-      $node = Node::load($res->nid);
-
-      $medicines["medicine-" . $res->nid] = $node->get('title')->value;
+    foreach ($query['medicine'] as $res) {
+      $medicines["medicine-" . $res['med_id']] = $res['med_name'];
       
-      $output2 .= "<li data-nid='" . $res->nid . "' class='medicine-" . $res->nid . "'><p>" . $node->get('body')->value . "</p></li>";
+      $output2 .= "<li data-nid='" . $res['med_id'] . "' class='medicine-" . $res['med_id'] . "'><p>" . $res['med_desc'] . "</p></li>";
     }
     $output2 .= "</ul>";
 
