@@ -25,8 +25,6 @@ class updatePharmacist extends FormBase {
     $card = str_replace(' ', '', $card);
     $buffer_comment = 0;
 
-    $patient_id = 0;
-
     $data = medicardApi::get_patient();
     foreach ($data['patient'] as $nid => $patient) {
       if ($patient['card_id'] == $card) {
@@ -43,9 +41,7 @@ class updatePharmacist extends FormBase {
       }
     }
 
-    $patient2 = Node::load($patient_id);
-
-    $prescription = $patient2->get('field_prescription')->getValue();
+    $prescription = $data['prescription'];
 
     $arr = [];
     foreach ($prescription as $res) {
