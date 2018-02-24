@@ -29,7 +29,7 @@ jQuery(function($) {
 
 								data[i]['patient'][i2].acquire = new_acquire;
 
-								pharma_content2.val(JSON.stringify(data[i]));
+								pharma_content2.val("[" + JSON.stringify(data[i]) + "]");
 
 								var insert_text = title + " - " + acquire;
 
