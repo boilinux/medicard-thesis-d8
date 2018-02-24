@@ -125,49 +125,49 @@ class userDashboard extends ControllerBase {
       if (empty($card) || $status == 'failed') {
         $output .= "<div class='col-sm-12'><h2>Please insert card.</h2></div>";
       }
-      // else if(!empty($card) && $status == 'exist') {
-      //   // $data = medicardApi::get_patient();
+      else if(!empty($card) && $status == 'exist') {
+        // $data = medicardApi::get_patient();
 
-      //   // foreach ($data['patient'] as $nid => $patient) {
-      //   //   if ($patient['card_id'] == $card) {
-      //   //     $output .= "<div class='cols-m-12'><div class='portlet yellow-crusta box'>";
+        // foreach ($data['patient'] as $nid => $patient) {
+        //   if ($patient['card_id'] == $card) {
+        //     $output .= "<div class='cols-m-12'><div class='portlet yellow-crusta box'>";
 
-      //   //     $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div></div>";
+        //     $output .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user'></i> " . ucwords($patient['firstname']) . " " . ucwords($patient['lastname']) . "</div></div>";
 
-      //   //     $prescription = "";
-      //   //     if (!empty($patient['prescription'])) {
-      //   //       foreach ($patient['prescription'] as $val) {
-      //   //         $prescription .= "<div>" . $val['value'] . "</div>";
-      //   //       }
-      //   //     }
-      //   //     else {
-      //   //       $prescription .= "<div>No Prescription.</div>";
-      //   //     }
+        //     $prescription = "";
+        //     if (!empty($patient['prescription'])) {
+        //       foreach ($patient['prescription'] as $val) {
+        //         $prescription .= "<div>" . $val['value'] . "</div>";
+        //       }
+        //     }
+        //     else {
+        //       $prescription .= "<div>No Prescription.</div>";
+        //     }
 
-      //   //     $accordion = "";
+        //     $accordion = "";
 
-      //   //     if (!empty($patient['pharmacomment'])) {
-      //   //       $accordion = "<div class='portlet green box doctor-box'>";
-      //   //       $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Latest comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
-      //   //       $accordion .= "<div id='pharmacomment' class='portlet-body hide2 hide' style='display:none;'>";
-      //   //       foreach ($patient['pharmacomment'] as $val) {
-      //   //         $accordion .= "<p>" . $val['value'] . "</p>";
-      //   //       }
-      //   //       $accordion .= "</div></div>";
-      //   //     }
+        //     if (!empty($patient['pharmacomment'])) {
+        //       $accordion = "<div class='portlet green box doctor-box'>";
+        //       $accordion .= "<div class='portlet-title'><div class='caption'><i class='fa fa-user-md'></i> Latest comments</div><div class='actions'><a class='btn btn-default btn-sm' data-name='pharmacomment' href='#pharmacomment'><i class='fa fa-toggle-down'></i> Show</a></div></div>";
+        //       $accordion .= "<div id='pharmacomment' class='portlet-body hide2 hide' style='display:none;'>";
+        //       foreach ($patient['pharmacomment'] as $val) {
+        //         $accordion .= "<p>" . $val['value'] . "</p>";
+        //       }
+        //       $accordion .= "</div></div>";
+        //     }
 
-      //   //     $output .= "<div class='portlet-body'>
-      //   //       <div class='row static-info'>
-      //   //         <div class='col-md-5 name'>Prescription:</div><div class='col-md-7 value'> " . $prescription . "</div>
-      //   //       </div>
-      //   //       <div class='row static-info'>
-      //   //         <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
-      //   //       </div>
-      //   //       " . $accordion . "
-      //   //     </div>";
-      //   //   }
-      //   // }
-      // }
+        //     $output .= "<div class='portlet-body'>
+        //       <div class='row static-info'>
+        //         <div class='col-md-5 name'>Prescription:</div><div class='col-md-7 value'> " . $prescription . "</div>
+        //       </div>
+        //       <div class='row static-info'>
+        //         <div class='col-md-5 name'>Registered on </div><div class='col-md-7 value'> " . date("d-M-Y", $patient['created']) . "</div>
+        //       </div>
+        //       " . $accordion . "
+        //     </div>";
+        //   }
+        // }
+      }
       else {
         $output .= "<div class='col-sm-12'><h2>Patient does not exist.</h2></div>";
       }
