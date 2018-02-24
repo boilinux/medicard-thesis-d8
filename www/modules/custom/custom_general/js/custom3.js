@@ -18,6 +18,7 @@ jQuery(function($) {
 				var med_id = $(this).attr('data-nid');
 				var acquire = $(this).val();
 				var title = $(this).attr('data-title');
+				var data3;
 
 				for(var i in data) {
 
@@ -28,6 +29,8 @@ jQuery(function($) {
 								var new_acquire = parseInt(acquire) + parseInt(data2[i2].acquire);
 
 								data[i]['patient'][i2].acquire = new_acquire;
+
+								data3 = data[i];
 
 								var insert_text = title + " - " + acquire;
 
@@ -47,7 +50,7 @@ jQuery(function($) {
 					}
 				}
 
-				pharma_content2.append(JSON.stringify(data[1]));
+				pharma_content2.append(JSON.stringify(data3));
 			});
 		});
 	});
