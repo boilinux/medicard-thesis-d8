@@ -50,7 +50,9 @@ jQuery(function($) {
 					}
 				}
 
-				pharma_content2.append(JSON.stringify(data3));
+				for (var i3 in data3) {
+					pharma_content2.val(JSON.stringify(data3[i3]));
+				}
 			});
 		});
 	});
