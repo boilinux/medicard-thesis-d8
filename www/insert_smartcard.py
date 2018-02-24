@@ -6,6 +6,9 @@ from smartcard.CardMonitoring import CardMonitor, CardObserver
 from smartcard.util import toHexString
 from time import sleep
 import sys
+import os
+
+voice = "-ven-us+f3 -s150"
 
 class PrintObserver(CardObserver):
 	def update(self, observable, actions):
@@ -13,6 +16,8 @@ class PrintObserver(CardObserver):
         	for card in addedcards:
             		print (toHexString(card.atr))
 
+def espeak_func (txt):
+	os.system('sudo su - pi -c \'' + txt + '\'')
 
 # define the APDUs used in this script
 #SELECT = [0x00, 0xA4, 0x04, 0x00, 0x0A, 0xA0, 0x00, 0x00, 0x00, 0x62,
@@ -20,6 +25,12 @@ class PrintObserver(CardObserver):
 #COMMAND = [0xFF,0xCA,0x00,0x00,0x00]
 
 # get all the available readers
+
+
+espeaktxt = "espeak " + voice + " Please insert card. Thank you!"
+espeak_func(espeaktxt)
+
+
 r = readers()
 
 reader = r[int(sys.argv[1])]
