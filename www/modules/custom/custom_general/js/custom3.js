@@ -30,7 +30,7 @@ jQuery(function($) {
 
 								data[i]['patient'][i2].acquire = new_acquire;
 
-								data3 = data[i];
+								data3[] = data[i];
 
 								var insert_text = title + " - " + acquire;
 
