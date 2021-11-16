@@ -76,8 +76,8 @@ class api extends ControllerBase {
       $client = \Drupal::httpClient();
       $request = $client->post('https://rest.nexmo.com/sms/json', [
         'json' => [
-          'api_key'=> 'bd3071f8',
-          'api_secret' => 'aed08aeb0f5f231c',
+          'api_key'=> 'key',
+          'api_secret' => 'secret',
           'to' => $mobile_number->number,
           'from' => 'SEPFloWMS',
           'text' => $mobile_text,
